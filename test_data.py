@@ -361,7 +361,10 @@ resource_types = {
             'Over the',
             'Beneath the',
             'Visions of my',
-            'Calling for the'
+            'Calling for the',
+            'Oh',
+            'Finding',
+            'Seeking'
         ],
         'noun': [
             'Alley',
@@ -446,7 +449,9 @@ resource_types = {
             'Price',
             'Vessel',
             'Time',
-            'Wheel'
+            'Wheel',
+            'Warp',
+            'Voyage'
         ],
         'adjective': [
             'Pointed',
