@@ -61,34 +61,44 @@ def random_resource(resource_type: Literal['academic', 'fiction', 'non-fiction']
 
 
 class Human:
-    count = -1
-    def __init__(self, first_name, last_name, date_of_birth):
-        Human.count += 1
-        self.library_card = Human.count
+    h_type_count = {}
+    def __init__(self, h_type, first_name, last_name, date_of_birth):
+        if Human.h_type_count.get(h_type) is not None:
+            Human.h_type_count[h_type] += 1
+            self.id = Human.h_type_count[h_type]
+        else:
+            Human.h_type_count[h_type] = 0
+            self.id = 0
         self.first_name = first_name
         self.last_name = last_name
-        self.email = f'{first_name}.{last_name}@qmul.ac.uk'
+        self.email = f'{first_name}.{last_name}{self.id}@qmul.ac.uk'
         self.date_of_birth = date_of_birth
 
 
+def get_random_human(h_type: str, dob_year_start: int, dob_year_end: int):
+    first, last = random_name()
+    date_of_birth = random_date(dob_year_start, dob_year_end)
+    return Human(h_type, first, last, date_of_birth)
+
+
 if __name__ == '__main__':
-    # random.seed('yeet')
+    random.seed('yeet')
     for i in range(30):
         first, last = random_name()
-        h = Human(first, last, random_date(1998, 2005))
-        print(h.email, h.date_of_birth, h.library_card)
-    for i in range(60):
-        first, last = random_name()
-        h = Human(first, last, random_date(1998, 2005))
-        res = random_resource('academic')
-        print(f'{res} by {h.first_name} {h.last_name}')
-    for i in range(60):
-        first, last = random_name()
-        h = Human(first, last, random_date(1998, 2005))
-        res = random_resource('fiction')
-        print(f'{res} by {h.first_name} {h.last_name}')
-    for i in range(60):
-        first, last = random_name()
-        h = Human(first, last, random_date(1998, 2005))
-        res = random_resource('non-fiction')
-        print(f'{res} by {h.first_name} {h.last_name}')
+        h = Human('student', first, last, random_date(1998, 2005))
+        print(h.email, h.date_of_birth, h.id)
+    # for i in range(60):
+    #     first, last = random_name()
+    #     h = Human(first, last, random_date(1998, 2005))
+    #     res = random_resource('academic')
+    #     print(f'{res} by {h.first_name} {h.last_name}')
+    # for i in range(60):
+    #     first, last = random_name()
+    #     h = Human(first, last, random_date(1998, 2005))
+    #     res = random_resource('fiction')
+    #     print(f'{res} by {h.first_name} {h.last_name}')
+    # for i in range(60):
+    #     first, last = random_name()
+    #     h = Human(first, last, random_date(1998, 2005))
+    #     res = random_resource('non-fiction')
+    #     print(f'{res} by {h.first_name} {h.last_name}')

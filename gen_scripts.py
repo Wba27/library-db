@@ -1,4 +1,5 @@
 from tables import tables, Attribute
+from gen_test_data import get_random_human
 from io import TextIOWrapper
 from datetime import datetime, date
 from decimal import Decimal
@@ -64,7 +65,7 @@ def unique_keys_text(table, attributes: list[Attribute]):
 
 
 def create_tables(f: TextIOWrapper):
-    f.write('-- CREATE TABLES --\n')
+    f.write('-- 1: CREATE TABLES --\n')
     for table, attributes in tables.items():
         f.write(f'CREATE TABLE {table}(\n')
         for a in attributes:
@@ -77,9 +78,28 @@ def create_tables(f: TextIOWrapper):
             f.write(unique_keys_text(table, unique_keys))
 
 
+def required_attribute_names(attributes: list[Attribute]):
+    return [a.name for a in attributes if a.default is None and not a.nullable]
+
+
+def insert_into_table(table_name: str, table_cols: list[str], *data):
+    print(table_name, table_cols)
+    # insert_text = f'INSERT INTO {table_name}\n'
+
+
+def insert_data(f: TextIOWrapper):
+    f.write('-- 2: INSERT DATA --\n')
+    undergrads = [get_random_human('member', 1998, 2006) for _ in range(30)]
+    postgrads = [get_random_human('member', 1989, 1999) for _ in range(30)]
+    staff = [get_random_human('member', 1968, 1995) for _ in range(30)]
+    insert_into_table('Member', required_attribute_names(tables['Member']))
+
+
 def main():
     with open("library-db.txt", "w") as f:
+        f.write('-- AUTO GEN SQL SCRIPT --\n\n')
         create_tables(f)
+        insert_data(f)
 
 
 if __name__ == '__main__':

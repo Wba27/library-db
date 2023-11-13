@@ -1,4 +1,6 @@
--- CREATE TABLES --
+-- AUTO GEN SQL SCRIPT --
+
+-- 1: CREATE TABLES --
 CREATE TABLE LibResource(
 	ResourceNumber INTEGER NOT NULL PRIMARY KEY,
 	Title VARCHAR(255) NOT NULL,
@@ -129,3 +131,4 @@ ADD CONSTRAINT fk_Reservation_ReservedBy
 ALTER TABLE Reservation
 ADD CONSTRAINT Reservation_unique UNIQUE (ReservedResource, ReservedBy, DateReserved);
 
+-- 2: INSERT DATA --
