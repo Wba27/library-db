@@ -1,1 +1,113 @@
-CREATE SCRIPT
+-- CREATE TABLES --
+CREATE TABLE LibResource(
+	ResourceNumber INTEGER NOT NULL PRIMARY KEY,
+	Title VARCHAR(255) NOT NULL,
+	Edition VARCHAR(255) NOT NULL,
+	DatePublished DATE NOT NULL,
+	ResourceType CHAR(1) NOT NULL,
+	ClassNo INTEGER NOT NULL,
+	LoanType CHAR(1) NOT NULL
+);
+
+CREATE TABLE Copy(
+	Barcode INTEGER NOT NULL PRIMARY KEY,
+	ResourceNumber INTEGER NOT NULL,
+	DateAcquired TIMESTAMP NOT NULL,
+	FloorNo INTEGER NOT NULL,
+	ShelfNo INTEGER NOT NULL,
+	Archived CHAR(1) NOT NULL
+);
+
+ALTER TABLE Copy
+ADD CONSTRAINT fk_Copy_ResourceNumber
+	FOREIGN KEY (ResourceNumber)
+	REFERENCES LibResource(ResourceNumber);
+
+CREATE TABLE Author(
+	AuthorNumber INTEGER NOT NULL PRIMARY KEY,
+	FirstName VARCHAR(255) NOT NULL,
+	LastName VARCHAR(255) NOT NULL,
+	DOB DATE NOT NULL
+);
+
+CREATE TABLE AuthorResource(
+	AuthorNumber INTEGER NOT NULL,
+	ResourceNumber INTEGER NOT NULL
+);
+
+ALTER TABLE AuthorResource
+ADD CONSTRAINT fk_AuthorResource_AuthorNumber
+	FOREIGN KEY (AuthorNumber)
+	REFERENCES Author(AuthorNumber);
+
+ALTER TABLE AuthorResource
+ADD CONSTRAINT fk_AuthorResource_ResourceNumber
+	FOREIGN KEY (ResourceNumber)
+	REFERENCES LibResource(ResourceNumber);
+
+CREATE TABLE Member(
+	LibraryCard INTEGER NOT NULL PRIMARY KEY,
+	FirstName VARCHAR(255) NOT NULL,
+	LastName VARCHAR(255) NOT NULL,
+	Email VARCHAR(255) NOT NULL,
+	DOB DATE NOT NULL,
+	MemberType CHAR(1) NOT NULL,
+	Suspended CHAR(1) NOT NULL
+);
+
+CREATE TABLE Loan(
+	LoanedCopy INTEGER NOT NULL,
+	LoanedTo INTEGER NOT NULL,
+	DateLoaned TIMESTAMP NOT NULL,
+	DateReturned TIMESTAMP NULL
+);
+
+ALTER TABLE Loan
+ADD CONSTRAINT fk_Loan_LoanedCopy
+	FOREIGN KEY (LoanedCopy)
+	REFERENCES Copy(Barcode);
+
+ALTER TABLE Loan
+ADD CONSTRAINT fk_Loan_LoanedTo
+	FOREIGN KEY (LoanedTo)
+	REFERENCES Member(LibraryCard);
+
+CREATE TABLE Fine(
+	FinedCopy INTEGER NOT NULL,
+	FineTo INTEGER NOT NULL,
+	DateFined TIMESTAMP NOT NULL,
+	DatePaid TIMESTAMP NULL,
+	FineAmount DECIMAL NOT NULL,
+	AmountPaid DECIMAL NULL
+);
+
+ALTER TABLE Fine
+ADD CONSTRAINT fk_Fine_FinedCopy
+	FOREIGN KEY (FinedCopy)
+	REFERENCES Copy(Barcode);
+
+ALTER TABLE Fine
+ADD CONSTRAINT fk_Fine_FineTo
+	FOREIGN KEY (FineTo)
+	REFERENCES Member(LibraryCard);
+
+CREATE TABLE Reservation(
+	ReservedResource INTEGER NOT NULL,
+	ReservedBy INTEGER NOT NULL,
+	DateReserved TIMESTAMP NOT NULL,
+	DateResolved TIMESTAMP NULL,
+	LastOffered TIMESTAMP NULL,
+	LoanOffers INTEGER NOT NULL,
+	Resolution CHAR(1) NULL
+);
+
+ALTER TABLE Reservation
+ADD CONSTRAINT fk_Reservation_ReservedResource
+	FOREIGN KEY (ReservedResource)
+	REFERENCES LibResource(ResourceNumber);
+
+ALTER TABLE Reservation
+ADD CONSTRAINT fk_Reservation_ReservedBy
+	FOREIGN KEY (ReservedBy)
+	REFERENCES Member(LibraryCard);
+

@@ -15,7 +15,7 @@ class Attribute:
     default: any = None
 
 tables = {
-    'Resource': [
+    'LibResource': [
         Attribute('ResourceNumber', int, primary_key=True),
         Attribute('Title', str, data_length=255),
         Attribute('Edition', str, data_length=255),
@@ -26,11 +26,11 @@ tables = {
     ],
     'Copy': [
         Attribute('Barcode', int, primary_key=True),
-        Attribute('ResourceNumber', int, foreign_key='Resource'),
+        Attribute('ResourceNumber', int, foreign_key='LibResource'),
         Attribute('DateAcquired', datetime),
         Attribute('FloorNo', int),
         Attribute('ShelfNo', int),
-        Attribute('Archived', default=False)
+        Attribute('Archived', bool, default=False)
     ],
     'Author': [
         Attribute('AuthorNumber', int, primary_key=True),
@@ -40,7 +40,7 @@ tables = {
     ],
     'AuthorResource': [
         Attribute('AuthorNumber', int, foreign_key='Author'),
-        Attribute('ResourceNumber', int, foreign_key='Resource')
+        Attribute('ResourceNumber', int, foreign_key='LibResource')
     ],
     'Member': [
         Attribute('LibraryCard', int, primary_key=True),
@@ -49,7 +49,7 @@ tables = {
         Attribute('Email', str, data_length=255),
         Attribute('DOB', date),
         Attribute('MemberType', str, data_length=1),
-        Attribute('Suspended', default=False)
+        Attribute('Suspended', bool, default=False)
     ],
     'Loan': [
         Attribute('LoanedCopy', int, foreign_key='Copy.Barcode'),
@@ -66,7 +66,7 @@ tables = {
         Attribute('AmountPaid', Decimal, nullable=True),
     ],
     'Reservation': [
-        Attribute('ReservedResource', int, foreign_key='Resource.ResourceNumber'),
+        Attribute('ReservedResource', int, foreign_key='LibResource.ResourceNumber'),
         Attribute('ReservedBy', int, foreign_key='Member.LibraryCard'),
         Attribute('DateReserved', datetime),
         Attribute('DateResolved', datetime, nullable=True),
