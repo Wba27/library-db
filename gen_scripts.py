@@ -1,5 +1,5 @@
 from tables import tables, Attribute
-from gen_test_data import get_random_human
+from gen_test_data import get_random_human, get_random_resource, weighted_random
 from io import TextIOWrapper
 from datetime import datetime, date
 from decimal import Decimal
@@ -82,17 +82,53 @@ def required_attribute_names(attributes: list[Attribute]):
     return [a.name for a in attributes if a.default is None and not a.nullable]
 
 
+def stringify_value(v: any):
+    if type(v) == str:
+        return f"'{v}'"
+    if type(v) == date:
+        return python_date_to_sql_date(v)
+    return str(v)
+
+
+def python_date_to_sql_date(d: date):
+    return f"To_Date('{d.year}/{d.month}/{d.day}', 'yyyy/mm/dd')"
+
+
 def insert_into_table(table_name: str, table_cols: list[str], *data):
-    print(table_name, table_cols)
-    # insert_text = f'INSERT INTO {table_name}\n'
+    cols_str = ', '.join(table_cols)
+    values_str = ', '.join(stringify_value(i) for i in data)
+    insert_text = f'INSERT INTO {table_name}\n'
+    insert_text += f'({cols_str})\n'
+    insert_text += f'VALUES ({values_str});\n\n'
+    return insert_text
+
+
+def insert_members_text():
+    undergrads = [get_random_human('member', 1998, 2006) for _ in range(30)]
+    postgrads = [get_random_human('member', 1989, 1999) for _ in range(30)]
+    staff = [get_random_human('member', 1968, 1995) for _ in range(30)]
+    insert_members_text = ''
+    for member in undergrads + postgrads + staff:
+        insert_members_text += insert_into_table(
+            'Member', 
+            required_attribute_names(tables['Member']),
+            member.id,
+            member.first_name,
+            member.last_name,
+            member.email,
+            member.date_of_birth,
+            'T' if member in staff else 'S'
+        )
+    return insert_members_text
 
 
 def insert_data(f: TextIOWrapper):
     f.write('-- 2: INSERT DATA --\n')
-    undergrads = [get_random_human('member', 1998, 2006) for _ in range(30)]
-    postgrads = [get_random_human('member', 1989, 1999) for _ in range(30)]
-    staff = [get_random_human('member', 1968, 1995) for _ in range(30)]
-    insert_into_table('Member', required_attribute_names(tables['Member']))
+    insert_text = insert_members_text()
+    f.write(insert_text)
+    authors = [get_random_human('author', 1940, 1990) for _ in range(20)]
+    for author in authors:
+        resources = [get_random_resource() for i in weighted_random(1, 5, 2)]
 
 
 def main():

@@ -81,6 +81,24 @@ def get_random_human(h_type: str, dob_year_start: int, dob_year_end: int):
     return Human(h_type, first, last, date_of_birth)
 
 
+class Resource:
+    pass
+
+
+def get_random_resource():
+    pass
+
+
+def weighted_random(minimum: int, limit: int, probability: int, sloping=True):
+    i = minimum
+    dice_roll = probability
+    while i < limit and random.randint(0, dice_roll) == 0:
+        i += 1
+        if sloping:
+            dice_roll += 1
+    return i
+
+
 if __name__ == '__main__':
     random.seed('yeet')
     for i in range(30):

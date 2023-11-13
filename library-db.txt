@@ -132,3 +132,363 @@ ALTER TABLE Reservation
 ADD CONSTRAINT Reservation_unique UNIQUE (ReservedResource, ReservedBy, DateReserved);
 
 -- 2: INSERT DATA --
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (0, 'Valentin', 'Hemmingson', 'Valentin.Hemmingson0@qmul.ac.uk', To_Date('2003/11/6', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (1, 'Emily', 'Kavan', 'Emily.Kavan1@qmul.ac.uk', To_Date('2001/6/12', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (2, 'John', 'Leth', 'John.Leth2@qmul.ac.uk', To_Date('2006/9/5', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (3, 'Yara', 'Stewart', 'Yara.Stewart3@qmul.ac.uk', To_Date('2004/2/5', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (4, 'Valentin', 'Bruun', 'Valentin.Bruun4@qmul.ac.uk', To_Date('2005/11/3', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (5, 'Yukina', 'Faris', 'Yukina.Faris5@qmul.ac.uk', To_Date('1998/7/4', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (6, 'Sharon', 'Wahed', 'Sharon.Wahed6@qmul.ac.uk', To_Date('1998/1/27', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (7, 'Mia', 'Hamdi', 'Mia.Hamdi7@qmul.ac.uk', To_Date('2006/2/1', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (8, 'Serge', 'Picard', 'Serge.Picard8@qmul.ac.uk', To_Date('2005/1/8', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (9, 'Carmen', 'Sing', 'Carmen.Sing9@qmul.ac.uk', To_Date('2004/1/13', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (10, 'Kiki', 'Rose', 'Kiki.Rose10@qmul.ac.uk', To_Date('1998/9/17', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (11, 'Amelia', 'Mohammed', 'Amelia.Mohammed11@qmul.ac.uk', To_Date('2006/7/15', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (12, 'Sean', 'Carver', 'Sean.Carver12@qmul.ac.uk', To_Date('1999/6/13', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (13, 'Guy', 'Suzuki', 'Guy.Suzuki13@qmul.ac.uk', To_Date('2003/6/30', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (14, 'Zach', 'Liren', 'Zach.Liren14@qmul.ac.uk', To_Date('2002/4/29', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (15, 'Anastasia', 'Gomez', 'Anastasia.Gomez15@qmul.ac.uk', To_Date('2006/11/26', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (16, 'Valentin', 'Aziz', 'Valentin.Aziz16@qmul.ac.uk', To_Date('1998/10/24', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (17, 'Valentin', 'Badr', 'Valentin.Badr17@qmul.ac.uk', To_Date('2002/11/15', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (18, 'Maria', 'Rose', 'Maria.Rose18@qmul.ac.uk', To_Date('1998/9/11', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (19, 'Sophie', 'Karlsen', 'Sophie.Karlsen19@qmul.ac.uk', To_Date('2003/4/26', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (20, 'Jessica', 'Holt', 'Jessica.Holt20@qmul.ac.uk', To_Date('2002/9/6', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (21, 'William', 'Knight', 'William.Knight21@qmul.ac.uk', To_Date('2006/3/23', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (22, 'Carmen', 'Wang', 'Carmen.Wang22@qmul.ac.uk', To_Date('1999/6/27', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (23, 'Guy', 'Shariq', 'Guy.Shariq23@qmul.ac.uk', To_Date('2000/11/7', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (24, 'Simon', 'Liu', 'Simon.Liu24@qmul.ac.uk', To_Date('2001/12/20', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (25, 'Serge', 'Rogers', 'Serge.Rogers25@qmul.ac.uk', To_Date('2006/3/18', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (26, 'Tim', 'Popov', 'Tim.Popov26@qmul.ac.uk', To_Date('2000/9/22', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (27, 'Hubert', 'Rogers', 'Hubert.Rogers27@qmul.ac.uk', To_Date('2001/12/12', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (28, 'Stepan', 'Sanchez', 'Stepan.Sanchez28@qmul.ac.uk', To_Date('2004/1/13', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (29, 'Simon', 'Matsumoto', 'Simon.Matsumoto29@qmul.ac.uk', To_Date('2005/5/20', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (30, 'Alexei', 'Chen', 'Alexei.Chen30@qmul.ac.uk', To_Date('1994/8/10', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (31, 'Emma', 'Henderson', 'Emma.Henderson31@qmul.ac.uk', To_Date('1989/9/7', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (32, 'Simeon', 'Butler', 'Simeon.Butler32@qmul.ac.uk', To_Date('1990/10/9', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (33, 'Martina', 'Rose', 'Martina.Rose33@qmul.ac.uk', To_Date('1991/10/29', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (34, 'Peter', 'Chen', 'Peter.Chen34@qmul.ac.uk', To_Date('1994/2/1', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (35, 'Anastasia', 'Lopez', 'Anastasia.Lopez35@qmul.ac.uk', To_Date('1997/4/6', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (36, 'Harvey', 'Sidorov', 'Harvey.Sidorov36@qmul.ac.uk', To_Date('1989/4/28', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (37, 'Katerina', 'Matisse', 'Katerina.Matisse37@qmul.ac.uk', To_Date('1996/2/27', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (38, 'Min', 'Chen', 'Min.Chen38@qmul.ac.uk', To_Date('1997/9/15', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (39, 'Elaine', 'Alonso', 'Elaine.Alonso39@qmul.ac.uk', To_Date('1989/3/1', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (40, 'Marco', 'Faris', 'Marco.Faris40@qmul.ac.uk', To_Date('1993/8/1', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (41, 'Lulu', 'Liu', 'Lulu.Liu41@qmul.ac.uk', To_Date('1993/12/26', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (42, 'Valentin', 'Jepsen', 'Valentin.Jepsen42@qmul.ac.uk', To_Date('1995/5/20', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (43, 'Vilma', 'Rogers', 'Vilma.Rogers43@qmul.ac.uk', To_Date('1993/12/2', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (44, 'Simon', 'Bruun', 'Simon.Bruun44@qmul.ac.uk', To_Date('1999/5/2', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (45, 'Hannah', 'Shariq', 'Hannah.Shariq45@qmul.ac.uk', To_Date('1990/3/19', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (46, 'Zayd', 'Shariq', 'Zayd.Shariq46@qmul.ac.uk', To_Date('1989/12/1', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (47, 'Vilma', 'Chen', 'Vilma.Chen47@qmul.ac.uk', To_Date('1990/3/20', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (48, 'Olivia', 'Qasim', 'Olivia.Qasim48@qmul.ac.uk', To_Date('1994/10/21', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (49, 'Florence', 'Smith', 'Florence.Smith49@qmul.ac.uk', To_Date('1992/5/4', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (50, 'Boris', 'Diwali', 'Boris.Diwali50@qmul.ac.uk', To_Date('1997/2/10', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (51, 'Elizabeth', 'Aziz', 'Elizabeth.Aziz51@qmul.ac.uk', To_Date('1993/2/8', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (52, 'Zach', 'Liu', 'Zach.Liu52@qmul.ac.uk', To_Date('1993/11/4', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (53, 'Hugo', 'Knight', 'Hugo.Knight53@qmul.ac.uk', To_Date('1995/10/20', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (54, 'Hannah', 'Butler', 'Hannah.Butler54@qmul.ac.uk', To_Date('1999/4/4', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (55, 'Alia', 'Davidson', 'Alia.Davidson55@qmul.ac.uk', To_Date('1990/8/28', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (56, 'Martha', 'Dahl', 'Martha.Dahl56@qmul.ac.uk', To_Date('1999/10/12', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (57, 'Mary', 'Mohammed', 'Mary.Mohammed57@qmul.ac.uk', To_Date('1991/3/10', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (58, 'Sara', 'Henderson', 'Sara.Henderson58@qmul.ac.uk', To_Date('1999/1/1', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (59, 'Yara', 'Henderson', 'Yara.Henderson59@qmul.ac.uk', To_Date('1998/5/25', 'yyyy/mm/dd'), 'S');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (60, 'Vega', 'Henderson', 'Vega.Henderson60@qmul.ac.uk', To_Date('1976/6/22', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (61, 'Hiroto', 'Dahl', 'Hiroto.Dahl61@qmul.ac.uk', To_Date('1990/11/16', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (62, 'Amy', 'Ivanov', 'Amy.Ivanov62@qmul.ac.uk', To_Date('1976/6/8', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (63, 'Louis', 'Yamamoto', 'Louis.Yamamoto63@qmul.ac.uk', To_Date('1984/6/29', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (64, 'Elaine', 'Fyodorov', 'Elaine.Fyodorov64@qmul.ac.uk', To_Date('1995/7/17', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (65, 'Zayd', 'Bernard', 'Zayd.Bernard65@qmul.ac.uk', To_Date('1992/11/29', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (66, 'Harry', 'Dahl', 'Harry.Dahl66@qmul.ac.uk', To_Date('1968/2/20', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (67, 'Zora', 'Ramos', 'Zora.Ramos67@qmul.ac.uk', To_Date('1988/1/9', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (68, 'Daniela', 'Li', 'Daniela.Li68@qmul.ac.uk', To_Date('1983/8/6', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (69, 'Terry', 'Alonso', 'Terry.Alonso69@qmul.ac.uk', To_Date('1973/11/25', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (70, 'Mia', 'Karlsen', 'Mia.Karlsen70@qmul.ac.uk', To_Date('1977/4/7', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (71, 'Jane', 'Jacobsen', 'Jane.Jacobsen71@qmul.ac.uk', To_Date('1972/9/21', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (72, 'Yasmin', 'Hastrup', 'Yasmin.Hastrup72@qmul.ac.uk', To_Date('1977/3/16', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (73, 'Anya', 'Holt', 'Anya.Holt73@qmul.ac.uk', To_Date('1977/12/27', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (74, 'Lucien', 'Ruiz', 'Lucien.Ruiz74@qmul.ac.uk', To_Date('1993/10/28', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (75, 'Lucien', 'Diwali', 'Lucien.Diwali75@qmul.ac.uk', To_Date('1981/5/18', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (76, 'Zayd', 'Yusuf', 'Zayd.Yusuf76@qmul.ac.uk', To_Date('1974/4/2', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (77, 'Malik', 'Fedorov', 'Malik.Fedorov77@qmul.ac.uk', To_Date('1981/12/17', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (78, 'Simeon', 'Zhao', 'Simeon.Zhao78@qmul.ac.uk', To_Date('1970/4/6', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (79, 'Elizabeth', 'Farouq', 'Elizabeth.Farouq79@qmul.ac.uk', To_Date('1982/8/24', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (80, 'Sharon', 'Qasim', 'Sharon.Qasim80@qmul.ac.uk', To_Date('1984/2/9', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (81, 'June', 'Rose', 'June.Rose81@qmul.ac.uk', To_Date('1990/2/7', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (82, 'Zach', 'Jabal', 'Zach.Jabal82@qmul.ac.uk', To_Date('1983/3/2', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (83, 'Igor', 'Kavan', 'Igor.Kavan83@qmul.ac.uk', To_Date('1981/8/20', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (84, 'Samuel', 'Nakamura', 'Samuel.Nakamura84@qmul.ac.uk', To_Date('1995/9/10', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (85, 'Benito', 'Matsumoto', 'Benito.Matsumoto85@qmul.ac.uk', To_Date('1985/6/9', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (86, 'Sophie', 'Mohammed', 'Sophie.Mohammed86@qmul.ac.uk', To_Date('1974/4/22', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (87, 'Sonia', 'Petrov', 'Sonia.Petrov87@qmul.ac.uk', To_Date('1975/4/26', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (88, 'Wei', 'Rose', 'Wei.Rose88@qmul.ac.uk', To_Date('1975/8/15', 'yyyy/mm/dd'), 'T');
+
+INSERT INTO Member
+(LibraryCard, FirstName, LastName, Email, DOB, MemberType)
+VALUES (89, 'Mustafa', 'Liu', 'Mustafa.Liu89@qmul.ac.uk', To_Date('1981/8/1', 'yyyy/mm/dd'), 'T');
+
