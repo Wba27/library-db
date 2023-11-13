@@ -22,29 +22,45 @@ def python_type_to_sql_type_text(t: type, l: int):
         return 'DECIMAL'
     else:
         raise AttributeError(f"Unsupported data type {t}")
+    
+
+def sql_default(d):
+    if type(d) == bool:
+        return "'Y'" if d else "'N'"
+    return d
 
 
 def sql_column_from_attribute(a: Attribute):
     type_text = python_type_to_sql_type_text(a.data_type, a.data_length)
-    add_text = 'NULL' if a.nullable else 'NOT NULL'
+    if a.default is not None:
+        add_text = f'DEFAULT {sql_default(a.default)}'
+    else:
+        add_text = 'NULL' if a.nullable else 'NOT NULL'
     if a.primary_key:
         add_text += ' PRIMARY KEY'
     return f'{a.name} {type_text} {add_text}'
 
 
-def constraints_text(table, attributes: list[Attribute]):
-    constraints_text = ''
+def foreign_keys_text(table, attributes: list[Attribute]):
+    fk_text = ''
     for a in attributes:
         if '.' in a.foreign_key:
             f_table, f_col = a.foreign_key.split('.')
         else:
             f_table = a.foreign_key
             f_col = a.name
-        constraints_text += f'ALTER TABLE {table}\n'
-        constraints_text += f'ADD CONSTRAINT fk_{table}_{a.name}\n'
-        constraints_text += f'\tFOREIGN KEY ({a.name})\n'
-        constraints_text += f'\tREFERENCES {f_table}({f_col});\n\n'
-    return constraints_text
+        fk_text += f'ALTER TABLE {table}\n'
+        fk_text += f'ADD CONSTRAINT fk_{table}_{a.name}\n'
+        fk_text += f'\tFOREIGN KEY ({a.name})\n'
+        fk_text += f'\tREFERENCES {f_table}({f_col});\n\n'
+    return fk_text
+
+
+def unique_keys_text(table, attributes: list[Attribute]):
+    uk_attributes = ', '.join([a.name for a in attributes])
+    uk_text = f'ALTER TABLE {table}\n'
+    uk_text += f'ADD CONSTRAINT {table}_unique UNIQUE ({uk_attributes});\n\n'
+    return uk_text
 
 
 def create_tables(f: TextIOWrapper):
@@ -56,16 +72,14 @@ def create_tables(f: TextIOWrapper):
             f.write(',\n' if a != attributes[-1] else '\n')
         f.write(');\n\n')
         if (foreign_keys := [a for a in attributes if a.foreign_key]):
-            f.write(constraints_text(table, foreign_keys))
+            f.write(foreign_keys_text(table, foreign_keys))
+        if (unique_keys := [a for a in attributes if a.unique]):
+            f.write(unique_keys_text(table, unique_keys))
 
 
 def main():
     with open("library-db.txt", "w") as f:
         create_tables(f)
-    # for table, attributes in tables.items():
-    #     print(table)
-    #     for attr in attributes:
-    #         print(attr)
 
 
 if __name__ == '__main__':

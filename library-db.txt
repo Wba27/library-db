@@ -9,13 +9,16 @@ CREATE TABLE LibResource(
 	LoanType CHAR(1) NOT NULL
 );
 
+ALTER TABLE LibResource
+ADD CONSTRAINT LibResource_unique UNIQUE (Title, Edition, DatePublished);
+
 CREATE TABLE Copy(
 	Barcode INTEGER NOT NULL PRIMARY KEY,
 	ResourceNumber INTEGER NOT NULL,
 	DateAcquired TIMESTAMP NOT NULL,
 	FloorNo INTEGER NOT NULL,
 	ShelfNo INTEGER NOT NULL,
-	Archived CHAR(1) NOT NULL
+	Archived CHAR(1) DEFAULT 'N'
 );
 
 ALTER TABLE Copy
@@ -45,6 +48,9 @@ ADD CONSTRAINT fk_AuthorResource_ResourceNumber
 	FOREIGN KEY (ResourceNumber)
 	REFERENCES LibResource(ResourceNumber);
 
+ALTER TABLE AuthorResource
+ADD CONSTRAINT AuthorResource_unique UNIQUE (AuthorNumber, ResourceNumber);
+
 CREATE TABLE Member(
 	LibraryCard INTEGER NOT NULL PRIMARY KEY,
 	FirstName VARCHAR(255) NOT NULL,
@@ -52,8 +58,11 @@ CREATE TABLE Member(
 	Email VARCHAR(255) NOT NULL,
 	DOB DATE NOT NULL,
 	MemberType CHAR(1) NOT NULL,
-	Suspended CHAR(1) NOT NULL
+	Suspended CHAR(1) DEFAULT 'N'
 );
+
+ALTER TABLE Member
+ADD CONSTRAINT Member_unique UNIQUE (Email);
 
 CREATE TABLE Loan(
 	LoanedCopy INTEGER NOT NULL,
@@ -71,6 +80,9 @@ ALTER TABLE Loan
 ADD CONSTRAINT fk_Loan_LoanedTo
 	FOREIGN KEY (LoanedTo)
 	REFERENCES Member(LibraryCard);
+
+ALTER TABLE Loan
+ADD CONSTRAINT Loan_unique UNIQUE (LoanedCopy, LoanedTo, DateLoaned);
 
 CREATE TABLE Fine(
 	FinedCopy INTEGER NOT NULL,
@@ -91,13 +103,16 @@ ADD CONSTRAINT fk_Fine_FineTo
 	FOREIGN KEY (FineTo)
 	REFERENCES Member(LibraryCard);
 
+ALTER TABLE Fine
+ADD CONSTRAINT Fine_unique UNIQUE (FinedCopy, FineTo, DateFined);
+
 CREATE TABLE Reservation(
 	ReservedResource INTEGER NOT NULL,
 	ReservedBy INTEGER NOT NULL,
 	DateReserved TIMESTAMP NOT NULL,
 	DateResolved TIMESTAMP NULL,
 	LastOffered TIMESTAMP NULL,
-	LoanOffers INTEGER NOT NULL,
+	LoanOffers INTEGER DEFAULT 0,
 	Resolution CHAR(1) NULL
 );
 
@@ -110,4 +125,7 @@ ALTER TABLE Reservation
 ADD CONSTRAINT fk_Reservation_ReservedBy
 	FOREIGN KEY (ReservedBy)
 	REFERENCES Member(LibraryCard);
+
+ALTER TABLE Reservation
+ADD CONSTRAINT Reservation_unique UNIQUE (ReservedResource, ReservedBy, DateReserved);
 
