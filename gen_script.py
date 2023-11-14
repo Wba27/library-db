@@ -248,13 +248,8 @@ def insert_data(f: TextIOWrapper):
         f.write(func())
 
 
-def main():
-    random.seed('library-db')
+def gen_script():
     with open("library-db.txt", "w") as f:
         f.write('-- AUTO GEN SQL SCRIPT --\n\n')
         create_tables(f)
         insert_data(f)
-
-
-if __name__ == '__main__':
-    main()
