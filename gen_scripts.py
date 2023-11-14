@@ -1,6 +1,7 @@
 from tables import tables, Attribute
 from gen_test_data import get_random_human, get_random_resource, weighted_random
 from io import TextIOWrapper
+import random
 from datetime import datetime, date
 from decimal import Decimal
 
@@ -104,9 +105,9 @@ def insert_into_table(table_name: str, table_cols: list[str], *data):
 
 
 def insert_members_text():
-    undergrads = [get_random_human('member', 1998, 2006) for _ in range(30)]
-    postgrads = [get_random_human('member', 1989, 1999) for _ in range(30)]
-    staff = [get_random_human('member', 1968, 1995) for _ in range(30)]
+    undergrads = [get_random_human('member', 1998, 2006) for _ in range(15)]
+    postgrads = [get_random_human('member', 1989, 1999) for _ in range(15)]
+    staff = [get_random_human('member', 1968, 1995) for _ in range(15)]
     insert_members_text = ''
     for member in undergrads + postgrads + staff:
         insert_members_text += insert_into_table(
@@ -122,16 +123,63 @@ def insert_members_text():
     return insert_members_text
 
 
+def insert_author_resource_text():
+    academic_authors = [get_random_human('author', 1940, 1990) for _ in range(5)]
+    fiction_authors = [get_random_human('author', 1940, 1990) for _ in range(5)]
+    non_fiction_authors = [get_random_human('author', 1940, 1990) for _ in range(5)]
+    insert_author_resource_text = ''
+    for author in academic_authors + fiction_authors + non_fiction_authors:
+        insert_author_resource_text += insert_into_table(
+            'Author',
+            required_attribute_names(tables['Author']),
+            author.id,
+            author.first_name,
+            author.last_name,
+            author.date_of_birth
+        )
+    for author in academic_authors:
+        resources = [get_random_resource('academic') for _ in range(weighted_random(1, 5, 2))]
+        for res in resources:
+            for e, edition in enumerate(res.editions):
+                insert_author_resource_text += insert_into_table(
+                    'LibResource',
+                    required_attribute_names(tables['LibResource']),
+                    res.id + e,
+                    res.title,
+                    edition,
+                    res.date_published,
+                    res.resource_type,
+                    res.class_no,
+                    res.loan_type
+                )
+                insert_author_resource_text += insert_into_table(
+                    'AuthorResource',
+                    required_attribute_names(tables['AuthorResource']),
+                    author.id,
+                    res.id + e
+                )
+            if random.randint(0, 1) == 1:
+                coauthor = random.choice([a for a in academic_authors if a is not author])
+                for e, edition in enumerate(res.editions):
+                    insert_author_resource_text += insert_into_table(
+                        'AuthorResource',
+                        required_attribute_names(tables['AuthorResource']),
+                        coauthor.id,
+                        res.id + e
+                    )
+    return insert_author_resource_text
+
+
 def insert_data(f: TextIOWrapper):
     f.write('-- 2: INSERT DATA --\n')
     insert_text = insert_members_text()
     f.write(insert_text)
-    authors = [get_random_human('author', 1940, 1990) for _ in range(20)]
-    for author in authors:
-        resources = [get_random_resource() for i in weighted_random(1, 5, 2)]
+    insert_text = insert_author_resource_text()
+    f.write(insert_text)
 
 
 def main():
+    random.seed('library-db')
     with open("library-db.txt", "w") as f:
         f.write('-- AUTO GEN SQL SCRIPT --\n\n')
         create_tables(f)

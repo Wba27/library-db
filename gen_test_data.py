@@ -83,21 +83,27 @@ def get_random_human(h_type: str, dob_year_start: int, dob_year_end: int):
 
 class Resource:
     r_count = -1
-    def __init__(self, title, edition, date_published, res_type, class_no, loan_type):
+    def __init__(self, title, date_published, res_type, class_no, loan_type):
         Resource.r_count += 1
         self.id = Resource.r_count
         self.title = title
-        self.edition = edition
         self.date_published = date_published
         self.resource_type = res_type
         self.class_no = class_no
         self.loan_type = loan_type
+        self.editions = ['First']
+        if random.randint(0, 3) == 3:
+            self.editions.append('Second')
+            Resource.r_count += 1
+            if random.randint(0, 4) == 4:
+                self.editions.append('Third')
+                Resource.r_count += 1
 
 
-def get_random_resource(edition, title_type: Literal['academic', 'fiction', 'non-fiction']):
+def get_random_resource(title_type: Literal['academic', 'fiction', 'non-fiction']):
     title = random_resource(title_type)
     date_published = random_date(1980, 2023)
-    res_type = random.choice('B', 'D', 'C', 'V')
+    res_type = random.choice(('B', 'D', 'C', 'V'))
     class_no = ['academic', 'fiction', 'non-fiction'].index(title_type)
     if random.randint(0, 3) == 3:
         if random.randint(0, 5) == 5:
@@ -106,7 +112,7 @@ def get_random_resource(edition, title_type: Literal['academic', 'fiction', 'non
             loan_type = 'S'
     else:
         loan_type = 'N'
-    return Resource(title, edition, date_published, res_type, class_no, loan_type)
+    return Resource(title, date_published, res_type, class_no, loan_type)
 
 
 def weighted_random(minimum: int, limit: int, probability: int, sloping=True):
