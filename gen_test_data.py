@@ -156,7 +156,8 @@ def get_random_copy(resource_number, floor_no, base_shelf, base_datetime):
     return Copy(resource_number, date_acquired, floor_no, shelf_no, archived)
 
 
-def get_copies_of_resource(resource_number, floor_no):
+def get_copies_of_resource(resource_number):
+    floor_no = random.randint(1, 3)
     base_shelf = random.randint(1, 15)
     base_datetime = random_datetime(2012, 2023)
     return [get_random_copy(

@@ -1,5 +1,6 @@
 from tables import tables, Attribute
-from gen_test_data import Human, get_random_human, get_random_resource, weighted_random
+from gen_test_data import Human, get_random_human, get_random_resource, weighted_random, \
+    get_copies_of_resource
 from io import TextIOWrapper
 import random
 from datetime import datetime, date
@@ -88,11 +89,17 @@ def stringify_value(v: any):
         return f"'{v}'"
     if type(v) == date:
         return python_date_to_sql_date(v)
+    if type(v) == datetime:
+        return python_datetime_to_sql_timestamp(v)
     return str(v)
 
 
 def python_date_to_sql_date(d: date):
     return f"To_Date('{d.year}/{d.month}/{d.day}', 'yyyy/mm/dd')"
+
+
+def python_datetime_to_sql_timestamp(d: datetime):
+    return f"To_Timestamp('{d.year}/{d.month}/{d.day} {d.hour}:{d.minute}:{d.second}', 'YYYY/MM/DD HH:MI:SS')"
 
 
 def insert_into_table(table_name: str, table_cols: list[str], *data):
@@ -135,6 +142,24 @@ def insert_author_text(authors):
             author.date_of_birth
         )
     return authors_text
+
+
+def copies_of_resource_text(resource_number):
+    copies = get_copies_of_resource(resource_number)
+    copies_text = ''
+    for copy in copies:
+        copies_text += insert_into_table(
+            'Copy',
+            required_attribute_names(tables['Copy']),
+            copy.id,
+            resource_number,
+            copy.date_acquired,
+            copy.date_acquired,
+            copy.floor_no,
+            copy.shelf_no,
+            copy.archived
+        )
+    return copies_text
 
 
 def academic_resource_text(academic_authors):
