@@ -1,7 +1,7 @@
 import random
 from calendar import monthrange
 from typing import Literal
-from datetime import date
+from datetime import date, datetime
 from test_data import name_types, resource_types
 
 
@@ -9,6 +9,18 @@ def random_date(start_year, end_year):
     year, month = (random.randint(start_year, end_year), random.randint(1, 12))
     days_range = monthrange(year, month)
     return date(year=year, month=month, day=random.randint(1, days_range[1]))
+
+
+def random_datetime(start_year, end_year):
+    random_date = random_date(start_year, end_year)
+    return datetime(
+        year=random_date.year, 
+        month=random_date.month, 
+        day=random_date.day,
+        hour=random.randint(9, 20),
+        minute=random.randint(1, 60),
+        second=random.randint(1, 60)
+    )
 
 
 def random_name():
@@ -126,16 +138,33 @@ class Copy:
         self.resource_number = resource_number
         self.date_acquired = date_acquired
         self.floor_no = floor_no
-        self.shelf_no = shelf_no,
+        self.shelf_no = shelf_no
         self.archived = archived
 
 
-def get_random_copy(resource_number, floor_no):
-    pass
+def get_random_copy(resource_number, floor_no, base_shelf, base_datetime):
+    if random.randint(0, 3) == 3:
+        variation = 1 if random.randint(0, 1) == 0 else -1
+        shelf_no = min(1, max(15, base_shelf + variation))
+    else:
+        shelf_no = base_shelf
+    if random.randint(0, 1) == 1:
+        date_acquired = random_datetime(2012, 2023)
+    else:
+        date_acquired = base_datetime
+    archived = False if random.randint(0, 9) == 9 else True
+    return Copy(resource_number, date_acquired, floor_no, shelf_no, archived)
 
 
 def get_copies_of_resource(resource_number, floor_no):
-    pass
+    base_shelf = random.randint(1, 15)
+    base_datetime = random_datetime(2012, 2023)
+    return [get_random_copy(
+        resource_number, 
+        floor_no, 
+        base_shelf, 
+        base_datetime
+    ) for _ in random.randint(1, 5)]
 
 
 def weighted_random(minimum: int, limit: int, probability: int, sloping=True):
