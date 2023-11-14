@@ -103,7 +103,10 @@ class Resource:
 def get_random_resource(title_type: Literal['academic', 'fiction', 'non-fiction']):
     title = random_resource(title_type)
     date_published = random_date(1980, 2023)
-    res_type = random.choice(('B', 'D', 'C', 'V'))
+    if random.randint(0, 3) >= 1:
+        res_type = 'B'
+    else:
+        res_type = random.choice(('D', 'C', 'V'))
     class_no = ['academic', 'fiction', 'non-fiction'].index(title_type)
     if random.randint(0, 3) == 3:
         if random.randint(0, 5) == 5:
@@ -111,8 +114,28 @@ def get_random_resource(title_type: Literal['academic', 'fiction', 'non-fiction'
         else:
             loan_type = 'S'
     else:
-        loan_type = 'N'
+        loan_type = 'L'
     return Resource(title, date_published, res_type, class_no, loan_type)
+
+
+class Copy:
+    c_count = -1
+    def __init__(self, resource_number, date_acquired, floor_no, shelf_no, archived):
+        Copy.c_count += 1
+        self.id = Copy.c_count
+        self.resource_number = resource_number
+        self.date_acquired = date_acquired
+        self.floor_no = floor_no
+        self.shelf_no = shelf_no,
+        self.archived = archived
+
+
+def get_random_copy(resource_number, floor_no):
+    pass
+
+
+def get_copies_of_resource(resource_number, floor_no):
+    pass
 
 
 def weighted_random(minimum: int, limit: int, probability: int, sloping=True):
@@ -123,26 +146,3 @@ def weighted_random(minimum: int, limit: int, probability: int, sloping=True):
         if sloping:
             dice_roll += 1
     return i
-
-
-if __name__ == '__main__':
-    random.seed('yeet')
-    for i in range(30):
-        first, last = random_name()
-        h = Human('student', first, last, random_date(1998, 2005))
-        print(h.email, h.date_of_birth, h.id)
-    # for i in range(60):
-    #     first, last = random_name()
-    #     h = Human(first, last, random_date(1998, 2005))
-    #     res = random_resource('academic')
-    #     print(f'{res} by {h.first_name} {h.last_name}')
-    # for i in range(60):
-    #     first, last = random_name()
-    #     h = Human(first, last, random_date(1998, 2005))
-    #     res = random_resource('fiction')
-    #     print(f'{res} by {h.first_name} {h.last_name}')
-    # for i in range(60):
-    #     first, last = random_name()
-    #     h = Human(first, last, random_date(1998, 2005))
-    #     res = random_resource('non-fiction')
-    #     print(f'{res} by {h.first_name} {h.last_name}')

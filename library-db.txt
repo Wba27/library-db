@@ -374,7 +374,7 @@ VALUES (14, 'Boris', 'Ramos', To_Date('1955/10/7', 'yyyy/mm/dd'));
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (0, 'Explaining Procedural Programming with foreword from the author', 'First', To_Date('1994/8/13', 'yyyy/mm/dd'), 'C', 0, 'N');
+VALUES (0, 'Explaining Procedural Programming with foreword from the author', 'First', To_Date('1994/8/13', 'yyyy/mm/dd'), 'B', 0, 'L');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
@@ -382,7 +382,7 @@ VALUES (0, 0);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (1, 'A Guide to Design In Practice', 'First', To_Date('1980/7/20', 'yyyy/mm/dd'), 'V', 0, 'S');
+VALUES (1, 'A Guide to Design In Practice', 'First', To_Date('1980/7/20', 'yyyy/mm/dd'), 'B', 0, 'S');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
@@ -390,7 +390,7 @@ VALUES (0, 1);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (2, 'The Results of Speleology', 'First', To_Date('2006/3/14', 'yyyy/mm/dd'), 'D', 0, 'N');
+VALUES (2, 'The Results of Speleology', 'First', To_Date('2006/3/14', 'yyyy/mm/dd'), 'B', 0, 'L');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
@@ -398,7 +398,7 @@ VALUES (0, 2);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (3, 'The Results of Speleology', 'Second', To_Date('2006/3/14', 'yyyy/mm/dd'), 'D', 0, 'N');
+VALUES (3, 'The Results of Speleology', 'Second', To_Date('2006/3/14', 'yyyy/mm/dd'), 'B', 0, 'L');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
@@ -406,7 +406,7 @@ VALUES (0, 3);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (4, 'Mythology', 'First', To_Date('1995/3/30', 'yyyy/mm/dd'), 'D', 0, 'N');
+VALUES (4, 'Mythology', 'First', To_Date('1995/3/30', 'yyyy/mm/dd'), 'B', 0, 'L');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
@@ -414,7 +414,7 @@ VALUES (1, 4);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (5, 'Mythology', 'Second', To_Date('1995/3/30', 'yyyy/mm/dd'), 'D', 0, 'N');
+VALUES (5, 'Mythology', 'Second', To_Date('1995/3/30', 'yyyy/mm/dd'), 'B', 0, 'L');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
@@ -430,7 +430,7 @@ VALUES (4, 5);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (6, 'Logo Creation', 'First', To_Date('1996/9/27', 'yyyy/mm/dd'), 'V', 0, 'N');
+VALUES (6, 'Logo Creation', 'First', To_Date('1996/9/27', 'yyyy/mm/dd'), 'B', 0, 'L');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
@@ -438,7 +438,7 @@ VALUES (2, 6);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (7, 'Object-oriented Programming', 'First', To_Date('1993/5/7', 'yyyy/mm/dd'), 'C', 0, 'N');
+VALUES (7, 'Object-oriented Programming', 'First', To_Date('1993/5/7', 'yyyy/mm/dd'), 'B', 0, 'L');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
@@ -450,7 +450,7 @@ VALUES (0, 7);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (8, 'Warfare Studies', 'First', To_Date('2004/7/19', 'yyyy/mm/dd'), 'D', 0, 'N');
+VALUES (8, 'Warfare Studies', 'First', To_Date('2004/7/19', 'yyyy/mm/dd'), 'B', 0, 'L');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
@@ -458,7 +458,7 @@ VALUES (3, 8);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (9, 'Warfare Studies', 'Second', To_Date('2004/7/19', 'yyyy/mm/dd'), 'D', 0, 'N');
+VALUES (9, 'Warfare Studies', 'Second', To_Date('2004/7/19', 'yyyy/mm/dd'), 'B', 0, 'L');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
@@ -466,7 +466,7 @@ VALUES (3, 9);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (10, 'Beginning with Emerging Technologies', 'First', To_Date('2004/11/12', 'yyyy/mm/dd'), 'D', 0, 'N');
+VALUES (10, 'Beginning with Emerging Technologies', 'First', To_Date('2004/11/12', 'yyyy/mm/dd'), 'B', 0, 'L');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
@@ -478,9 +478,113 @@ VALUES (1, 10);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (11, 'Accounting with foreword from the author', 'First', To_Date('1984/9/29', 'yyyy/mm/dd'), 'B', 0, 'S');
+VALUES (11, 'Accounting with foreword from the author', 'First', To_Date('1984/9/29', 'yyyy/mm/dd'), 'C', 0, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
 VALUES (4, 11);
+
+INSERT INTO LibResource
+(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
+VALUES (12, 'Belt', 'Standard', To_Date('2019/3/1', 'yyyy/mm/dd'), 'B', 1, 'L');
+
+INSERT INTO AuthorResource
+(AuthorNumber, ResourceNumber)
+VALUES (5, 12);
+
+INSERT INTO LibResource
+(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
+VALUES (13, 'Shamefully Timid', 'Standard', To_Date('1985/1/6', 'yyyy/mm/dd'), 'B', 1, 'L');
+
+INSERT INTO AuthorResource
+(AuthorNumber, ResourceNumber)
+VALUES (6, 13);
+
+INSERT INTO LibResource
+(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
+VALUES (15, 'Return to the Piece', 'Standard', To_Date('2020/8/15', 'yyyy/mm/dd'), 'B', 1, 'L');
+
+INSERT INTO AuthorResource
+(AuthorNumber, ResourceNumber)
+VALUES (7, 15);
+
+INSERT INTO LibResource
+(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
+VALUES (16, 'Imperatively Loud', 'Standard', To_Date('2018/4/3', 'yyyy/mm/dd'), 'B', 1, 'L');
+
+INSERT INTO AuthorResource
+(AuthorNumber, ResourceNumber)
+VALUES (8, 16);
+
+INSERT INTO LibResource
+(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
+VALUES (17, 'The Sympathetically Sudden', 'Standard', To_Date('1984/4/18', 'yyyy/mm/dd'), 'B', 1, 'L');
+
+INSERT INTO AuthorResource
+(AuthorNumber, ResourceNumber)
+VALUES (9, 17);
+
+INSERT INTO LibResource
+(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
+VALUES (20, 'Ashes of the Eye', 'Standard', To_Date('2022/6/22', 'yyyy/mm/dd'), 'V', 1, 'L');
+
+INSERT INTO AuthorResource
+(AuthorNumber, ResourceNumber)
+VALUES (9, 20);
+
+INSERT INTO LibResource
+(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
+VALUES (21, 'Beauty products and Seasonal Affective Disorder', 'Standard', To_Date('1987/12/3', 'yyyy/mm/dd'), 'B', 2, 'L');
+
+INSERT INTO AuthorResource
+(AuthorNumber, ResourceNumber)
+VALUES (10, 21);
+
+INSERT INTO LibResource
+(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
+VALUES (22, 'The Russian Revolution for the uninititated', 'Standard', To_Date('1997/3/3', 'yyyy/mm/dd'), 'B', 2, 'L');
+
+INSERT INTO AuthorResource
+(AuthorNumber, ResourceNumber)
+VALUES (11, 22);
+
+INSERT INTO LibResource
+(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
+VALUES (23, 'NASA and the Great War', 'Standard', To_Date('1986/2/7', 'yyyy/mm/dd'), 'B', 2, 'L');
+
+INSERT INTO AuthorResource
+(AuthorNumber, ResourceNumber)
+VALUES (12, 23);
+
+INSERT INTO LibResource
+(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
+VALUES (24, 'The meat industry: a guide', 'Standard', To_Date('1985/10/10', 'yyyy/mm/dd'), 'B', 2, 'S');
+
+INSERT INTO AuthorResource
+(AuthorNumber, ResourceNumber)
+VALUES (12, 24);
+
+INSERT INTO LibResource
+(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
+VALUES (25, 'Diving deeper into the dark ages', 'Standard', To_Date('1997/7/31', 'yyyy/mm/dd'), 'C', 2, 'L');
+
+INSERT INTO AuthorResource
+(AuthorNumber, ResourceNumber)
+VALUES (13, 25);
+
+INSERT INTO LibResource
+(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
+VALUES (26, 'Up next: Seasonal Affective Disorder', 'Standard', To_Date('1993/7/5', 'yyyy/mm/dd'), 'B', 2, 'L');
+
+INSERT INTO AuthorResource
+(AuthorNumber, ResourceNumber)
+VALUES (14, 26);
+
+INSERT INTO LibResource
+(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
+VALUES (27, 'A closer look at the Vietnam War', 'Standard', To_Date('1989/12/16', 'yyyy/mm/dd'), 'B', 2, 'S');
+
+INSERT INTO AuthorResource
+(AuthorNumber, ResourceNumber)
+VALUES (14, 27);
 

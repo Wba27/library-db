@@ -167,6 +167,27 @@ def insert_author_resource_text():
                         coauthor.id,
                         res.id + e
                     )
+    for author_type, authors in ('fiction', fiction_authors), ('non-fiction', non_fiction_authors):
+        for author in authors:
+            resources = [get_random_resource(author_type) for _ in range(weighted_random(1, 5, 2, sloping=False))]
+            for res in resources:
+                insert_author_resource_text += insert_into_table(
+                    'LibResource',
+                    required_attribute_names(tables['LibResource']),
+                    res.id,
+                    res.title,
+                    'Standard',
+                    res.date_published,
+                    res.resource_type,
+                    res.class_no,
+                    res.loan_type
+                )
+                insert_author_resource_text += insert_into_table(
+                    'AuthorResource',
+                    required_attribute_names(tables['AuthorResource']),
+                    author.id,
+                    res.id
+                )
     return insert_author_resource_text
 
 

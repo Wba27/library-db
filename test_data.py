@@ -654,7 +654,7 @@ resource_types = {
             ' - what we learned',
             ': what they do not tell you',
             ' - who would have thought?',
-            ' for the unititated',
+            ' for the uninititated',
             ' and other such things',
             ': weird but true'
         ],
