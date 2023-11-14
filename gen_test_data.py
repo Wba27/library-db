@@ -12,14 +12,14 @@ def random_date(start_year, end_year):
 
 
 def random_datetime(start_year, end_year):
-    random_date = random_date(start_year, end_year)
+    date = random_date(start_year, end_year)
     return datetime(
-        year=random_date.year, 
-        month=random_date.month, 
-        day=random_date.day,
+        year=date.year, 
+        month=date.month, 
+        day=date.day,
         hour=random.randint(9, 20),
-        minute=random.randint(1, 60),
-        second=random.randint(1, 60)
+        minute=random.randint(0, 59),
+        second=random.randint(0, 59)
     )
 
 
@@ -152,7 +152,7 @@ def get_random_copy(resource_number, floor_no, base_shelf, base_datetime):
         date_acquired = random_datetime(2012, 2023)
     else:
         date_acquired = base_datetime
-    archived = False if random.randint(0, 9) == 9 else True
+    archived = True if random.randint(0, 9) == 9 else False
     return Copy(resource_number, date_acquired, floor_no, shelf_no, archived)
 
 
@@ -165,7 +165,7 @@ def get_copies_of_resource(resource_number):
         floor_no, 
         base_shelf, 
         base_datetime
-    ) for _ in random.randint(1, 5)]
+    ) for _ in range(random.randint(1, 5))]
 
 
 def weighted_random(minimum: int, limit: int, probability: int, sloping=True):

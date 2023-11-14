@@ -84,9 +84,15 @@ def required_attribute_names(attributes: list[Attribute]):
     return [a.name for a in attributes if a.default is None and not a.nullable]
 
 
+def all_attribute_names(attributes: list[Attribute]):
+    return [a.name for a in attributes]
+
+
 def stringify_value(v: any):
     if type(v) == str:
         return f"'{v}'"
+    if type(v) == bool:
+        return "'Y'" if v else "'N'"
     if type(v) == date:
         return python_date_to_sql_date(v)
     if type(v) == datetime:
@@ -99,7 +105,7 @@ def python_date_to_sql_date(d: date):
 
 
 def python_datetime_to_sql_timestamp(d: datetime):
-    return f"To_Timestamp('{d.year}/{d.month}/{d.day} {d.hour}:{d.minute}:{d.second}', 'YYYY/MM/DD HH:MI:SS')"
+    return f"To_Timestamp('{d.year}/{d.month}/{d.day} {d.hour}:{d.minute}:{d.second}', 'YYYY/MM/DD HH24:MI:SS')"
 
 
 def insert_into_table(table_name: str, table_cols: list[str], *data):
@@ -150,10 +156,9 @@ def copies_of_resource_text(resource_number):
     for copy in copies:
         copies_text += insert_into_table(
             'Copy',
-            required_attribute_names(tables['Copy']),
+            all_attribute_names(tables['Copy']),
             copy.id,
             resource_number,
-            copy.date_acquired,
             copy.date_acquired,
             copy.floor_no,
             copy.shelf_no,
@@ -179,6 +184,7 @@ def academic_resource_text(academic_authors):
                     res.class_no,
                     res.loan_type
                 )
+                academic_author_text += copies_of_resource_text(res.id + e)
                 academic_author_text += insert_into_table(
                     'AuthorResource',
                     required_attribute_names(tables['AuthorResource']),
@@ -214,6 +220,7 @@ def other_resource_text(author_type: str, authors: list[Human]):
                 res.class_no,
                 res.loan_type
             )
+            other_author_text += copies_of_resource_text(res.id)
             other_author_text += insert_into_table(
                 'AuthorResource',
                 required_attribute_names(tables['AuthorResource']),
