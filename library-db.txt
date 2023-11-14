@@ -134,267 +134,263 @@ ADD CONSTRAINT Reservation_unique UNIQUE (ReservedResource, ReservedBy, DateRese
 -- 2: INSERT DATA --
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (0, 'Ivan', 'Aziz', 'Ivan.Aziz0@qmul.ac.uk', To_Date('1998/7/27', 'yyyy/mm/dd'), 'S');
+VALUES (0, 'Vilma', 'Legrand', 'Vilma.Legrand0@qmul.ac.uk', To_Date('1999/10/30', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (1, 'Lucia', 'Faucher', 'Lucia.Faucher1@qmul.ac.uk', To_Date('2002/5/17', 'yyyy/mm/dd'), 'S');
+VALUES (1, 'June', 'Rodriguez', 'June.Rodriguez1@qmul.ac.uk', To_Date('1999/6/18', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (2, 'Charlotte', 'Diwali', 'Charlotte.Diwali2@qmul.ac.uk', To_Date('2000/8/24', 'yyyy/mm/dd'), 'S');
+VALUES (2, 'Vega', 'Legrand', 'Vega.Legrand2@qmul.ac.uk', To_Date('1998/3/2', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (3, 'Simon', 'Butler', 'Simon.Butler3@qmul.ac.uk', To_Date('2006/5/13', 'yyyy/mm/dd'), 'S');
+VALUES (3, 'Sue', 'Garcia', 'Sue.Garcia3@qmul.ac.uk', To_Date('1999/6/25', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (4, 'Adiza', 'Knight', 'Adiza.Knight4@qmul.ac.uk', To_Date('2002/4/2', 'yyyy/mm/dd'), 'S');
+VALUES (4, 'Mateo', 'Matsumoto', 'Mateo.Matsumoto4@qmul.ac.uk', To_Date('2000/3/13', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (5, 'Zora', 'Fyodorov', 'Zora.Fyodorov5@qmul.ac.uk', To_Date('1998/1/12', 'yyyy/mm/dd'), 'S');
+VALUES (5, 'John', 'Blossom', 'John.Blossom5@qmul.ac.uk', To_Date('1998/9/14', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (6, 'Jessica', 'White', 'Jessica.White6@qmul.ac.uk', To_Date('2006/2/3', 'yyyy/mm/dd'), 'S');
+VALUES (6, 'Adam', 'Ramos', 'Adam.Ramos6@qmul.ac.uk', To_Date('2003/1/20', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (7, 'Rufus', 'Montogomery', 'Rufus.Montogomery7@qmul.ac.uk', To_Date('1999/4/28', 'yyyy/mm/dd'), 'S');
+VALUES (7, 'Anastasia', 'Wilde', 'Anastasia.Wilde7@qmul.ac.uk', To_Date('2003/10/30', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (8, 'Hua', 'Wahed', 'Hua.Wahed8@qmul.ac.uk', To_Date('2005/8/9', 'yyyy/mm/dd'), 'S');
+VALUES (8, 'Stepan', 'Rodriguez', 'Stepan.Rodriguez8@qmul.ac.uk', To_Date('2004/1/25', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (9, 'Lorenzo', 'Suzuki', 'Lorenzo.Suzuki9@qmul.ac.uk', To_Date('2001/5/8', 'yyyy/mm/dd'), 'S');
+VALUES (9, 'Lucien', 'Ramos', 'Lucien.Ramos9@qmul.ac.uk', To_Date('2004/2/12', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (10, 'Pablo', 'Jacobsen', 'Pablo.Jacobsen10@qmul.ac.uk', To_Date('2000/2/5', 'yyyy/mm/dd'), 'S');
+VALUES (10, 'Nikolai', 'White', 'Nikolai.White10@qmul.ac.uk', To_Date('2001/9/23', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (11, 'Pablo', 'Stewart', 'Pablo.Stewart11@qmul.ac.uk', To_Date('2000/9/25', 'yyyy/mm/dd'), 'S');
+VALUES (11, 'Jessica', 'Fedorov', 'Jessica.Fedorov11@qmul.ac.uk', To_Date('2004/8/7', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (12, 'Katerina', 'Gomez', 'Katerina.Gomez12@qmul.ac.uk', To_Date('2000/2/6', 'yyyy/mm/dd'), 'S');
+VALUES (12, 'Alia', 'Jacobsen', 'Alia.Jacobsen12@qmul.ac.uk', To_Date('2005/11/22', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (13, 'Florence', 'Kaas', 'Florence.Kaas13@qmul.ac.uk', To_Date('1998/11/24', 'yyyy/mm/dd'), 'S');
+VALUES (13, 'Rufus', 'Liren', 'Rufus.Liren13@qmul.ac.uk', To_Date('2005/2/6', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (14, 'Manuel', 'Hemmingson', 'Manuel.Hemmingson14@qmul.ac.uk', To_Date('1998/12/19', 'yyyy/mm/dd'), 'S');
+VALUES (14, 'Hubert', 'Yusuf', 'Hubert.Yusuf14@qmul.ac.uk', To_Date('2002/8/19', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (15, 'Flynn', 'Kennedy', 'Flynn.Kennedy15@qmul.ac.uk', To_Date('1990/9/19', 'yyyy/mm/dd'), 'S');
+VALUES (15, 'Anastasia', 'Alonso', 'Anastasia.Alonso15@qmul.ac.uk', To_Date('1990/12/21', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (16, 'Vega', 'Diwali', 'Vega.Diwali16@qmul.ac.uk', To_Date('1993/9/16', 'yyyy/mm/dd'), 'S');
+VALUES (16, 'Valentin', 'Sidorov', 'Valentin.Sidorov16@qmul.ac.uk', To_Date('1990/5/13', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (17, 'Wei', 'Garcia', 'Wei.Garcia17@qmul.ac.uk', To_Date('1999/5/16', 'yyyy/mm/dd'), 'S');
+VALUES (17, 'Layla', 'Yamada', 'Layla.Yamada17@qmul.ac.uk', To_Date('1997/11/28', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (18, 'Rafael', 'Sing', 'Rafael.Sing18@qmul.ac.uk', To_Date('1996/9/21', 'yyyy/mm/dd'), 'S');
+VALUES (18, 'Lucia', 'Liu', 'Lucia.Liu18@qmul.ac.uk', To_Date('1994/11/1', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (19, 'Peter', 'Faucher', 'Peter.Faucher19@qmul.ac.uk', To_Date('1996/2/21', 'yyyy/mm/dd'), 'S');
+VALUES (19, 'Daniela', 'Sanchez', 'Daniela.Sanchez19@qmul.ac.uk', To_Date('1997/12/27', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (20, 'Mila', 'Li', 'Mila.Li20@qmul.ac.uk', To_Date('1997/6/30', 'yyyy/mm/dd'), 'S');
+VALUES (20, 'Min', 'Sidorov', 'Min.Sidorov20@qmul.ac.uk', To_Date('1998/9/30', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (21, 'Anya', 'Karlsen', 'Anya.Karlsen21@qmul.ac.uk', To_Date('1994/9/30', 'yyyy/mm/dd'), 'S');
+VALUES (21, 'Boris', 'Wang', 'Boris.Wang21@qmul.ac.uk', To_Date('1994/8/29', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (22, 'Zora', 'Sanchez', 'Zora.Sanchez22@qmul.ac.uk', To_Date('1998/11/15', 'yyyy/mm/dd'), 'S');
+VALUES (22, 'Ming', 'Karlsen', 'Ming.Karlsen22@qmul.ac.uk', To_Date('1994/12/7', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (23, 'Luna', 'Bassam', 'Luna.Bassam23@qmul.ac.uk', To_Date('1989/8/11', 'yyyy/mm/dd'), 'S');
+VALUES (23, 'Mohhamed', 'Wilde', 'Mohhamed.Wilde23@qmul.ac.uk', To_Date('1991/4/13', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (24, 'Julia', 'Wilde', 'Julia.Wilde24@qmul.ac.uk', To_Date('1996/12/9', 'yyyy/mm/dd'), 'S');
+VALUES (24, 'Martina', 'Aziz', 'Martina.Aziz24@qmul.ac.uk', To_Date('1996/5/5', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (25, 'Karina', 'Ramos', 'Karina.Ramos25@qmul.ac.uk', To_Date('1996/1/11', 'yyyy/mm/dd'), 'S');
+VALUES (25, 'Lana', 'Alonso', 'Lana.Alonso25@qmul.ac.uk', To_Date('1999/5/2', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (26, 'Heather', 'Rukober', 'Heather.Rukober26@qmul.ac.uk', To_Date('1990/9/20', 'yyyy/mm/dd'), 'S');
+VALUES (26, 'Kiki', 'Montogomery', 'Kiki.Montogomery26@qmul.ac.uk', To_Date('1998/10/19', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (27, 'Lana', 'Fedorov', 'Lana.Fedorov27@qmul.ac.uk', To_Date('1994/9/4', 'yyyy/mm/dd'), 'S');
+VALUES (27, 'Hamza', 'Kaas', 'Hamza.Kaas27@qmul.ac.uk', To_Date('1992/12/9', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (28, 'Luna', 'Myers', 'Luna.Myers28@qmul.ac.uk', To_Date('1990/9/20', 'yyyy/mm/dd'), 'S');
+VALUES (28, 'Tim', 'Fedorov', 'Tim.Fedorov28@qmul.ac.uk', To_Date('1998/8/31', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (29, 'Sonia', 'Zhang', 'Sonia.Zhang29@qmul.ac.uk', To_Date('1990/6/26', 'yyyy/mm/dd'), 'S');
+VALUES (29, 'Louis', 'Bruun', 'Louis.Bruun29@qmul.ac.uk', To_Date('1990/3/8', 'yyyy/mm/dd'), 'S');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (30, 'Flynn', 'Knight', 'Flynn.Knight30@qmul.ac.uk', To_Date('1990/2/21', 'yyyy/mm/dd'), 'T');
+VALUES (30, 'Jaime', 'Li', 'Jaime.Li30@qmul.ac.uk', To_Date('1977/6/12', 'yyyy/mm/dd'), 'T');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (31, 'Sofia', 'Sokolov', 'Sofia.Sokolov31@qmul.ac.uk', To_Date('1989/3/22', 'yyyy/mm/dd'), 'T');
+VALUES (31, 'Emma', 'Sokolov', 'Emma.Sokolov31@qmul.ac.uk', To_Date('1989/6/9', 'yyyy/mm/dd'), 'T');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (32, 'Hiroto', 'Lopez', 'Hiroto.Lopez32@qmul.ac.uk', To_Date('1977/8/14', 'yyyy/mm/dd'), 'T');
+VALUES (32, 'Emily', 'Granger', 'Emily.Granger32@qmul.ac.uk', To_Date('1989/12/30', 'yyyy/mm/dd'), 'T');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (33, 'Mia', 'Ruiz', 'Mia.Ruiz33@qmul.ac.uk', To_Date('1991/12/24', 'yyyy/mm/dd'), 'T');
+VALUES (33, 'Jessica', 'Blossom', 'Jessica.Blossom33@qmul.ac.uk', To_Date('1981/10/22', 'yyyy/mm/dd'), 'T');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (34, 'Maria', 'Kaas', 'Maria.Kaas34@qmul.ac.uk', To_Date('1983/3/17', 'yyyy/mm/dd'), 'T');
+VALUES (34, 'Andrea', 'Sing', 'Andrea.Sing34@qmul.ac.uk', To_Date('1973/8/31', 'yyyy/mm/dd'), 'T');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (35, 'William', 'Roberts', 'William.Roberts35@qmul.ac.uk', To_Date('1968/1/15', 'yyyy/mm/dd'), 'T');
+VALUES (35, 'Louis', 'Faris', 'Louis.Faris35@qmul.ac.uk', To_Date('1992/8/2', 'yyyy/mm/dd'), 'T');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (36, 'June', 'Diaz', 'June.Diaz36@qmul.ac.uk', To_Date('1970/11/10', 'yyyy/mm/dd'), 'T');
+VALUES (36, 'Maggie', 'Sanchez', 'Maggie.Sanchez36@qmul.ac.uk', To_Date('1995/2/11', 'yyyy/mm/dd'), 'T');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (37, 'Chun', 'Bruun', 'Chun.Bruun37@qmul.ac.uk', To_Date('1975/9/26', 'yyyy/mm/dd'), 'T');
+VALUES (37, 'Chun', 'Davidson', 'Chun.Davidson37@qmul.ac.uk', To_Date('1993/9/2', 'yyyy/mm/dd'), 'T');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (38, 'Zach', 'Garcia', 'Zach.Garcia38@qmul.ac.uk', To_Date('1994/7/14', 'yyyy/mm/dd'), 'T');
+VALUES (38, 'Zayn', 'Yang', 'Zayn.Yang38@qmul.ac.uk', To_Date('1993/10/2', 'yyyy/mm/dd'), 'T');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (39, 'Jane', 'Stewart', 'Jane.Stewart39@qmul.ac.uk', To_Date('1995/10/4', 'yyyy/mm/dd'), 'T');
+VALUES (39, 'Amelia', 'Davidson', 'Amelia.Davidson39@qmul.ac.uk', To_Date('1976/4/28', 'yyyy/mm/dd'), 'T');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (40, 'Alexei', 'Knight', 'Alexei.Knight40@qmul.ac.uk', To_Date('1987/1/10', 'yyyy/mm/dd'), 'T');
+VALUES (40, 'Elizabeth', 'Bassam', 'Elizabeth.Bassam40@qmul.ac.uk', To_Date('1989/10/21', 'yyyy/mm/dd'), 'T');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (41, 'Sara', 'Gomez', 'Sara.Gomez41@qmul.ac.uk', To_Date('1987/2/9', 'yyyy/mm/dd'), 'T');
+VALUES (41, 'Ming', 'Zhao', 'Ming.Zhao41@qmul.ac.uk', To_Date('1988/9/21', 'yyyy/mm/dd'), 'T');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (42, 'Harvey', 'Granger', 'Harvey.Granger42@qmul.ac.uk', To_Date('1990/4/5', 'yyyy/mm/dd'), 'T');
+VALUES (42, 'James', 'Ocasio', 'James.Ocasio42@qmul.ac.uk', To_Date('1975/1/5', 'yyyy/mm/dd'), 'T');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (43, 'Louis', 'Popov', 'Louis.Popov43@qmul.ac.uk', To_Date('1971/3/10', 'yyyy/mm/dd'), 'T');
+VALUES (43, 'Vega', 'Faris', 'Vega.Faris43@qmul.ac.uk', To_Date('1995/1/13', 'yyyy/mm/dd'), 'T');
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
-VALUES (44, 'Anya', 'Butler', 'Anya.Butler44@qmul.ac.uk', To_Date('1981/9/2', 'yyyy/mm/dd'), 'T');
+VALUES (44, 'John', 'Fyodorov', 'John.Fyodorov44@qmul.ac.uk', To_Date('1981/10/8', 'yyyy/mm/dd'), 'T');
 
 INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
-VALUES (0, 'Basil', 'Granger', To_Date('1944/1/12', 'yyyy/mm/dd'));
+VALUES (0, 'Stepan', 'Yang', To_Date('1959/7/25', 'yyyy/mm/dd'));
 
 INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
-VALUES (1, 'Wei', 'Ramos', To_Date('1971/5/22', 'yyyy/mm/dd'));
+VALUES (1, 'Terry', 'Kaas', To_Date('1988/9/15', 'yyyy/mm/dd'));
 
 INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
-VALUES (2, 'Leo', 'Wilde', To_Date('1973/3/30', 'yyyy/mm/dd'));
+VALUES (2, 'Emma', 'Nakamura', To_Date('1990/6/7', 'yyyy/mm/dd'));
 
 INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
-VALUES (3, 'Ding', 'Hemmingson', To_Date('1955/4/12', 'yyyy/mm/dd'));
+VALUES (3, 'Yukina', 'Jabal', To_Date('1980/1/12', 'yyyy/mm/dd'));
 
 INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
-VALUES (4, 'Zach', 'Bassam', To_Date('1942/1/10', 'yyyy/mm/dd'));
+VALUES (4, 'Adiza', 'Lopez', To_Date('1983/3/4', 'yyyy/mm/dd'));
 
 INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
-VALUES (5, 'Zayd', 'Zhang', To_Date('1981/11/10', 'yyyy/mm/dd'));
+VALUES (5, 'Bianca', 'Faucher', To_Date('1963/6/5', 'yyyy/mm/dd'));
 
 INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
-VALUES (6, 'Chun', 'Khalid', To_Date('1987/10/31', 'yyyy/mm/dd'));
+VALUES (6, 'Serge', 'Shariq', To_Date('1961/12/9', 'yyyy/mm/dd'));
 
 INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
-VALUES (7, 'Wei', 'Jabal', To_Date('1981/4/8', 'yyyy/mm/dd'));
+VALUES (7, 'Jenna', 'Yusuf', To_Date('1965/12/22', 'yyyy/mm/dd'));
 
 INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
-VALUES (8, 'Michael', 'Suzuki', To_Date('1984/8/9', 'yyyy/mm/dd'));
+VALUES (8, 'Altair', 'Stewart', To_Date('1990/7/7', 'yyyy/mm/dd'));
 
 INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
-VALUES (9, 'Sandy', 'Hamdi', To_Date('1949/5/5', 'yyyy/mm/dd'));
+VALUES (9, 'Zora', 'Qasim', To_Date('1962/5/2', 'yyyy/mm/dd'));
 
 INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
-VALUES (10, 'Emily', 'Davidson', To_Date('1978/8/24', 'yyyy/mm/dd'));
+VALUES (10, 'Samuel', 'Yamamoto', To_Date('1975/4/29', 'yyyy/mm/dd'));
 
 INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
-VALUES (11, 'Adiza', 'Reid', To_Date('1951/4/19', 'yyyy/mm/dd'));
+VALUES (11, 'Ming', 'Legrand', To_Date('1966/1/8', 'yyyy/mm/dd'));
 
 INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
-VALUES (12, 'Hao', 'Martinez', To_Date('1983/6/19', 'yyyy/mm/dd'));
+VALUES (12, 'Maria', 'Sing', To_Date('1970/6/28', 'yyyy/mm/dd'));
 
 INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
-VALUES (13, 'Carmen', 'Bassam', To_Date('1964/6/5', 'yyyy/mm/dd'));
+VALUES (13, 'Anya', 'Alonso', To_Date('1969/7/31', 'yyyy/mm/dd'));
 
 INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
-VALUES (14, 'Boris', 'Ramos', To_Date('1955/10/7', 'yyyy/mm/dd'));
+VALUES (14, 'Maria', 'Suzuki', To_Date('1953/11/4', 'yyyy/mm/dd'));
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (0, 'Explaining Procedural Programming with foreword from the author', 'First', To_Date('1994/8/13', 'yyyy/mm/dd'), 'B', 0, 'L');
+VALUES (0, 'Notes on Semantics', 'First', To_Date('2005/2/24', 'yyyy/mm/dd'), 'B', 0, 'L');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (0, 0, To_Timestamp('2012/1/2 14:47:32', 'YYYY/MM/DD HH24:MI:SS'), 3, 14, 'N');
+VALUES (0, 0, To_Timestamp('2012/1/12 11:47:30', 'YYYY/MM/DD HH24:MI:SS'), 1, 1, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (1, 0, To_Timestamp('2012/1/2 14:47:32', 'YYYY/MM/DD HH24:MI:SS'), 3, 14, 'N');
+VALUES (1, 0, To_Timestamp('2012/1/12 11:47:30', 'YYYY/MM/DD HH24:MI:SS'), 1, 1, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (2, 0, To_Timestamp('2019/3/6 12:3:44', 'YYYY/MM/DD HH24:MI:SS'), 3, 13, 'N');
+VALUES (2, 0, To_Timestamp('2012/1/12 11:47:30', 'YYYY/MM/DD HH24:MI:SS'), 1, 1, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (3, 0, To_Timestamp('2021/1/3 11:37:13', 'YYYY/MM/DD HH24:MI:SS'), 3, 14, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (4, 0, To_Timestamp('2015/5/9 10:14:34', 'YYYY/MM/DD HH24:MI:SS'), 3, 14, 'N');
+VALUES (3, 0, To_Timestamp('2016/11/3 16:26:1', 'YYYY/MM/DD HH24:MI:SS'), 1, 2, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
@@ -402,553 +398,449 @@ VALUES (0, 0);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (1, 'A Guide to Design In Practice', 'First', To_Date('1980/7/20', 'yyyy/mm/dd'), 'B', 0, 'S');
+VALUES (1, 'Notes on Semantics', 'Second', To_Date('2005/2/24', 'yyyy/mm/dd'), 'B', 0, 'L');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (5, 1, To_Timestamp('2013/12/19 11:58:42', 'YYYY/MM/DD HH24:MI:SS'), 1, 5, 'N');
+VALUES (4, 1, To_Timestamp('2018/2/16 12:55:42', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (6, 1, To_Timestamp('2022/6/14 9:48:24', 'YYYY/MM/DD HH24:MI:SS'), 1, 5, 'N');
+VALUES (5, 1, To_Timestamp('2019/7/22 11:46:49', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
 VALUES (0, 1);
 
-INSERT INTO LibResource
-(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (2, 'The Results of Speleology', 'First', To_Date('2006/3/14', 'yyyy/mm/dd'), 'B', 0, 'L');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (7, 2, To_Timestamp('2014/4/18 20:52:23', 'YYYY/MM/DD HH24:MI:SS'), 1, 14, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (8, 2, To_Timestamp('2014/4/18 20:52:23', 'YYYY/MM/DD HH24:MI:SS'), 1, 15, 'N');
+INSERT INTO AuthorResource
+(AuthorNumber, ResourceNumber)
+VALUES (2, 0);
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (0, 2);
+VALUES (2, 1);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (3, 'The Results of Speleology', 'Second', To_Date('2006/3/14', 'yyyy/mm/dd'), 'B', 0, 'L');
+VALUES (2, 'Eastern Philosophy', 'First', To_Date('1991/5/14', 'yyyy/mm/dd'), 'B', 0, 'L');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (9, 3, To_Timestamp('2019/8/23 9:15:27', 'YYYY/MM/DD HH24:MI:SS'), 3, 1, 'N');
+VALUES (6, 2, To_Timestamp('2022/7/20 9:26:7', 'YYYY/MM/DD HH24:MI:SS'), 1, 11, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (10, 3, To_Timestamp('2019/8/23 9:15:27', 'YYYY/MM/DD HH24:MI:SS'), 3, 2, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (11, 3, To_Timestamp('2019/12/27 16:59:50', 'YYYY/MM/DD HH24:MI:SS'), 3, 2, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (12, 3, To_Timestamp('2019/8/23 9:15:27', 'YYYY/MM/DD HH24:MI:SS'), 3, 2, 'N');
-
-INSERT INTO AuthorResource
-(AuthorNumber, ResourceNumber)
-VALUES (0, 3);
+VALUES (7, 2, To_Timestamp('2022/7/20 9:26:7', 'YYYY/MM/DD HH24:MI:SS'), 1, 11, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
 VALUES (1, 2);
 
+INSERT INTO LibResource
+(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
+VALUES (3, 'Eastern Philosophy', 'Second', To_Date('1991/5/14', 'yyyy/mm/dd'), 'B', 0, 'L');
+
+INSERT INTO Copy
+(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
+VALUES (8, 3, To_Timestamp('2018/4/21 10:50:10', 'YYYY/MM/DD HH24:MI:SS'), 3, 11, 'N');
+
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
 VALUES (1, 3);
 
-INSERT INTO LibResource
-(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (4, 'Xenobiology for the Modern Scholar', 'First', To_Date('1997/6/22', 'yyyy/mm/dd'), 'B', 0, 'L');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (13, 4, To_Timestamp('2016/10/8 10:47:28', 'YYYY/MM/DD HH24:MI:SS'), 2, 12, 'N');
+INSERT INTO AuthorResource
+(AuthorNumber, ResourceNumber)
+VALUES (0, 2);
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (1, 4);
+VALUES (0, 3);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (5, 'Xenobiology for the Modern Scholar', 'Second', To_Date('1997/6/22', 'yyyy/mm/dd'), 'B', 0, 'L');
+VALUES (4, 'Modern Crimonology with foreword from the author', 'First', To_Date('2002/1/22', 'yyyy/mm/dd'), 'B', 0, 'S');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (14, 5, To_Timestamp('2020/12/30 10:54:53', 'YYYY/MM/DD HH24:MI:SS'), 1, 2, 'N');
+VALUES (9, 4, To_Timestamp('2022/2/12 15:44:10', 'YYYY/MM/DD HH24:MI:SS'), 3, 11, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (15, 5, To_Timestamp('2020/12/30 10:54:53', 'YYYY/MM/DD HH24:MI:SS'), 1, 2, 'N');
+VALUES (10, 4, To_Timestamp('2021/3/7 10:33:33', 'YYYY/MM/DD HH24:MI:SS'), 3, 11, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (16, 5, To_Timestamp('2015/11/11 19:7:43', 'YYYY/MM/DD HH24:MI:SS'), 1, 3, 'N');
+VALUES (11, 4, To_Timestamp('2021/3/7 10:33:33', 'YYYY/MM/DD HH24:MI:SS'), 3, 11, 'N');
+
+INSERT INTO Copy
+(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
+VALUES (12, 4, To_Timestamp('2018/12/25 19:43:48', 'YYYY/MM/DD HH24:MI:SS'), 3, 11, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (1, 5);
-
-INSERT INTO AuthorResource
-(AuthorNumber, ResourceNumber)
-VALUES (0, 4);
-
-INSERT INTO AuthorResource
-(AuthorNumber, ResourceNumber)
-VALUES (0, 5);
+VALUES (2, 4);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (6, 'Python In Practice', 'First', To_Date('1980/2/16', 'yyyy/mm/dd'), 'B', 0, 'L');
+VALUES (5, 'Modern Crimonology with foreword from the author', 'Second', To_Date('2002/1/22', 'yyyy/mm/dd'), 'B', 0, 'S');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (17, 6, To_Timestamp('2013/2/3 12:45:53', 'YYYY/MM/DD HH24:MI:SS'), 3, 15, 'N');
+VALUES (13, 5, To_Timestamp('2015/4/1 16:50:35', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (18, 6, To_Timestamp('2013/2/3 12:45:53', 'YYYY/MM/DD HH24:MI:SS'), 3, 15, 'N');
+VALUES (14, 5, To_Timestamp('2023/12/27 16:6:13', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (19, 6, To_Timestamp('2014/8/16 13:41:15', 'YYYY/MM/DD HH24:MI:SS'), 3, 15, 'Y');
+VALUES (15, 5, To_Timestamp('2015/4/1 16:50:35', 'YYYY/MM/DD HH24:MI:SS'), 2, 4, 'N');
+
+INSERT INTO Copy
+(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
+VALUES (16, 5, To_Timestamp('2015/4/1 16:50:35', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (2, 6);
+VALUES (2, 5);
+
+INSERT INTO AuthorResource
+(AuthorNumber, ResourceNumber)
+VALUES (3, 4);
+
+INSERT INTO AuthorResource
+(AuthorNumber, ResourceNumber)
+VALUES (3, 5);
+
+INSERT INTO LibResource
+(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
+VALUES (6, 'Logo Creation', 'First', To_Date('2000/7/22', 'yyyy/mm/dd'), 'B', 0, 'S');
+
+INSERT INTO Copy
+(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
+VALUES (17, 6, To_Timestamp('2023/11/11 12:48:9', 'YYYY/MM/DD HH24:MI:SS'), 3, 4, 'Y');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
 VALUES (3, 6);
 
-INSERT INTO LibResource
-(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (7, 'Analysis on European Languages', 'First', To_Date('2007/10/6', 'yyyy/mm/dd'), 'D', 0, 'L');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (20, 7, To_Timestamp('2016/7/31 17:0:30', 'YYYY/MM/DD HH24:MI:SS'), 3, 15, 'Y');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (21, 7, To_Timestamp('2023/4/9 14:13:26', 'YYYY/MM/DD HH24:MI:SS'), 3, 15, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (22, 7, To_Timestamp('2022/1/4 9:4:31', 'YYYY/MM/DD HH24:MI:SS'), 3, 15, 'N');
-
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (2, 7);
+VALUES (2, 6);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (8, 'A Guide to Procedural Programming', 'First', To_Date('1980/5/10', 'yyyy/mm/dd'), 'B', 0, 'L');
+VALUES (7, 'A Guide to Harmonics', 'First', To_Date('1990/4/25', 'yyyy/mm/dd'), 'B', 0, 'L');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (23, 8, To_Timestamp('2017/12/8 16:32:8', 'YYYY/MM/DD HH24:MI:SS'), 1, 6, 'N');
+VALUES (18, 7, To_Timestamp('2019/9/23 9:45:2', 'YYYY/MM/DD HH24:MI:SS'), 2, 9, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (24, 8, To_Timestamp('2014/8/24 15:8:22', 'YYYY/MM/DD HH24:MI:SS'), 1, 6, 'N');
+VALUES (19, 7, To_Timestamp('2019/9/23 9:45:2', 'YYYY/MM/DD HH24:MI:SS'), 2, 10, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (25, 8, To_Timestamp('2021/4/28 15:26:52', 'YYYY/MM/DD HH24:MI:SS'), 1, 6, 'N');
+VALUES (20, 7, To_Timestamp('2019/9/23 9:45:2', 'YYYY/MM/DD HH24:MI:SS'), 2, 10, 'N');
+
+INSERT INTO Copy
+(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
+VALUES (21, 7, To_Timestamp('2019/9/23 9:45:2', 'YYYY/MM/DD HH24:MI:SS'), 2, 10, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (3, 8);
+VALUES (3, 7);
+
+INSERT INTO AuthorResource
+(AuthorNumber, ResourceNumber)
+VALUES (4, 7);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (9, 'A Guide to Procedural Programming', 'Second', To_Date('1980/5/10', 'yyyy/mm/dd'), 'B', 0, 'L');
+VALUES (8, 'Eastern Philosophy', 'First', To_Date('1996/12/19', 'yyyy/mm/dd'), 'B', 0, 'L');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (26, 9, To_Timestamp('2022/4/16 9:19:35', 'YYYY/MM/DD HH24:MI:SS'), 1, 11, 'N');
+VALUES (22, 8, To_Timestamp('2019/10/28 15:7:30', 'YYYY/MM/DD HH24:MI:SS'), 1, 1, 'N');
+
+INSERT INTO Copy
+(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
+VALUES (23, 8, To_Timestamp('2022/11/30 15:32:19', 'YYYY/MM/DD HH24:MI:SS'), 1, 2, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (3, 9);
+VALUES (4, 8);
+
+INSERT INTO AuthorResource
+(AuthorNumber, ResourceNumber)
+VALUES (1, 8);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (10, 'A Guide to Crimonology', 'First', To_Date('1980/5/15', 'yyyy/mm/dd'), 'B', 0, 'N');
+VALUES (9, 'Tales of the Boy', 'Standard', To_Date('2018/12/12', 'yyyy/mm/dd'), 'B', 1, 'L');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (27, 10, To_Timestamp('2014/1/22 20:12:40', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
+VALUES (24, 9, To_Timestamp('2021/10/3 20:26:32', 'YYYY/MM/DD HH24:MI:SS'), 2, 12, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (28, 10, To_Timestamp('2023/2/9 15:3:59', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
+VALUES (25, 9, To_Timestamp('2022/12/12 13:46:42', 'YYYY/MM/DD HH24:MI:SS'), 2, 12, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (29, 10, To_Timestamp('2018/8/4 20:27:41', 'YYYY/MM/DD HH24:MI:SS'), 2, 6, 'N');
+VALUES (26, 9, To_Timestamp('2022/6/8 20:42:32', 'YYYY/MM/DD HH24:MI:SS'), 2, 12, 'N');
+
+INSERT INTO Copy
+(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
+VALUES (27, 9, To_Timestamp('2021/4/16 15:25:39', 'YYYY/MM/DD HH24:MI:SS'), 2, 11, 'N');
+
+INSERT INTO Copy
+(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
+VALUES (28, 9, To_Timestamp('2020/4/30 11:9:9', 'YYYY/MM/DD HH24:MI:SS'), 2, 12, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (4, 10);
+VALUES (5, 9);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (11, 'A Guide to Crimonology', 'Second', To_Date('1980/5/15', 'yyyy/mm/dd'), 'B', 0, 'N');
+VALUES (10, 'Shamefully Sudden', 'Standard', To_Date('2010/4/6', 'yyyy/mm/dd'), 'D', 1, 'L');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (30, 11, To_Timestamp('2015/1/5 11:53:20', 'YYYY/MM/DD HH24:MI:SS'), 1, 9, 'N');
+VALUES (29, 10, To_Timestamp('2023/1/29 17:50:13', 'YYYY/MM/DD HH24:MI:SS'), 1, 6, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (31, 11, To_Timestamp('2022/4/16 15:16:22', 'YYYY/MM/DD HH24:MI:SS'), 1, 9, 'N');
+VALUES (30, 10, To_Timestamp('2016/7/28 15:29:25', 'YYYY/MM/DD HH24:MI:SS'), 1, 6, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (32, 11, To_Timestamp('2014/4/21 19:27:23', 'YYYY/MM/DD HH24:MI:SS'), 1, 10, 'Y');
+VALUES (31, 10, To_Timestamp('2021/7/8 18:1:34', 'YYYY/MM/DD HH24:MI:SS'), 1, 5, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (33, 11, To_Timestamp('2014/4/21 19:27:23', 'YYYY/MM/DD HH24:MI:SS'), 1, 9, 'N');
+VALUES (32, 10, To_Timestamp('2019/6/15 17:0:40', 'YYYY/MM/DD HH24:MI:SS'), 1, 6, 'N');
+
+INSERT INTO Copy
+(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
+VALUES (33, 10, To_Timestamp('2019/6/15 17:0:40', 'YYYY/MM/DD HH24:MI:SS'), 1, 5, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (4, 11);
+VALUES (6, 10);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (12, 'Ship', 'Standard', To_Date('1989/1/8', 'yyyy/mm/dd'), 'B', 1, 'L');
+VALUES (11, 'The Agreement', 'Standard', To_Date('2006/2/3', 'yyyy/mm/dd'), 'B', 1, 'L');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (34, 12, To_Timestamp('2015/5/16 16:29:50', 'YYYY/MM/DD HH24:MI:SS'), 1, 3, 'N');
+VALUES (34, 11, To_Timestamp('2013/6/21 12:9:24', 'YYYY/MM/DD HH24:MI:SS'), 3, 6, 'N');
+
+INSERT INTO Copy
+(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
+VALUES (35, 11, To_Timestamp('2014/12/2 9:25:29', 'YYYY/MM/DD HH24:MI:SS'), 3, 5, 'N');
+
+INSERT INTO Copy
+(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
+VALUES (36, 11, To_Timestamp('2018/6/11 15:16:42', 'YYYY/MM/DD HH24:MI:SS'), 3, 6, 'N');
+
+INSERT INTO Copy
+(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
+VALUES (37, 11, To_Timestamp('2017/11/21 9:33:56', 'YYYY/MM/DD HH24:MI:SS'), 3, 7, 'N');
+
+INSERT INTO Copy
+(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
+VALUES (38, 11, To_Timestamp('2022/12/6 11:0:23', 'YYYY/MM/DD HH24:MI:SS'), 3, 6, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (5, 12);
+VALUES (6, 11);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (13, 'Imperatively Studded', 'Standard', To_Date('1989/1/25', 'yyyy/mm/dd'), 'B', 1, 'S');
+VALUES (12, 'The Partial Overground', 'Standard', To_Date('1993/7/26', 'yyyy/mm/dd'), 'B', 1, 'L');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (35, 13, To_Timestamp('2018/8/18 12:37:5', 'YYYY/MM/DD HH24:MI:SS'), 1, 4, 'N');
+VALUES (39, 12, To_Timestamp('2023/2/11 12:57:34', 'YYYY/MM/DD HH24:MI:SS'), 3, 2, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (36, 13, To_Timestamp('2020/6/14 15:16:36', 'YYYY/MM/DD HH24:MI:SS'), 1, 4, 'N');
+VALUES (40, 12, To_Timestamp('2023/2/11 12:57:34', 'YYYY/MM/DD HH24:MI:SS'), 3, 2, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (37, 13, To_Timestamp('2020/6/14 15:16:36', 'YYYY/MM/DD HH24:MI:SS'), 1, 4, 'N');
+VALUES (41, 12, To_Timestamp('2016/12/29 16:53:48', 'YYYY/MM/DD HH24:MI:SS'), 3, 3, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (5, 13);
+VALUES (7, 12);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (14, 'The Shrouded Warp', 'Standard', To_Date('2001/12/28', 'yyyy/mm/dd'), 'B', 1, 'N');
+VALUES (13, 'Loud Tactic', 'Standard', To_Date('2019/10/14', 'yyyy/mm/dd'), 'V', 1, 'S');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (38, 14, To_Timestamp('2021/12/31 18:15:47', 'YYYY/MM/DD HH24:MI:SS'), 2, 2, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (39, 14, To_Timestamp('2021/12/31 18:15:47', 'YYYY/MM/DD HH24:MI:SS'), 2, 2, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (40, 14, To_Timestamp('2012/3/16 18:51:56', 'YYYY/MM/DD HH24:MI:SS'), 2, 2, 'N');
+VALUES (42, 13, To_Timestamp('2019/7/19 9:25:36', 'YYYY/MM/DD HH24:MI:SS'), 1, 11, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (5, 14);
+VALUES (7, 13);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (15, 'Seeking Barrier', 'Standard', To_Date('1993/11/26', 'yyyy/mm/dd'), 'B', 1, 'L');
+VALUES (14, 'Grave Terrace', 'Standard', To_Date('1985/2/12', 'yyyy/mm/dd'), 'B', 1, 'L');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (41, 15, To_Timestamp('2014/2/1 19:0:17', 'YYYY/MM/DD HH24:MI:SS'), 3, 5, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (42, 15, To_Timestamp('2023/10/12 9:27:29', 'YYYY/MM/DD HH24:MI:SS'), 3, 5, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (43, 15, To_Timestamp('2019/2/28 15:37:27', 'YYYY/MM/DD HH24:MI:SS'), 3, 6, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (44, 15, To_Timestamp('2014/2/1 19:0:17', 'YYYY/MM/DD HH24:MI:SS'), 3, 5, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (45, 15, To_Timestamp('2015/9/7 15:40:19', 'YYYY/MM/DD HH24:MI:SS'), 3, 5, 'N');
+VALUES (43, 14, To_Timestamp('2020/6/16 9:25:10', 'YYYY/MM/DD HH24:MI:SS'), 2, 2, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (6, 15);
+VALUES (8, 14);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (16, 'Piercingly Desperate', 'Standard', To_Date('2023/12/12', 'yyyy/mm/dd'), 'B', 1, 'L');
+VALUES (16, 'The Shrouded Terrace', 'Standard', To_Date('2003/7/15', 'yyyy/mm/dd'), 'B', 1, 'L');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (46, 16, To_Timestamp('2023/7/10 13:8:24', 'YYYY/MM/DD HH24:MI:SS'), 1, 15, 'N');
+VALUES (44, 16, To_Timestamp('2021/5/20 19:8:43', 'YYYY/MM/DD HH24:MI:SS'), 3, 4, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (47, 16, To_Timestamp('2023/7/10 13:8:24', 'YYYY/MM/DD HH24:MI:SS'), 1, 15, 'N');
+VALUES (45, 16, To_Timestamp('2017/12/22 17:29:29', 'YYYY/MM/DD HH24:MI:SS'), 3, 4, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (48, 16, To_Timestamp('2023/7/10 13:8:24', 'YYYY/MM/DD HH24:MI:SS'), 1, 15, 'N');
+VALUES (46, 16, To_Timestamp('2021/5/20 19:8:43', 'YYYY/MM/DD HH24:MI:SS'), 3, 4, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (49, 16, To_Timestamp('2023/7/10 13:8:24', 'YYYY/MM/DD HH24:MI:SS'), 1, 14, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (50, 16, To_Timestamp('2012/2/4 9:35:20', 'YYYY/MM/DD HH24:MI:SS'), 1, 15, 'N');
+VALUES (47, 16, To_Timestamp('2016/4/10 12:41:45', 'YYYY/MM/DD HH24:MI:SS'), 3, 5, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (7, 16);
+VALUES (9, 16);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (17, 'Wandering Alleys', 'Standard', To_Date('2012/12/5', 'yyyy/mm/dd'), 'B', 1, 'L');
+VALUES (17, 'Towards the Tactics', 'Standard', To_Date('2012/3/5', 'yyyy/mm/dd'), 'B', 1, 'L');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (51, 17, To_Timestamp('2022/8/7 15:18:22', 'YYYY/MM/DD HH24:MI:SS'), 1, 13, 'Y');
+VALUES (48, 17, To_Timestamp('2012/8/4 16:46:9', 'YYYY/MM/DD HH24:MI:SS'), 2, 1, 'N');
+
+INSERT INTO Copy
+(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
+VALUES (49, 17, To_Timestamp('2021/6/8 10:7:28', 'YYYY/MM/DD HH24:MI:SS'), 2, 2, 'N');
+
+INSERT INTO Copy
+(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
+VALUES (50, 17, To_Timestamp('2020/1/12 12:40:54', 'YYYY/MM/DD HH24:MI:SS'), 2, 1, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (8, 17);
+VALUES (9, 17);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (19, 'Oh Wedding', 'Standard', To_Date('1993/11/3', 'yyyy/mm/dd'), 'C', 1, 'L');
+VALUES (18, 'How to spot swimming', 'Standard', To_Date('2007/1/17', 'yyyy/mm/dd'), 'B', 2, 'L');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (52, 19, To_Timestamp('2013/10/15 14:15:32', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (53, 19, To_Timestamp('2013/3/17 13:50:23', 'YYYY/MM/DD HH24:MI:SS'), 2, 6, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (54, 19, To_Timestamp('2018/4/11 19:1:42', 'YYYY/MM/DD HH24:MI:SS'), 2, 6, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (55, 19, To_Timestamp('2015/7/6 19:34:44', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (56, 19, To_Timestamp('2013/2/6 14:46:48', 'YYYY/MM/DD HH24:MI:SS'), 2, 6, 'N');
+VALUES (51, 18, To_Timestamp('2016/11/11 14:57:10', 'YYYY/MM/DD HH24:MI:SS'), 3, 7, 'Y');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (9, 19);
+VALUES (10, 18);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (20, 'Remnant', 'Standard', To_Date('2001/10/21', 'yyyy/mm/dd'), 'B', 1, 'L');
+VALUES (19, 'Connor Rukober: the Untold tales', 'Standard', To_Date('1986/11/1', 'yyyy/mm/dd'), 'B', 2, 'S');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (57, 20, To_Timestamp('2014/1/30 18:24:43', 'YYYY/MM/DD HH24:MI:SS'), 3, 7, 'Y');
+VALUES (52, 19, To_Timestamp('2013/4/10 14:35:49', 'YYYY/MM/DD HH24:MI:SS'), 1, 13, 'N');
+
+INSERT INTO Copy
+(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
+VALUES (53, 19, To_Timestamp('2023/10/26 14:11:34', 'YYYY/MM/DD HH24:MI:SS'), 1, 14, 'N');
+
+INSERT INTO Copy
+(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
+VALUES (54, 19, To_Timestamp('2022/2/21 10:41:13', 'YYYY/MM/DD HH24:MI:SS'), 1, 12, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (9, 20);
+VALUES (10, 19);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (21, 'The Roaring 20s - who would have thought?', 'Standard', To_Date('1995/6/11', 'yyyy/mm/dd'), 'B', 2, 'L');
+VALUES (20, 'The logical conclusion of the Vietnam War', 'Standard', To_Date('2021/9/3', 'yyyy/mm/dd'), 'B', 2, 'L');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (58, 21, To_Timestamp('2012/11/5 19:16:12', 'YYYY/MM/DD HH24:MI:SS'), 2, 9, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (59, 21, To_Timestamp('2017/7/17 20:49:40', 'YYYY/MM/DD HH24:MI:SS'), 2, 8, 'Y');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (60, 21, To_Timestamp('2016/2/3 14:44:26', 'YYYY/MM/DD HH24:MI:SS'), 2, 8, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (61, 21, To_Timestamp('2017/7/17 20:49:40', 'YYYY/MM/DD HH24:MI:SS'), 2, 8, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (62, 21, To_Timestamp('2019/1/20 20:42:58', 'YYYY/MM/DD HH24:MI:SS'), 2, 9, 'N');
+VALUES (55, 20, To_Timestamp('2013/9/8 9:17:26', 'YYYY/MM/DD HH24:MI:SS'), 2, 4, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (10, 21);
+VALUES (11, 20);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (22, 'A review of Cambodia', 'Standard', To_Date('1985/9/19', 'yyyy/mm/dd'), 'D', 2, 'L');
+VALUES (21, 'The school system and the Roaring 20s', 'Standard', To_Date('1991/12/21', 'yyyy/mm/dd'), 'C', 2, 'L');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (63, 22, To_Timestamp('2023/10/4 20:14:56', 'YYYY/MM/DD HH24:MI:SS'), 3, 15, 'N');
+VALUES (56, 21, To_Timestamp('2016/3/15 16:54:49', 'YYYY/MM/DD HH24:MI:SS'), 2, 14, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (64, 22, To_Timestamp('2023/8/15 20:1:30', 'YYYY/MM/DD HH24:MI:SS'), 3, 14, 'N');
+VALUES (57, 21, To_Timestamp('2016/5/7 14:20:21', 'YYYY/MM/DD HH24:MI:SS'), 2, 14, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (10, 22);
+VALUES (12, 21);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (24, 'Karaoke: a dark truth', 'Standard', To_Date('1999/4/18', 'yyyy/mm/dd'), 'B', 2, 'L');
+VALUES (22, 'The Great Depression and black holes', 'Standard', To_Date('2005/6/21', 'yyyy/mm/dd'), 'B', 2, 'L');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (65, 24, To_Timestamp('2016/6/19 18:1:55', 'YYYY/MM/DD HH24:MI:SS'), 1, 1, 'N');
+VALUES (58, 22, To_Timestamp('2015/4/6 17:6:13', 'YYYY/MM/DD HH24:MI:SS'), 1, 15, 'Y');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (66, 24, To_Timestamp('2016/6/19 18:1:55', 'YYYY/MM/DD HH24:MI:SS'), 1, 1, 'N');
+VALUES (59, 22, To_Timestamp('2016/5/12 17:50:46', 'YYYY/MM/DD HH24:MI:SS'), 1, 15, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (67, 24, To_Timestamp('2023/10/27 13:44:47', 'YYYY/MM/DD HH24:MI:SS'), 1, 1, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (68, 24, To_Timestamp('2016/6/19 18:1:55', 'YYYY/MM/DD HH24:MI:SS'), 1, 1, 'N');
+VALUES (60, 22, To_Timestamp('2015/4/6 17:6:13', 'YYYY/MM/DD HH24:MI:SS'), 1, 15, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (11, 24);
+VALUES (13, 22);
 
 INSERT INTO LibResource
 (ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (25, 'Serial killers and other such things', 'Standard', To_Date('2014/4/7', 'yyyy/mm/dd'), 'B', 2, 'L');
+VALUES (23, 'A closer look at farming', 'Standard', To_Date('2010/2/17', 'yyyy/mm/dd'), 'B', 2, 'L');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (69, 25, To_Timestamp('2022/11/3 17:30:37', 'YYYY/MM/DD HH24:MI:SS'), 2, 10, 'N');
+VALUES (61, 23, To_Timestamp('2019/2/21 18:24:24', 'YYYY/MM/DD HH24:MI:SS'), 3, 10, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (70, 25, To_Timestamp('2022/11/3 17:30:37', 'YYYY/MM/DD HH24:MI:SS'), 2, 10, 'N');
+VALUES (62, 23, To_Timestamp('2023/1/6 11:39:46', 'YYYY/MM/DD HH24:MI:SS'), 3, 10, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
-VALUES (12, 25);
-
-INSERT INTO LibResource
-(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (26, 'Fencing for dummies', 'Standard', To_Date('2011/8/28', 'yyyy/mm/dd'), 'B', 2, 'L');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (71, 26, To_Timestamp('2022/7/27 19:57:23', 'YYYY/MM/DD HH24:MI:SS'), 2, 12, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (72, 26, To_Timestamp('2016/11/5 10:49:0', 'YYYY/MM/DD HH24:MI:SS'), 2, 13, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (73, 26, To_Timestamp('2022/7/27 19:57:23', 'YYYY/MM/DD HH24:MI:SS'), 2, 12, 'N');
-
-INSERT INTO AuthorResource
-(AuthorNumber, ResourceNumber)
-VALUES (12, 26);
-
-INSERT INTO LibResource
-(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (27, 'Karim: an unofficial Biography', 'Standard', To_Date('2014/9/1', 'yyyy/mm/dd'), 'B', 2, 'L');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (74, 27, To_Timestamp('2014/8/14 19:37:48', 'YYYY/MM/DD HH24:MI:SS'), 2, 9, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (75, 27, To_Timestamp('2016/5/24 16:55:8', 'YYYY/MM/DD HH24:MI:SS'), 2, 10, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (76, 27, To_Timestamp('2014/9/27 15:0:29', 'YYYY/MM/DD HH24:MI:SS'), 2, 9, 'N');
-
-INSERT INTO AuthorResource
-(AuthorNumber, ResourceNumber)
-VALUES (13, 27);
-
-INSERT INTO LibResource
-(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (28, 'Emily Smith: an unofficial Biography', 'Standard', To_Date('2007/11/10', 'yyyy/mm/dd'), 'B', 2, 'L');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (77, 28, To_Timestamp('2018/11/28 15:56:43', 'YYYY/MM/DD HH24:MI:SS'), 3, 12, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (78, 28, To_Timestamp('2018/3/10 11:9:29', 'YYYY/MM/DD HH24:MI:SS'), 3, 12, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (79, 28, To_Timestamp('2019/3/30 20:36:33', 'YYYY/MM/DD HH24:MI:SS'), 3, 13, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (80, 28, To_Timestamp('2022/5/27 18:40:48', 'YYYY/MM/DD HH24:MI:SS'), 3, 11, 'N');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (81, 28, To_Timestamp('2018/3/10 11:9:29', 'YYYY/MM/DD HH24:MI:SS'), 3, 12, 'N');
-
-INSERT INTO AuthorResource
-(AuthorNumber, ResourceNumber)
-VALUES (14, 28);
-
-INSERT INTO LibResource
-(ResourceNumber, Title, Edition, DatePublished, ResourceType, ClassNo, LoanType)
-VALUES (29, 'Navigating parsnips', 'Standard', To_Date('1993/10/27', 'yyyy/mm/dd'), 'B', 2, 'L');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (82, 29, To_Timestamp('2023/4/17 17:18:20', 'YYYY/MM/DD HH24:MI:SS'), 1, 8, 'Y');
-
-INSERT INTO Copy
-(Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (83, 29, To_Timestamp('2012/4/28 17:59:23', 'YYYY/MM/DD HH24:MI:SS'), 1, 8, 'N');
-
-INSERT INTO AuthorResource
-(AuthorNumber, ResourceNumber)
-VALUES (14, 29);
+VALUES (14, 23);
 
