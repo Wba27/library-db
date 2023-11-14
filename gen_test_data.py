@@ -145,7 +145,7 @@ class Copy:
 def get_random_copy(resource_number, floor_no, base_shelf, base_datetime):
     if random.randint(0, 3) == 3:
         variation = 1 if random.randint(0, 1) == 0 else -1
-        shelf_no = min(1, max(15, base_shelf + variation))
+        shelf_no = max(1, min(15, base_shelf + variation))
     else:
         shelf_no = base_shelf
     if random.randint(0, 1) == 1:
