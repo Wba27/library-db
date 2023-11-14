@@ -386,7 +386,7 @@ VALUES (1, 0, To_Timestamp('2012/1/2 14:47:32', 'YYYY/MM/DD HH24:MI:SS'), 3, 14,
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (2, 0, To_Timestamp('2019/3/6 12:3:44', 'YYYY/MM/DD HH24:MI:SS'), 3, 1, 'N');
+VALUES (2, 0, To_Timestamp('2019/3/6 12:3:44', 'YYYY/MM/DD HH24:MI:SS'), 3, 13, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
@@ -406,11 +406,11 @@ VALUES (1, 'A Guide to Design In Practice', 'First', To_Date('1980/7/20', 'yyyy/
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (5, 1, To_Timestamp('2013/12/19 11:58:42', 'YYYY/MM/DD HH24:MI:SS'), 1, 1, 'N');
+VALUES (5, 1, To_Timestamp('2013/12/19 11:58:42', 'YYYY/MM/DD HH24:MI:SS'), 1, 5, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (6, 1, To_Timestamp('2022/6/14 9:48:24', 'YYYY/MM/DD HH24:MI:SS'), 1, 1, 'N');
+VALUES (6, 1, To_Timestamp('2022/6/14 9:48:24', 'YYYY/MM/DD HH24:MI:SS'), 1, 5, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
@@ -426,7 +426,7 @@ VALUES (7, 2, To_Timestamp('2014/4/18 20:52:23', 'YYYY/MM/DD HH24:MI:SS'), 1, 14
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (8, 2, To_Timestamp('2014/4/18 20:52:23', 'YYYY/MM/DD HH24:MI:SS'), 1, 1, 'N');
+VALUES (8, 2, To_Timestamp('2014/4/18 20:52:23', 'YYYY/MM/DD HH24:MI:SS'), 1, 15, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
@@ -490,7 +490,7 @@ VALUES (15, 5, To_Timestamp('2020/12/30 10:54:53', 'YYYY/MM/DD HH24:MI:SS'), 1, 
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (16, 5, To_Timestamp('2015/11/11 19:7:43', 'YYYY/MM/DD HH24:MI:SS'), 1, 1, 'N');
+VALUES (16, 5, To_Timestamp('2015/11/11 19:7:43', 'YYYY/MM/DD HH24:MI:SS'), 1, 3, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
@@ -594,7 +594,7 @@ VALUES (28, 10, To_Timestamp('2023/2/9 15:3:59', 'YYYY/MM/DD HH24:MI:SS'), 2, 5,
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (29, 10, To_Timestamp('2018/8/4 20:27:41', 'YYYY/MM/DD HH24:MI:SS'), 2, 1, 'N');
+VALUES (29, 10, To_Timestamp('2018/8/4 20:27:41', 'YYYY/MM/DD HH24:MI:SS'), 2, 6, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
@@ -614,7 +614,7 @@ VALUES (31, 11, To_Timestamp('2022/4/16 15:16:22', 'YYYY/MM/DD HH24:MI:SS'), 1, 
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (32, 11, To_Timestamp('2014/4/21 19:27:23', 'YYYY/MM/DD HH24:MI:SS'), 1, 1, 'Y');
+VALUES (32, 11, To_Timestamp('2014/4/21 19:27:23', 'YYYY/MM/DD HH24:MI:SS'), 1, 10, 'Y');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
@@ -630,7 +630,7 @@ VALUES (12, 'Ship', 'Standard', To_Date('1989/1/8', 'yyyy/mm/dd'), 'B', 1, 'L');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (34, 12, To_Timestamp('2015/5/16 16:29:50', 'YYYY/MM/DD HH24:MI:SS'), 1, 1, 'N');
+VALUES (34, 12, To_Timestamp('2015/5/16 16:29:50', 'YYYY/MM/DD HH24:MI:SS'), 1, 3, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
@@ -690,7 +690,7 @@ VALUES (42, 15, To_Timestamp('2023/10/12 9:27:29', 'YYYY/MM/DD HH24:MI:SS'), 3, 
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (43, 15, To_Timestamp('2019/2/28 15:37:27', 'YYYY/MM/DD HH24:MI:SS'), 3, 1, 'N');
+VALUES (43, 15, To_Timestamp('2019/2/28 15:37:27', 'YYYY/MM/DD HH24:MI:SS'), 3, 6, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
@@ -722,7 +722,7 @@ VALUES (48, 16, To_Timestamp('2023/7/10 13:8:24', 'YYYY/MM/DD HH24:MI:SS'), 1, 1
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (49, 16, To_Timestamp('2023/7/10 13:8:24', 'YYYY/MM/DD HH24:MI:SS'), 1, 1, 'N');
+VALUES (49, 16, To_Timestamp('2023/7/10 13:8:24', 'YYYY/MM/DD HH24:MI:SS'), 1, 14, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
@@ -750,7 +750,7 @@ VALUES (19, 'Oh Wedding', 'Standard', To_Date('1993/11/3', 'yyyy/mm/dd'), 'C', 1
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (52, 19, To_Timestamp('2013/10/15 14:15:32', 'YYYY/MM/DD HH24:MI:SS'), 2, 1, 'N');
+VALUES (52, 19, To_Timestamp('2013/10/15 14:15:32', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
@@ -762,7 +762,7 @@ VALUES (54, 19, To_Timestamp('2018/4/11 19:1:42', 'YYYY/MM/DD HH24:MI:SS'), 2, 6
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (55, 19, To_Timestamp('2015/7/6 19:34:44', 'YYYY/MM/DD HH24:MI:SS'), 2, 1, 'N');
+VALUES (55, 19, To_Timestamp('2015/7/6 19:34:44', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
@@ -790,7 +790,7 @@ VALUES (21, 'The Roaring 20s - who would have thought?', 'Standard', To_Date('19
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (58, 21, To_Timestamp('2012/11/5 19:16:12', 'YYYY/MM/DD HH24:MI:SS'), 2, 1, 'N');
+VALUES (58, 21, To_Timestamp('2012/11/5 19:16:12', 'YYYY/MM/DD HH24:MI:SS'), 2, 9, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
@@ -806,7 +806,7 @@ VALUES (61, 21, To_Timestamp('2017/7/17 20:49:40', 'YYYY/MM/DD HH24:MI:SS'), 2, 
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (62, 21, To_Timestamp('2019/1/20 20:42:58', 'YYYY/MM/DD HH24:MI:SS'), 2, 1, 'N');
+VALUES (62, 21, To_Timestamp('2019/1/20 20:42:58', 'YYYY/MM/DD HH24:MI:SS'), 2, 9, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
@@ -818,7 +818,7 @@ VALUES (22, 'A review of Cambodia', 'Standard', To_Date('1985/9/19', 'yyyy/mm/dd
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (63, 22, To_Timestamp('2023/10/4 20:14:56', 'YYYY/MM/DD HH24:MI:SS'), 3, 1, 'N');
+VALUES (63, 22, To_Timestamp('2023/10/4 20:14:56', 'YYYY/MM/DD HH24:MI:SS'), 3, 15, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
@@ -878,7 +878,7 @@ VALUES (71, 26, To_Timestamp('2022/7/27 19:57:23', 'YYYY/MM/DD HH24:MI:SS'), 2, 
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (72, 26, To_Timestamp('2016/11/5 10:49:0', 'YYYY/MM/DD HH24:MI:SS'), 2, 1, 'N');
+VALUES (72, 26, To_Timestamp('2016/11/5 10:49:0', 'YYYY/MM/DD HH24:MI:SS'), 2, 13, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
@@ -894,7 +894,7 @@ VALUES (27, 'Karim: an unofficial Biography', 'Standard', To_Date('2014/9/1', 'y
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (74, 27, To_Timestamp('2014/8/14 19:37:48', 'YYYY/MM/DD HH24:MI:SS'), 2, 1, 'N');
+VALUES (74, 27, To_Timestamp('2014/8/14 19:37:48', 'YYYY/MM/DD HH24:MI:SS'), 2, 9, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
@@ -902,7 +902,7 @@ VALUES (75, 27, To_Timestamp('2016/5/24 16:55:8', 'YYYY/MM/DD HH24:MI:SS'), 2, 1
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (76, 27, To_Timestamp('2014/9/27 15:0:29', 'YYYY/MM/DD HH24:MI:SS'), 2, 1, 'N');
+VALUES (76, 27, To_Timestamp('2014/9/27 15:0:29', 'YYYY/MM/DD HH24:MI:SS'), 2, 9, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, ResourceNumber)
@@ -922,11 +922,11 @@ VALUES (78, 28, To_Timestamp('2018/3/10 11:9:29', 'YYYY/MM/DD HH24:MI:SS'), 3, 1
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (79, 28, To_Timestamp('2019/3/30 20:36:33', 'YYYY/MM/DD HH24:MI:SS'), 3, 1, 'N');
+VALUES (79, 28, To_Timestamp('2019/3/30 20:36:33', 'YYYY/MM/DD HH24:MI:SS'), 3, 13, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)
-VALUES (80, 28, To_Timestamp('2022/5/27 18:40:48', 'YYYY/MM/DD HH24:MI:SS'), 3, 1, 'N');
+VALUES (80, 28, To_Timestamp('2022/5/27 18:40:48', 'YYYY/MM/DD HH24:MI:SS'), 3, 11, 'N');
 
 INSERT INTO Copy
 (Barcode, ResourceNumber, DateAcquired, FloorNo, ShelfNo, Archived)

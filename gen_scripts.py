@@ -244,10 +244,8 @@ def insert_author_resource_text():
 
 def insert_data(f: TextIOWrapper):
     f.write('-- 2: INSERT DATA --\n')
-    insert_text = insert_members_text()
-    f.write(insert_text)
-    insert_text = insert_author_resource_text()
-    f.write(insert_text)
+    for func in (insert_members_text, insert_author_resource_text):
+        f.write(func())
 
 
 def main():
