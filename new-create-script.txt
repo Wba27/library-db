@@ -27,7 +27,7 @@ ADD CONSTRAINT fk_Book_ClassNo
 ALTER TABLE Book
 ADD CONSTRAINT Book_unique UNIQUE (Title, Edition, DatePublished);
 
-CREATE TABLE AudiovisualMedia(
+CREATE TABLE AVMedia(
 	ResourceNumber INTEGER NOT NULL PRIMARY KEY,
 	Title VARCHAR(255) NOT NULL,
 	Edition VARCHAR(255) NOT NULL,
@@ -38,18 +38,18 @@ CREATE TABLE AudiovisualMedia(
 	MediaType CHAR(1) NOT NULL
 );
 
-ALTER TABLE AudiovisualMedia
-ADD CONSTRAINT fk_AudiovisualMedia_ClassNo
+ALTER TABLE AVMedia
+ADD CONSTRAINT fk_AVMedia_ClassNo
 	FOREIGN KEY (ClassNo)
 	REFERENCES Subject(ClassNo);
 
-ALTER TABLE AudiovisualMedia
-ADD CONSTRAINT AudiovisualMedia_unique UNIQUE (Title, Edition, DatePublished);
+ALTER TABLE AVMedia
+ADD CONSTRAINT AVMedia_unique UNIQUE (Title, Edition, DatePublished);
 
 CREATE TABLE Copy(
 	Barcode INTEGER NOT NULL PRIMARY KEY,
 	BookNumber INTEGER NULL,
-	AudiovisualNumber INTEGER NULL,
+	AVNumber INTEGER NULL,
 	AcquiredTimestamp TIMESTAMP NOT NULL,
 	FloorNo INTEGER NOT NULL,
 	ShelfNo INTEGER NOT NULL,
@@ -62,9 +62,9 @@ ADD CONSTRAINT fk_Copy_BookNumber
 	REFERENCES Book(ResourceNumber);
 
 ALTER TABLE Copy
-ADD CONSTRAINT fk_Copy_AudiovisualNumber
-	FOREIGN KEY (AudiovisualNumber)
-	REFERENCES AudiovisualMedia(ResourceNumber);
+ADD CONSTRAINT fk_Copy_AVNumber
+	FOREIGN KEY (AVNumber)
+	REFERENCES AVMedia(ResourceNumber);
 
 CREATE TABLE Author(
 	AuthorNumber INTEGER NOT NULL PRIMARY KEY,
@@ -76,7 +76,7 @@ CREATE TABLE Author(
 CREATE TABLE AuthorResource(
 	AuthorNumber INTEGER NOT NULL,
 	BookNumber INTEGER NULL,
-	AudiovisualNumber INTEGER NULL
+	AVNumber INTEGER NULL
 );
 
 ALTER TABLE AuthorResource
@@ -90,12 +90,12 @@ ADD CONSTRAINT fk_AuthorResource_BookNumber
 	REFERENCES Book(ResourceNumber);
 
 ALTER TABLE AuthorResource
-ADD CONSTRAINT fk_AuthorResource_AudiovisualNumber
-	FOREIGN KEY (AudiovisualNumber)
-	REFERENCES AudiovisualMedia(ResourceNumber);
+ADD CONSTRAINT fk_AuthorResource_AVNumber
+	FOREIGN KEY (AVNumber)
+	REFERENCES AVMedia(ResourceNumber);
 
 ALTER TABLE AuthorResource
-ADD CONSTRAINT AuthorResource_unique UNIQUE (AuthorNumber, BookNumber, AudiovisualNumber);
+ADD CONSTRAINT AuthorResource_unique UNIQUE (AuthorNumber, BookNumber, AVNumber);
 
 CREATE TABLE Member(
 	LibraryCard INTEGER NOT NULL PRIMARY KEY,
@@ -166,7 +166,7 @@ ADD CONSTRAINT Fine_unique UNIQUE (FinedCopy, FineTo, FinedTimestamp);
 CREATE TABLE Reservation(
 	ReservationNo INTEGER NOT NULL PRIMARY KEY,
 	ReservedBook INTEGER NULL,
-	ReservedAudiovisualMedia INTEGER NULL,
+	ReservedAVMedia INTEGER NULL,
 	ReservedBy INTEGER NOT NULL,
 	ReservedTimestamp TIMESTAMP NOT NULL,
 	ResolvedTimestamp TIMESTAMP NULL,
@@ -179,9 +179,9 @@ ADD CONSTRAINT fk_Reservation_ReservedBook
 	REFERENCES Book(ResourceNumber);
 
 ALTER TABLE Reservation
-ADD CONSTRAINT fk_Reservation_ReservedAudiovisualMedia
-	FOREIGN KEY (ReservedAudiovisualMedia)
-	REFERENCES AudiovisualMedia(ResourceNumber);
+ADD CONSTRAINT fk_Reservation_ReservedAVMedia
+	FOREIGN KEY (ReservedAVMedia)
+	REFERENCES AVMedia(ResourceNumber);
 
 ALTER TABLE Reservation
 ADD CONSTRAINT fk_Reservation_ReservedBy
@@ -189,7 +189,7 @@ ADD CONSTRAINT fk_Reservation_ReservedBy
 	REFERENCES Member(LibraryCard);
 
 ALTER TABLE Reservation
-ADD CONSTRAINT Reservation_unique UNIQUE (ReservedBook, ReservedAudiovisualMedia, ReservedBy, ReservedTimestamp);
+ADD CONSTRAINT Reservation_unique UNIQUE (ReservedBook, ReservedAVMedia, ReservedBy, ReservedTimestamp);
 
 CREATE TABLE MemberMaxLoans(
 	MemberType CHAR(1) NOT NULL,

@@ -1,6 +1,15 @@
 from dataclasses import dataclass
 from datetime import datetime, date
 from decimal import Decimal
+from enum import Enum
+
+CHECK_TYPE = Enum('Check', ['IN', 'XOR'])
+
+
+@dataclass
+class Check:
+    name: CHECK_TYPE
+    data: any = None
 
 
 @dataclass
@@ -13,6 +22,7 @@ class Attribute:
     nullable: bool = False
     unique: bool = False
     default: any = None
+    check: Check = None
 
 tables = {
     'Subject': [
@@ -28,7 +38,7 @@ tables = {
         Attribute('LoanType', str, data_length=1),
         Attribute('PageLength', int)
     ],
-    'AudiovisualMedia': [
+    'AVMedia': [
         Attribute('ResourceNumber', int, primary_key=True),
         Attribute('Title', str, data_length=255, unique=True),
         Attribute('Edition', str, data_length=255, unique=True),
@@ -40,9 +50,10 @@ tables = {
     ],
     'Copy': [
         Attribute('Barcode', int, primary_key=True),
-        Attribute('BookNumber', int, foreign_key='Book.ResourceNumber', nullable=True),
-        Attribute('AudiovisualNumber', int, foreign_key='AudiovisualMedia.ResourceNumber', 
-                  nullable=True),
+        Attribute('BookNumber', int, foreign_key='Book.ResourceNumber', nullable=True,
+                  check=Check(CHECK_TYPE.XOR)),
+        Attribute('AVNumber', int, foreign_key='AVMedia.ResourceNumber', nullable=True,
+                  check=Check(CHECK_TYPE.XOR)),
         Attribute('AcquiredTimestamp', datetime),
         Attribute('FloorNo', int),
         Attribute('ShelfNo', int),
@@ -57,9 +68,9 @@ tables = {
     'AuthorResource': [
         Attribute('AuthorNumber', int, foreign_key='Author', unique=True),
         Attribute('BookNumber', int, foreign_key='Book.ResourceNumber', unique=True, 
-                  nullable=True),
-        Attribute('AudiovisualNumber', int, foreign_key='AudiovisualMedia.ResourceNumber', 
-                  unique=True, nullable=True)
+                  nullable=True, check=Check(CHECK_TYPE.XOR)),
+        Attribute('AVNumber', int, foreign_key='AVMedia.ResourceNumber', unique=True, 
+                  nullable=True, check=Check(CHECK_TYPE.XOR))
     ],
     'Member': [
         Attribute('LibraryCard', int, primary_key=True),
@@ -92,10 +103,11 @@ tables = {
     'Reservation': [
         Attribute('ReservationNo', int, primary_key=True),
         Attribute('ReservedBook', int, foreign_key='Book.ResourceNumber', 
-                  unique=True, nullable=True),
-        Attribute('ReservedAudiovisualMedia', int, 
-                  foreign_key='AudiovisualMedia.ResourceNumber', unique=True, nullable=True),
-        Attribute('ReservedBy', int, foreign_key='Member.LibraryCard', unique=True),
+                  unique=True, nullable=True, check=Check(CHECK_TYPE.XOR)),
+        Attribute('ReservedAVMedia', int, 
+                  foreign_key='AVMedia.ResourceNumber', unique=True, nullable=True),
+        Attribute('ReservedBy', int, foreign_key='Member.LibraryCard', unique=True,
+                  check=Check(CHECK_TYPE.XOR)),
         Attribute('ReservedTimestamp', datetime, unique=True),
         Attribute('ResolvedTimestamp', datetime, nullable=True),
         Attribute('Resolution', str, data_length=1, nullable=True)

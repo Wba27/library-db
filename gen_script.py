@@ -66,6 +66,11 @@ def unique_keys_text(table, attributes: list[Attribute]):
     return uk_text
 
 
+def check_constraint_text(table, attributes: list[Attribute]):
+    checks_to_perform = set(a.check for a in attributes)
+    print(checks_to_perform)
+
+
 def create_tables(f: TextIOWrapper):
     f.write('-- 1: CREATE TABLES --\n')
     for table, attributes in tables.items():
@@ -78,6 +83,8 @@ def create_tables(f: TextIOWrapper):
             f.write(foreign_keys_text(table, foreign_keys))
         if (unique_keys := [a for a in attributes if a.unique]):
             f.write(unique_keys_text(table, unique_keys))
+        if (check_constraints := [a for a in attributes if a.check]):
+            f.write(check_constraint_text(table, check_constraints))
 
 
 def required_attribute_names(attributes: list[Attribute]):
