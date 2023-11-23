@@ -1,0 +1,203 @@
+-- AUTO GEN SQL SCRIPT --
+
+-- 1: CREATE TABLES --
+CREATE TABLE Subject(
+	ClassNo INTEGER NOT NULL PRIMARY KEY,
+	SubjectName VARCHAR(255) NOT NULL
+);
+
+ALTER TABLE Subject
+ADD CONSTRAINT Subject_unique UNIQUE (SubjectName);
+
+CREATE TABLE Book(
+	ResourceNumber INTEGER NOT NULL PRIMARY KEY,
+	Title VARCHAR(255) NOT NULL,
+	Edition VARCHAR(255) NOT NULL,
+	DatePublished DATE NOT NULL,
+	ClassNo INTEGER NOT NULL,
+	LoanType CHAR(1) NOT NULL,
+	PageLength INTEGER NOT NULL
+);
+
+ALTER TABLE Book
+ADD CONSTRAINT fk_Book_ClassNo
+	FOREIGN KEY (ClassNo)
+	REFERENCES Subject(ClassNo);
+
+ALTER TABLE Book
+ADD CONSTRAINT Book_unique UNIQUE (Title, Edition, DatePublished);
+
+CREATE TABLE AudiovisualMedia(
+	ResourceNumber INTEGER NOT NULL PRIMARY KEY,
+	Title VARCHAR(255) NOT NULL,
+	Edition VARCHAR(255) NOT NULL,
+	DatePublished DATE NOT NULL,
+	ClassNo INTEGER NOT NULL,
+	LoanType CHAR(1) NOT NULL,
+	MediaLength INTEGER NOT NULL,
+	MediaType CHAR(1) NOT NULL
+);
+
+ALTER TABLE AudiovisualMedia
+ADD CONSTRAINT fk_AudiovisualMedia_ClassNo
+	FOREIGN KEY (ClassNo)
+	REFERENCES Subject(ClassNo);
+
+ALTER TABLE AudiovisualMedia
+ADD CONSTRAINT AudiovisualMedia_unique UNIQUE (Title, Edition, DatePublished);
+
+CREATE TABLE Copy(
+	Barcode INTEGER NOT NULL PRIMARY KEY,
+	BookNumber INTEGER NULL,
+	AudiovisualNumber INTEGER NULL,
+	AcquiredTimestamp TIMESTAMP NOT NULL,
+	FloorNo INTEGER NOT NULL,
+	ShelfNo INTEGER NOT NULL,
+	Archived CHAR(1) DEFAULT 'N'
+);
+
+ALTER TABLE Copy
+ADD CONSTRAINT fk_Copy_BookNumber
+	FOREIGN KEY (BookNumber)
+	REFERENCES Book(ResourceNumber);
+
+ALTER TABLE Copy
+ADD CONSTRAINT fk_Copy_AudiovisualNumber
+	FOREIGN KEY (AudiovisualNumber)
+	REFERENCES AudiovisualMedia(ResourceNumber);
+
+CREATE TABLE Author(
+	AuthorNumber INTEGER NOT NULL PRIMARY KEY,
+	FirstName VARCHAR(255) NOT NULL,
+	LastName VARCHAR(255) NOT NULL,
+	DOB DATE NOT NULL
+);
+
+CREATE TABLE AuthorResource(
+	AuthorNumber INTEGER NOT NULL,
+	BookNumber INTEGER NULL,
+	AudiovisualNumber INTEGER NULL
+);
+
+ALTER TABLE AuthorResource
+ADD CONSTRAINT fk_AuthorResource_AuthorNumber
+	FOREIGN KEY (AuthorNumber)
+	REFERENCES Author(AuthorNumber);
+
+ALTER TABLE AuthorResource
+ADD CONSTRAINT fk_AuthorResource_BookNumber
+	FOREIGN KEY (BookNumber)
+	REFERENCES Book(ResourceNumber);
+
+ALTER TABLE AuthorResource
+ADD CONSTRAINT fk_AuthorResource_AudiovisualNumber
+	FOREIGN KEY (AudiovisualNumber)
+	REFERENCES AudiovisualMedia(ResourceNumber);
+
+ALTER TABLE AuthorResource
+ADD CONSTRAINT AuthorResource_unique UNIQUE (AuthorNumber, BookNumber, AudiovisualNumber);
+
+CREATE TABLE Member(
+	LibraryCard INTEGER NOT NULL PRIMARY KEY,
+	FirstName VARCHAR(255) NOT NULL,
+	LastName VARCHAR(255) NOT NULL,
+	Email VARCHAR(255) NOT NULL,
+	DOB DATE NOT NULL,
+	MemberType CHAR(1) NOT NULL,
+	Suspended CHAR(1) DEFAULT 'N'
+);
+
+ALTER TABLE Member
+ADD CONSTRAINT Member_unique UNIQUE (Email);
+
+CREATE TABLE Loan(
+	LoanedCopy INTEGER NOT NULL,
+	LoanedTo INTEGER NOT NULL,
+	LoanedTimestamp TIMESTAMP NOT NULL,
+	ReturnedTimestamp TIMESTAMP NULL
+);
+
+ALTER TABLE Loan
+ADD CONSTRAINT fk_Loan_LoanedCopy
+	FOREIGN KEY (LoanedCopy)
+	REFERENCES Copy(Barcode);
+
+ALTER TABLE Loan
+ADD CONSTRAINT fk_Loan_LoanedTo
+	FOREIGN KEY (LoanedTo)
+	REFERENCES Member(LibraryCard);
+
+ALTER TABLE Loan
+ADD CONSTRAINT Loan_unique UNIQUE (LoanedCopy, LoanedTo, LoanedTimestamp);
+
+CREATE TABLE Offer(
+	ReservationNo INTEGER NOT NULL PRIMARY KEY,
+	OfferedCopy INTEGER NOT NULL,
+	OfferedDate TIMESTAMP NOT NULL,
+	Status CHAR(1) NOT NULL
+);
+
+ALTER TABLE Offer
+ADD CONSTRAINT fk_Offer_OfferedCopy
+	FOREIGN KEY (OfferedCopy)
+	REFERENCES Copy(Barcode);
+
+CREATE TABLE Fine(
+	FinedCopy INTEGER NOT NULL,
+	FineTo INTEGER NOT NULL,
+	FinedTimestamp TIMESTAMP NOT NULL,
+	PaidTimestamp TIMESTAMP NULL,
+	FineAmount DECIMAL NOT NULL
+);
+
+ALTER TABLE Fine
+ADD CONSTRAINT fk_Fine_FinedCopy
+	FOREIGN KEY (FinedCopy)
+	REFERENCES Copy(Barcode);
+
+ALTER TABLE Fine
+ADD CONSTRAINT fk_Fine_FineTo
+	FOREIGN KEY (FineTo)
+	REFERENCES Member(LibraryCard);
+
+ALTER TABLE Fine
+ADD CONSTRAINT Fine_unique UNIQUE (FinedCopy, FineTo, FinedTimestamp);
+
+CREATE TABLE Reservation(
+	ReservationNo INTEGER NOT NULL PRIMARY KEY,
+	ReservedBook INTEGER NULL,
+	ReservedAudiovisualMedia INTEGER NULL,
+	ReservedBy INTEGER NOT NULL,
+	ReservedTimestamp TIMESTAMP NOT NULL,
+	ResolvedTimestamp TIMESTAMP NULL,
+	Resolution CHAR(1) NULL
+);
+
+ALTER TABLE Reservation
+ADD CONSTRAINT fk_Reservation_ReservedBook
+	FOREIGN KEY (ReservedBook)
+	REFERENCES Book(ResourceNumber);
+
+ALTER TABLE Reservation
+ADD CONSTRAINT fk_Reservation_ReservedAudiovisualMedia
+	FOREIGN KEY (ReservedAudiovisualMedia)
+	REFERENCES AudiovisualMedia(ResourceNumber);
+
+ALTER TABLE Reservation
+ADD CONSTRAINT fk_Reservation_ReservedBy
+	FOREIGN KEY (ReservedBy)
+	REFERENCES Member(LibraryCard);
+
+ALTER TABLE Reservation
+ADD CONSTRAINT Reservation_unique UNIQUE (ReservedBook, ReservedAudiovisualMedia, ReservedBy, ReservedTimestamp);
+
+CREATE TABLE MemberMaxLoans(
+	MemberType CHAR(1) NOT NULL,
+	MaxCopiesOnLoan INTEGER NOT NULL
+);
+
+ALTER TABLE MemberMaxLoans
+ADD CONSTRAINT fk_MemberMaxLoans_MemberType
+	FOREIGN KEY (MemberType)
+	REFERENCES Member(MemberType);
+

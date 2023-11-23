@@ -15,12 +15,15 @@ class Attribute:
     default: any = None
 
 tables = {
+    'Subject': [
+        Attribute('ClassNo', int, primary_key=True),
+        Attribute('SubjectName', str, data_length=255, unique=True)
+    ],
     'Book': [
         Attribute('ResourceNumber', int, primary_key=True),
         Attribute('Title', str, data_length=255, unique=True),
         Attribute('Edition', str, data_length=255, unique=True),
         Attribute('DatePublished', date, unique=True),
-        Attribute('ResourceType', str, data_length=1),
         Attribute('ClassNo', int, foreign_key='Subject'),
         Attribute('LoanType', str, data_length=1),
         Attribute('PageLength', int)
@@ -30,7 +33,6 @@ tables = {
         Attribute('Title', str, data_length=255, unique=True),
         Attribute('Edition', str, data_length=255, unique=True),
         Attribute('DatePublished', date, unique=True),
-        Attribute('ResourceType', str, data_length=1),
         Attribute('ClassNo', int, foreign_key='Subject'),
         Attribute('LoanType', str, data_length=1),
         Attribute('MediaLength', int),
@@ -38,7 +40,9 @@ tables = {
     ],
     'Copy': [
         Attribute('Barcode', int, primary_key=True),
-        Attribute('ResourceNumber', int, foreign_key='LibResource'),
+        Attribute('BookNumber', int, foreign_key='Book.ResourceNumber', nullable=True),
+        Attribute('AudiovisualNumber', int, foreign_key='AudiovisualMedia.ResourceNumber', 
+                  nullable=True),
         Attribute('AcquiredTimestamp', datetime),
         Attribute('FloorNo', int),
         Attribute('ShelfNo', int),
@@ -52,11 +56,10 @@ tables = {
     ],
     'AuthorResource': [
         Attribute('AuthorNumber', int, foreign_key='Author', unique=True),
-        Attribute('ResourceNumber', int, foreign_key='LibResource', unique=True)
-    ],
-    'Subject': [
-        Attribute('ClassNo', int, primary_key=True),
-        Attribute('SubjectName', str)
+        Attribute('BookNumber', int, foreign_key='Book.ResourceNumber', unique=True, 
+                  nullable=True),
+        Attribute('AudiovisualNumber', int, foreign_key='AudiovisualMedia.ResourceNumber', 
+                  unique=True, nullable=True)
     ],
     'Member': [
         Attribute('LibraryCard', int, primary_key=True),
@@ -88,15 +91,17 @@ tables = {
     ],
     'Reservation': [
         Attribute('ReservationNo', int, primary_key=True),
-        Attribute('ReservedResource', int, foreign_key='LibResource.ResourceNumber', 
-                  unique=True),
+        Attribute('ReservedBook', int, foreign_key='Book.ResourceNumber', 
+                  unique=True, nullable=True),
+        Attribute('ReservedAudiovisualMedia', int, 
+                  foreign_key='AudiovisualMedia.ResourceNumber', unique=True, nullable=True),
         Attribute('ReservedBy', int, foreign_key='Member.LibraryCard', unique=True),
         Attribute('ReservedTimestamp', datetime, unique=True),
         Attribute('ResolvedTimestamp', datetime, nullable=True),
         Attribute('Resolution', str, data_length=1, nullable=True)
     ],
     'MemberMaxLoans': [
-        Attribute('MemberType', str, foreign_key='Member'),
+        Attribute('MemberType', str, foreign_key='Member', data_length=1),
         Attribute('MaxCopiesOnLoan', int)
     ]
 }

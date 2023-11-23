@@ -249,7 +249,7 @@ def insert_data(f: TextIOWrapper):
 
 
 def gen_script():
-    with open("library-db.txt", "w") as f:
+    with open("new-create-script.txt", "w") as f:
         f.write('-- AUTO GEN SQL SCRIPT --\n\n')
         create_tables(f)
-        insert_data(f)
+        # insert_data(f)
