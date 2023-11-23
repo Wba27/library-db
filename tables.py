@@ -15,19 +15,31 @@ class Attribute:
     default: any = None
 
 tables = {
-    'LibResource': [
+    'Book': [
         Attribute('ResourceNumber', int, primary_key=True),
         Attribute('Title', str, data_length=255, unique=True),
         Attribute('Edition', str, data_length=255, unique=True),
         Attribute('DatePublished', date, unique=True),
         Attribute('ResourceType', str, data_length=1),
         Attribute('ClassNo', int, foreign_key='Subject'),
-        Attribute('LoanType', str, data_length=1)
+        Attribute('LoanType', str, data_length=1),
+        Attribute('PageLength', int)
+    ],
+    'AudiovisualMedia': [
+        Attribute('ResourceNumber', int, primary_key=True),
+        Attribute('Title', str, data_length=255, unique=True),
+        Attribute('Edition', str, data_length=255, unique=True),
+        Attribute('DatePublished', date, unique=True),
+        Attribute('ResourceType', str, data_length=1),
+        Attribute('ClassNo', int, foreign_key='Subject'),
+        Attribute('LoanType', str, data_length=1),
+        Attribute('MediaLength', int),
+        Attribute('MediaType', str, data_length=1)
     ],
     'Copy': [
         Attribute('Barcode', int, primary_key=True),
         Attribute('ResourceNumber', int, foreign_key='LibResource'),
-        Attribute('DateAcquired', datetime),
+        Attribute('AcquiredTimestamp', datetime),
         Attribute('FloorNo', int),
         Attribute('ShelfNo', int),
         Attribute('Archived', bool, default=False)
@@ -58,8 +70,8 @@ tables = {
     'Loan': [
         Attribute('LoanedCopy', int, foreign_key='Copy.Barcode', unique=True),
         Attribute('LoanedTo', int, foreign_key='Member.LibraryCard', unique=True),
-        Attribute('DateLoaned', datetime, unique=True),
-        Attribute('DateReturned', datetime, nullable=True)
+        Attribute('LoanedTimestamp', datetime, unique=True),
+        Attribute('ReturnedTimestamp', datetime, nullable=True)
     ],
     'Offer': [
         Attribute('ReservationNo', int, primary_key=True),
@@ -70,8 +82,8 @@ tables = {
     'Fine': [
         Attribute('FinedCopy', int, foreign_key='Copy.Barcode', unique=True),
         Attribute('FineTo', int, foreign_key='Member.LibraryCard', unique=True),
-        Attribute('DateFined', datetime, unique=True),
-        Attribute('DatePaid', datetime, nullable=True),
+        Attribute('FinedTimestamp', datetime, unique=True),
+        Attribute('PaidTimestamp', datetime, nullable=True),
         Attribute('FineAmount', Decimal)
     ],
     'Reservation': [
@@ -79,8 +91,8 @@ tables = {
         Attribute('ReservedResource', int, foreign_key='LibResource.ResourceNumber', 
                   unique=True),
         Attribute('ReservedBy', int, foreign_key='Member.LibraryCard', unique=True),
-        Attribute('DateReserved', datetime, unique=True),
-        Attribute('DateResolved', datetime, nullable=True),
+        Attribute('ReservedTimestamp', datetime, unique=True),
+        Attribute('ResolvedTimestamp', datetime, nullable=True),
         Attribute('Resolution', str, data_length=1, nullable=True)
     ],
     'MemberMaxLoans': [
