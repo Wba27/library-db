@@ -1,4 +1,4 @@
-from tables import tables, Attribute
+from tables import tables, Attribute, CHECK_TYPE
 from gen_test_data import Human, get_random_human, get_random_resource, weighted_random, \
     get_copies_of_resource
 from io import TextIOWrapper
@@ -68,7 +68,20 @@ def unique_keys_text(table, attributes: list[Attribute]):
 
 def check_constraint_text(table, attributes: list[Attribute]):
     checks_to_perform = set(a.check for a in attributes)
-    print(checks_to_perform)
+    check_text = ''
+    for check in checks_to_perform:
+        print(check)
+        if check.name is CHECK_TYPE.XOR:
+            xor_attributes = [a.name for a in attributes if a.check.name is CHECK_TYPE.XOR]
+            xor_1, xor_2 = xor_attributes
+            assert len(xor_attributes) == 2, f'Too many XORS on {table}: {xor_attributes}'
+            check_text += f'ALTER TABLE {table}\n'
+            check_text += f'ADD CONSTRAINT {table}_xor\n'
+            check_text += f'\tCHECK(({xor_1} IS NULL OR {xor_2} IS NULL)\n'
+            check_text += f'\tAND NOT ({xor_1} IS NULL AND {xor_2} IS NULL));\n\n'
+        if check.name is CHECK_TYPE.IN:
+            pass
+    return check_text
 
 
 def create_tables(f: TextIOWrapper):

@@ -11,6 +11,9 @@ class Check:
     name: CHECK_TYPE
     data: any = None
 
+    def __hash__(self) -> int:
+        return hash(self.name)
+
 
 @dataclass
 class Attribute:

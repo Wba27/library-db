@@ -66,6 +66,11 @@ ADD CONSTRAINT fk_Copy_AVNumber
 	FOREIGN KEY (AVNumber)
 	REFERENCES AVMedia(ResourceNumber);
 
+ALTER TABLE Copy
+ADD CONSTRAINT Copy_xor
+	CHECK((BookNumber IS NULL OR AVNumber IS NULL)
+	AND NOT (BookNumber IS NULL AND AVNumber IS NULL));
+
 CREATE TABLE Author(
 	AuthorNumber INTEGER NOT NULL PRIMARY KEY,
 	FirstName VARCHAR(255) NOT NULL,
@@ -96,6 +101,11 @@ ADD CONSTRAINT fk_AuthorResource_AVNumber
 
 ALTER TABLE AuthorResource
 ADD CONSTRAINT AuthorResource_unique UNIQUE (AuthorNumber, BookNumber, AVNumber);
+
+ALTER TABLE AuthorResource
+ADD CONSTRAINT AuthorResource_xor
+	CHECK((BookNumber IS NULL OR AVNumber IS NULL)
+	AND NOT (BookNumber IS NULL AND AVNumber IS NULL));
 
 CREATE TABLE Member(
 	LibraryCard INTEGER NOT NULL PRIMARY KEY,
@@ -190,6 +200,11 @@ ADD CONSTRAINT fk_Reservation_ReservedBy
 
 ALTER TABLE Reservation
 ADD CONSTRAINT Reservation_unique UNIQUE (ReservedBook, ReservedAVMedia, ReservedBy, ReservedTimestamp);
+
+ALTER TABLE Reservation
+ADD CONSTRAINT Reservation_xor
+	CHECK((ReservedBook IS NULL OR ReservedBy IS NULL)
+	AND NOT (ReservedBook IS NULL AND ReservedBy IS NULL));
 
 CREATE TABLE MemberMaxLoans(
 	MemberType CHAR(1) NOT NULL,
