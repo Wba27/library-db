@@ -21,7 +21,7 @@ tables = {
         Attribute('Edition', str, data_length=255, unique=True),
         Attribute('DatePublished', date, unique=True),
         Attribute('ResourceType', str, data_length=1),
-        Attribute('ClassNo', int),
+        Attribute('ClassNo', int, foreign_key='Subject'),
         Attribute('LoanType', str, data_length=1)
     ],
     'Copy': [
@@ -42,6 +42,10 @@ tables = {
         Attribute('AuthorNumber', int, foreign_key='Author', unique=True),
         Attribute('ResourceNumber', int, foreign_key='LibResource', unique=True)
     ],
+    'Subject': [
+        Attribute('ClassNo', int, primary_key=True),
+        Attribute('SubjectName', str)
+    ],
     'Member': [
         Attribute('LibraryCard', int, primary_key=True),
         Attribute('FirstName', str, data_length=255),
@@ -57,22 +61,30 @@ tables = {
         Attribute('DateLoaned', datetime, unique=True),
         Attribute('DateReturned', datetime, nullable=True)
     ],
+    'Offer': [
+        Attribute('ReservationNo', int, primary_key=True),
+        Attribute('OfferedCopy', int, foreign_key='Copy.Barcode'),
+        Attribute('OfferedDate', datetime),
+        Attribute('Status', str, data_length=1)
+    ],
     'Fine': [
         Attribute('FinedCopy', int, foreign_key='Copy.Barcode', unique=True),
         Attribute('FineTo', int, foreign_key='Member.LibraryCard', unique=True),
         Attribute('DateFined', datetime, unique=True),
         Attribute('DatePaid', datetime, nullable=True),
-        Attribute('FineAmount', Decimal),
-        Attribute('AmountPaid', Decimal, nullable=True),
+        Attribute('FineAmount', Decimal)
     ],
     'Reservation': [
+        Attribute('ReservationNo', int, primary_key=True),
         Attribute('ReservedResource', int, foreign_key='LibResource.ResourceNumber', 
                   unique=True),
         Attribute('ReservedBy', int, foreign_key='Member.LibraryCard', unique=True),
         Attribute('DateReserved', datetime, unique=True),
         Attribute('DateResolved', datetime, nullable=True),
-        Attribute('LastOffered', datetime, nullable=True),
-        Attribute('LoanOffers', int, default=0),
         Attribute('Resolution', str, data_length=1, nullable=True)
+    ],
+    'MemberMaxLoans': [
+        Attribute('MemberType', str, foreign_key='Member'),
+        Attribute('MaxCopiesOnLoan', int)
     ]
 }
