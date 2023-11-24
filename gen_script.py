@@ -69,9 +69,7 @@ def unique_keys_text(table, attributes: list[Attribute]):
 def check_constraint_text(table, attributes: list[Attribute]):
     checks_to_perform = set(a.check for a in attributes)
     check_text = ''
-    print(table, checks_to_perform)
     for check in checks_to_perform:
-        print(check)
         if check.name is CHECK_TYPE.XOR:
             xor_attributes = [a.name for a in attributes if a.check.name is CHECK_TYPE.XOR]
             assert len(xor_attributes) == 2, f'Too many XORS on {table}: {xor_attributes}'
@@ -92,6 +90,15 @@ def check_constraint_text(table, attributes: list[Attribute]):
     return check_text
 
 
+def constrain_booleans_text(table, booleans: list[Attribute]):
+    boolean_text = ''
+    for b in booleans:
+        boolean_text += f'ALTER TABLE {table}\n'
+        boolean_text += f'ADD CONSTRAINT {table}_{b.name}_bool\n'
+        boolean_text += f"\tCHECK({b.name} IN ('Y', 'N'));\n\n"
+    return boolean_text
+
+
 def create_tables(f: TextIOWrapper):
     f.write('-- 1: CREATE TABLES --\n')
     for table, attributes in tables.items():
@@ -106,6 +113,8 @@ def create_tables(f: TextIOWrapper):
             f.write(unique_keys_text(table, unique_keys))
         if (check_constraints := [a for a in attributes if a.check]):
             f.write(check_constraint_text(table, check_constraints))
+        if (booleans := [a for a in attributes if a.data_type is bool]):
+            f.write(constrain_booleans_text(table, booleans))
 
 
 def required_attribute_names(attributes: list[Attribute]):

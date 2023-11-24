@@ -83,6 +83,10 @@ ADD CONSTRAINT Copy_xor
 	CHECK((BookNumber IS NULL OR AVNumber IS NULL)
 	AND NOT (BookNumber IS NULL AND AVNumber IS NULL));
 
+ALTER TABLE Copy
+ADD CONSTRAINT Copy_Archived_bool
+	CHECK(Archived IN ('Y', 'N'));
+
 CREATE TABLE Author(
 	AuthorNumber INTEGER NOT NULL PRIMARY KEY,
 	FirstName VARCHAR(255) NOT NULL,
@@ -135,6 +139,10 @@ ADD CONSTRAINT Member_unique UNIQUE (Email);
 ALTER TABLE Member
 ADD CONSTRAINT Member_MemberType_in
 	CHECK(MemberType IN ('S', 'T'));
+
+ALTER TABLE Member
+ADD CONSTRAINT Member_Suspended_bool
+	CHECK(Suspended IN ('Y', 'N'));
 
 CREATE TABLE Loan(
 	LoanedCopy INTEGER NOT NULL,
