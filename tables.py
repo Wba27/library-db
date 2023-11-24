@@ -123,8 +123,7 @@ tables = {
                   check=Check(CHECK_TYPE.IN, ('P', 'A', 'R')))
     ],
     'MemberMaxLoans': [
-        Attribute('MemberType', str, foreign_key='Member', data_length=1,
-                  check=Check(CHECK_TYPE.IN, ('S', 'T'))),
+        Attribute('MemberType', str, data_length=1, check=Check(CHECK_TYPE.IN, ('S', 'T'))),
         Attribute('MaxCopiesOnLoan', int)
     ]
 }

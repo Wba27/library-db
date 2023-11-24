@@ -236,11 +236,6 @@ CREATE TABLE MemberMaxLoans(
 );
 
 ALTER TABLE MemberMaxLoans
-ADD CONSTRAINT fk_MemberMaxLoans_MemberType
-	FOREIGN KEY (MemberType)
-	REFERENCES Member(MemberType);
-
-ALTER TABLE MemberMaxLoans
 ADD CONSTRAINT MemberMaxLoans_MemberType_in
 	CHECK(MemberType IN ('S', 'T'));
 
