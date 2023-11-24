@@ -69,18 +69,26 @@ def unique_keys_text(table, attributes: list[Attribute]):
 def check_constraint_text(table, attributes: list[Attribute]):
     checks_to_perform = set(a.check for a in attributes)
     check_text = ''
+    print(table, checks_to_perform)
     for check in checks_to_perform:
         print(check)
         if check.name is CHECK_TYPE.XOR:
             xor_attributes = [a.name for a in attributes if a.check.name is CHECK_TYPE.XOR]
-            xor_1, xor_2 = xor_attributes
             assert len(xor_attributes) == 2, f'Too many XORS on {table}: {xor_attributes}'
+            xor_1, xor_2 = xor_attributes
             check_text += f'ALTER TABLE {table}\n'
             check_text += f'ADD CONSTRAINT {table}_xor\n'
             check_text += f'\tCHECK(({xor_1} IS NULL OR {xor_2} IS NULL)\n'
             check_text += f'\tAND NOT ({xor_1} IS NULL AND {xor_2} IS NULL));\n\n'
         if check.name is CHECK_TYPE.IN:
-            pass
+            in_attributes = [a for a in attributes if a.check.name is CHECK_TYPE.IN]
+            assert all(a.check.data is not None for a in in_attributes), \
+                f'{table} contains IN check with no possible values'
+            for a in in_attributes:
+                in_options = ', '.join([f"'{i}'" for i in a.check.data])
+                check_text += f'ALTER TABLE {table}\n'
+                check_text += f'ADD CONSTRAINT {table}_{a.name}_in\n'
+                check_text += f'\tCHECK({a.name} IN ({in_options}));\n\n'
     return check_text
 
 

@@ -13,6 +13,9 @@ class Check:
 
     def __hash__(self) -> int:
         return hash(self.name)
+    
+    def __eq__(self, __value: object) -> bool:
+        return self.name == __value.name
 
 
 @dataclass
@@ -38,7 +41,8 @@ tables = {
         Attribute('Edition', str, data_length=255, unique=True),
         Attribute('DatePublished', date, unique=True),
         Attribute('ClassNo', int, foreign_key='Subject'),
-        Attribute('LoanType', str, data_length=1),
+        Attribute('LoanType', str, data_length=1, 
+                  check=Check(CHECK_TYPE.IN, ('L', 'S', 'N'))),
         Attribute('PageLength', int)
     ],
     'AVMedia': [
@@ -47,9 +51,11 @@ tables = {
         Attribute('Edition', str, data_length=255, unique=True),
         Attribute('DatePublished', date, unique=True),
         Attribute('ClassNo', int, foreign_key='Subject'),
-        Attribute('LoanType', str, data_length=1),
+        Attribute('LoanType', str, data_length=1, 
+                  check=Check(CHECK_TYPE.IN, ('L', 'S', 'N'))),
         Attribute('MediaLength', int),
-        Attribute('MediaType', str, data_length=1)
+        Attribute('MediaType', str, data_length=1, 
+                  check=Check(CHECK_TYPE.IN, ('D', 'C', 'V')))
     ],
     'Copy': [
         Attribute('Barcode', int, primary_key=True),
@@ -81,7 +87,7 @@ tables = {
         Attribute('LastName', str, data_length=255),
         Attribute('Email', str, data_length=255, unique=True),
         Attribute('DOB', date),
-        Attribute('MemberType', str, data_length=1),
+        Attribute('MemberType', str, data_length=1, check=Check(CHECK_TYPE.IN, ('S', 'T'))),
         Attribute('Suspended', bool, default=False)
     ],
     'Loan': [
@@ -94,7 +100,7 @@ tables = {
         Attribute('ReservationNo', int, primary_key=True),
         Attribute('OfferedCopy', int, foreign_key='Copy.Barcode'),
         Attribute('OfferedDate', datetime),
-        Attribute('Status', str, data_length=1)
+        Attribute('Status', str, data_length=1, check=Check(CHECK_TYPE.IN, ('P', 'A', 'R')))
     ],
     'Fine': [
         Attribute('FinedCopy', int, foreign_key='Copy.Barcode', unique=True),
@@ -113,10 +119,12 @@ tables = {
                   check=Check(CHECK_TYPE.XOR)),
         Attribute('ReservedTimestamp', datetime, unique=True),
         Attribute('ResolvedTimestamp', datetime, nullable=True),
-        Attribute('Resolution', str, data_length=1, nullable=True)
+        Attribute('Resolution', str, data_length=1, nullable=True, 
+                  check=Check(CHECK_TYPE.IN, ('P', 'A', 'R')))
     ],
     'MemberMaxLoans': [
-        Attribute('MemberType', str, foreign_key='Member', data_length=1),
+        Attribute('MemberType', str, foreign_key='Member', data_length=1,
+                  check=Check(CHECK_TYPE.IN, ('S', 'T'))),
         Attribute('MaxCopiesOnLoan', int)
     ]
 }

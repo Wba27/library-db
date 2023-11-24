@@ -27,6 +27,10 @@ ADD CONSTRAINT fk_Book_ClassNo
 ALTER TABLE Book
 ADD CONSTRAINT Book_unique UNIQUE (Title, Edition, DatePublished);
 
+ALTER TABLE Book
+ADD CONSTRAINT Book_LoanType_in
+	CHECK(LoanType IN ('L', 'S', 'N'));
+
 CREATE TABLE AVMedia(
 	ResourceNumber INTEGER NOT NULL PRIMARY KEY,
 	Title VARCHAR(255) NOT NULL,
@@ -45,6 +49,14 @@ ADD CONSTRAINT fk_AVMedia_ClassNo
 
 ALTER TABLE AVMedia
 ADD CONSTRAINT AVMedia_unique UNIQUE (Title, Edition, DatePublished);
+
+ALTER TABLE AVMedia
+ADD CONSTRAINT AVMedia_LoanType_in
+	CHECK(LoanType IN ('L', 'S', 'N'));
+
+ALTER TABLE AVMedia
+ADD CONSTRAINT AVMedia_MediaType_in
+	CHECK(MediaType IN ('D', 'C', 'V'));
 
 CREATE TABLE Copy(
 	Barcode INTEGER NOT NULL PRIMARY KEY,
@@ -120,6 +132,10 @@ CREATE TABLE Member(
 ALTER TABLE Member
 ADD CONSTRAINT Member_unique UNIQUE (Email);
 
+ALTER TABLE Member
+ADD CONSTRAINT Member_MemberType_in
+	CHECK(MemberType IN ('S', 'T'));
+
 CREATE TABLE Loan(
 	LoanedCopy INTEGER NOT NULL,
 	LoanedTo INTEGER NOT NULL,
@@ -151,6 +167,10 @@ ALTER TABLE Offer
 ADD CONSTRAINT fk_Offer_OfferedCopy
 	FOREIGN KEY (OfferedCopy)
 	REFERENCES Copy(Barcode);
+
+ALTER TABLE Offer
+ADD CONSTRAINT Offer_Status_in
+	CHECK(Status IN ('P', 'A', 'R'));
 
 CREATE TABLE Fine(
 	FinedCopy INTEGER NOT NULL,
@@ -202,6 +222,10 @@ ALTER TABLE Reservation
 ADD CONSTRAINT Reservation_unique UNIQUE (ReservedBook, ReservedAVMedia, ReservedBy, ReservedTimestamp);
 
 ALTER TABLE Reservation
+ADD CONSTRAINT Reservation_Resolution_in
+	CHECK(Resolution IN ('P', 'A', 'R'));
+
+ALTER TABLE Reservation
 ADD CONSTRAINT Reservation_xor
 	CHECK((ReservedBook IS NULL OR ReservedBy IS NULL)
 	AND NOT (ReservedBook IS NULL AND ReservedBy IS NULL));
@@ -215,4 +239,8 @@ ALTER TABLE MemberMaxLoans
 ADD CONSTRAINT fk_MemberMaxLoans_MemberType
 	FOREIGN KEY (MemberType)
 	REFERENCES Member(MemberType);
+
+ALTER TABLE MemberMaxLoans
+ADD CONSTRAINT MemberMaxLoans_MemberType_in
+	CHECK(MemberType IN ('S', 'T'));
 
