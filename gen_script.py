@@ -1,6 +1,6 @@
 from tables import tables, Attribute, CHECK_TYPE
-from gen_test_data import Human, get_random_human, get_random_resource, weighted_random, \
-    get_copies_of_resource
+from gen_test_data import Human, get_random_human, subjects, get_random_resource, \
+    weighted_random, get_copies_of_resource
 from io import TextIOWrapper
 import random
 from datetime import datetime, date
@@ -173,6 +173,18 @@ def insert_members_text():
     return insert_members_text
 
 
+def insert_subjects_text():
+    subjects_text = ''
+    for e, s in enumerate(subjects.keys()):
+        subjects_text += insert_into_table(
+            'Subject',
+            required_attribute_names(tables['Subject']),
+            e,
+            s
+        )
+    return subjects_text
+
+
 def insert_author_text(authors):
     authors_text = ''
     for author in authors:
@@ -273,20 +285,21 @@ def insert_author_resource_text():
     non_fiction_authors = [get_random_human('author', 1940, 1990) for _ in range(5)]
     authors = academic_authors + fiction_authors + non_fiction_authors
     insert_author_resource_text = insert_author_text(authors)
-    insert_author_resource_text += academic_resource_text(academic_authors)
-    insert_author_resource_text += other_resource_text('fiction', fiction_authors)
-    insert_author_resource_text += other_resource_text('non-fiction', non_fiction_authors)
+    # insert_author_resource_text += academic_resource_text(academic_authors)
+    # insert_author_resource_text += other_resource_text('fiction', fiction_authors)
+    # insert_author_resource_text += other_resource_text('non-fiction', non_fiction_authors)
     return insert_author_resource_text
 
 
 def insert_data(f: TextIOWrapper):
     f.write('-- 2: INSERT DATA --\n')
-    for func in (insert_members_text, insert_author_resource_text):
+    # for func in (insert_members_text,):
+    for func in (insert_members_text, insert_subjects_text, insert_author_resource_text):
         f.write(func())
 
 
 def gen_script():
-    with open("new-create-script.txt", "w") as f:
+    with open("library-db.txt", "w") as f:
         f.write('-- AUTO GEN SQL SCRIPT --\n\n')
         create_tables(f)
-        # insert_data(f)
+        insert_data(f)

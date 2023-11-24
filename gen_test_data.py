@@ -101,15 +101,54 @@ class Resource:
         self.title = title
         self.date_published = date_published
         self.resource_type = res_type
+        if self.resource_type == 'B':
+            self.page_length = random.randint(100, 700)
+        else:
+            self.media_length = random.randint(90, 240)
         self.class_no = class_no
         self.loan_type = loan_type
-        self.editions = ['First']
+        self.editions = ['First' if self.resource_type == 'B' else 'Paperback']
         if random.randint(0, 3) == 3:
-            self.editions.append('Second')
+            self.editions.append('Second' if self.resource_type == 'B' else 'Hardback')
             Resource.r_count += 1
+            # if 
             if random.randint(0, 4) == 4:
                 self.editions.append('Third')
                 Resource.r_count += 1
+
+
+subjects = {
+    'Fiction': [], 
+    'Non-fiction': [],
+    'Biology': ['biology', 'evolution'],
+    'Philosophy': ['philosophy'],
+    'Computer science': ['programming', 'python', 'c++', 'computer', 'java', 'data'],
+    'Medicine': ['therapy', 'nursing', 'homeopathy', 'dentistry', 'anesthes'],
+    'Physics': ['physics', 'astronomy'],
+    'Psychology': ['psychology', 'crimon'],
+    'Engineering': [
+        'technolog', 
+        'embedded', 
+        'engine', 
+        'blacksmithing', 
+        'woodworking',
+        'architecture'
+    ],
+    'History': ['warfare', 'ancient', 'chivalry', 'king', 'mythology'],
+    'Linguistics': ['semantics', 'languages', 'chinese', 'german'],
+    'Literature': ['symbolism', 'literature', 'shakespeare'],
+    'Mathematics': ['mathematics', 'abstract'],
+    'Art': ['dance', 'logo', 'theatrical', 'acting', 'music', 'harmonics'],
+    'Anthropology': ['anthropology', 'religion', 'husbandry', 'archae'],
+    'Economics': ['accounting', 'trade', 'economics', 'banking', 'business'],
+    'Geography': ['speleology']
+}
+
+
+def custom_subject_no(title: str):
+    for e, val in enumerate(subjects.values()):
+        if any(v in title.lower() for v in val):
+            return e
 
 
 def get_random_resource(title_type: Literal['academic', 'fiction', 'non-fiction']):
@@ -119,7 +158,10 @@ def get_random_resource(title_type: Literal['academic', 'fiction', 'non-fiction'
         res_type = 'B'
     else:
         res_type = random.choice(('D', 'C', 'V'))
-    class_no = ['academic', 'fiction', 'non-fiction'].index(title_type)
+    if title_type == 'academic':
+        class_no = custom_subject_no(title)
+    else:
+        class_no = 0 if title_type == 'fiction' else 1
     if random.randint(0, 3) == 3:
         if random.randint(0, 5) == 5:
             loan_type = 'N'
