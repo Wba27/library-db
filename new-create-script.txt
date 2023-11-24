@@ -244,6 +244,9 @@ CREATE TABLE MemberMaxLoans(
 );
 
 ALTER TABLE MemberMaxLoans
+ADD CONSTRAINT MemberMaxLoans_unique UNIQUE (MemberType);
+
+ALTER TABLE MemberMaxLoans
 ADD CONSTRAINT MemberMaxLoans_MemberType_in
 	CHECK(MemberType IN ('S', 'T'));
 
