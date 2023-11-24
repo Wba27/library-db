@@ -101,7 +101,7 @@ def constrain_booleans_text(table, booleans: list[Attribute]):
 
 
 def create_tables(f: TextIOWrapper):
-    f.write('-- 1: CREATE TABLES --\n')
+    f.write('-- 1: CREATE TABLES --\n\n')
     for table, attributes in tables.items():
         f.write(f'CREATE TABLE {table}(\n')
         for a in attributes:
@@ -161,7 +161,7 @@ def insert_members_text():
     undergrads = [get_random_human('member', 1998, 2006) for _ in range(15)]
     postgrads = [get_random_human('member', 1989, 1999) for _ in range(15)]
     staff = [get_random_human('member', 1968, 1995) for _ in range(15)]
-    insert_members_text = ''
+    insert_members_text = '-- INSERT MEMBERS --\n\n'
     for member in undergrads + postgrads + staff:
         insert_members_text += insert_into_table(
             'Member', 
@@ -177,7 +177,7 @@ def insert_members_text():
 
 
 def insert_subjects_text():
-    subjects_text = ''
+    subjects_text = '-- INSERT SUBJECTS --\n\n'
     for e, s in enumerate(subjects.keys()):
         subjects_text += insert_into_table(
             'Subject',
@@ -189,7 +189,7 @@ def insert_subjects_text():
 
 
 def insert_author_text(authors):
-    authors_text = ''
+    authors_text = '-- INSERT AUTHORS --\n\n'
     for author in authors:
         authors_text += insert_into_table(
             'Author',
@@ -224,7 +224,7 @@ def insert_resource_text(
         author_type: Literal['academic', 'fiction', 'non-fiction'], 
         authors: list[Human]
     ):
-    resource_text = ''
+    resource_text = f'-- INSERT RESOURCES, COPIES: {author_type.upper()} --\n\n'
     for author in authors:
         resources = [get_random_resource(author_type) for _ in range(weighted_random(1, 5, 2))]
         books = [r for r in resources if r.resource_type == 'B']
@@ -299,7 +299,7 @@ def insert_author_resource_text():
 
 
 def insert_data(f: TextIOWrapper):
-    f.write('-- 2: INSERT DATA --\n')
+    f.write('-- 2: INSERT DATA --\n\n')
     for func in (insert_members_text, insert_subjects_text, insert_author_resource_text):
         f.write(func())
 

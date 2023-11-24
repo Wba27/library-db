@@ -1,6 +1,7 @@
 -- AUTO GEN SQL SCRIPT --
 
 -- 1: CREATE TABLES --
+
 CREATE TABLE Subject(
 	ClassNo INTEGER NOT NULL PRIMARY KEY,
 	SubjectName VARCHAR(255) NOT NULL
@@ -251,6 +252,9 @@ ADD CONSTRAINT MemberMaxLoans_MemberType_in
 	CHECK(MemberType IN ('S', 'T'));
 
 -- 2: INSERT DATA --
+
+-- INSERT MEMBERS --
+
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
 VALUES (0, 'Ivan', 'Aziz', 'Ivan.Aziz0@qmul.ac.uk', To_Date('1998/7/27', 'yyyy/mm/dd'), 'S');
@@ -431,6 +435,8 @@ INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
 VALUES (44, 'Anya', 'Butler', 'Anya.Butler44@qmul.ac.uk', To_Date('1981/9/2', 'yyyy/mm/dd'), 'T');
 
+-- INSERT SUBJECTS --
+
 INSERT INTO Subject
 (ClassNo, SubjectName)
 VALUES (0, 'Fiction');
@@ -499,6 +505,8 @@ INSERT INTO Subject
 (ClassNo, SubjectName)
 VALUES (16, 'Geography');
 
+-- INSERT AUTHORS --
+
 INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
 VALUES (0, 'Basil', 'Granger', To_Date('1944/1/12', 'yyyy/mm/dd'));
@@ -558,6 +566,8 @@ VALUES (13, 'Carmen', 'Bassam', To_Date('1964/6/5', 'yyyy/mm/dd'));
 INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
 VALUES (14, 'Boris', 'Ramos', To_Date('1955/10/7', 'yyyy/mm/dd'));
+
+-- INSERT RESOURCES, COPIES: ACADEMIC --
 
 INSERT INTO Book
 (ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)
@@ -815,6 +825,8 @@ INSERT INTO AuthorResource
 (AuthorNumber, BookNumber, AVNumber)
 VALUES (4, 12, NULL);
 
+-- INSERT RESOURCES, COPIES: FICTION --
+
 INSERT INTO Book
 (ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)
 VALUES (13, 'The Marriage', 'Paperback', To_Date('1999/3/1', 'yyyy/mm/dd'), 0, 'L', 390);
@@ -1014,6 +1026,8 @@ VALUES (62, 20, NULL, To_Timestamp('2023/8/15 20:1:30', 'YYYY/MM/DD HH24:MI:SS')
 INSERT INTO AuthorResource
 (AuthorNumber, BookNumber, AVNumber)
 VALUES (9, 20, NULL);
+
+-- INSERT RESOURCES, COPIES: NON-FICTION --
 
 INSERT INTO Book
 (ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)
