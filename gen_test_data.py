@@ -94,27 +94,34 @@ def get_random_human(h_type: str, dob_year_start: int, dob_year_end: int):
 
 
 class Resource:
-    r_count = -1
+    r_count_type = {}
     def __init__(self, title, date_published, res_type, class_no, loan_type):
-        Resource.r_count += 1
-        self.id = Resource.r_count
+        self.meta_r_type = 0 if res_type == 'B' else 1
+        if Resource.r_count_type.get(self.meta_r_type) is not None:
+            Resource.r_count_type[self.meta_r_type] += 1
+            self.id = Resource.r_count_type[self.meta_r_type]
+        else:
+            Resource.r_count_type[self.meta_r_type] = 0
+            self.id = 0
         self.title = title
         self.date_published = date_published
         self.resource_type = res_type
+        self.academic = class_no not in (0, 1)
         if self.resource_type == 'B':
             self.page_length = random.randint(100, 700)
         else:
             self.media_length = random.randint(90, 240)
         self.class_no = class_no
         self.loan_type = loan_type
-        self.editions = ['First' if self.resource_type == 'B' else 'Paperback']
+        self.editions = ['First' if not self.academic else 'Paperback']
         if random.randint(0, 3) == 3:
-            self.editions.append('Second' if self.resource_type == 'B' else 'Hardback')
-            Resource.r_count += 1
-            # if 
+            self.editions.append('Second' if not self.academic else 'Hardback')
+            Resource.r_count_type[self.meta_r_type] += 1
+            if not self.academic:
+                return
             if random.randint(0, 4) == 4:
                 self.editions.append('Third')
-                Resource.r_count += 1
+                Resource.r_count_type[self.meta_r_type] += 1
 
 
 subjects = {
@@ -174,11 +181,11 @@ def get_random_resource(title_type: Literal['academic', 'fiction', 'non-fiction'
 
 class Copy:
     c_count = -1
-    def __init__(self, resource_number, date_acquired, floor_no, shelf_no, archived):
+    def __init__(self, resource_number, acquired_timestamp, floor_no, shelf_no, archived):
         Copy.c_count += 1
         self.id = Copy.c_count
         self.resource_number = resource_number
-        self.date_acquired = date_acquired
+        self.acquired_timestamp = acquired_timestamp
         self.floor_no = floor_no
         self.shelf_no = shelf_no
         self.archived = archived
@@ -191,11 +198,11 @@ def get_random_copy(resource_number, floor_no, base_shelf, base_datetime):
     else:
         shelf_no = base_shelf
     if random.randint(0, 1) == 1:
-        date_acquired = random_datetime(2012, 2023)
+        acquired_timestamp = random_datetime(2012, 2023)
     else:
-        date_acquired = base_datetime
+        acquired_timestamp = base_datetime
     archived = True if random.randint(0, 9) == 9 else False
-    return Copy(resource_number, date_acquired, floor_no, shelf_no, archived)
+    return Copy(resource_number, acquired_timestamp, floor_no, shelf_no, archived)
 
 
 def get_copies_of_resource(resource_number):
