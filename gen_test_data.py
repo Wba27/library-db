@@ -113,9 +113,9 @@ class Resource:
             self.media_length = random.randint(90, 240)
         self.class_no = class_no
         self.loan_type = loan_type
-        self.editions = ['First' if not self.academic else 'Paperback']
+        self.editions = ['First' if self.academic else 'Paperback']
         if random.randint(0, 3) == 3:
-            self.editions.append('Second' if not self.academic else 'Hardback')
+            self.editions.append('Second' if self.academic else 'Hardback')
             Resource.r_count_type[self.meta_r_type] += 1
             if not self.academic:
                 return

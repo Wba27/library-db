@@ -242,7 +242,7 @@ def insert_resource_text(
                     b.loan_type,
                     b.page_length
                 )
-                resource_text += copies_of_resource_text(b.id + e)
+                resource_text += copies_of_resource_text(b.id + e, 'B')
                 resource_text += insert_into_table(
                     'AuthorResource',
                     all_attribute_names(tables['AuthorResource']),
@@ -253,7 +253,7 @@ def insert_resource_text(
             if author_type == 'academic' and random.randint(0, 1) == 1:
                 coauthor = random.choice([a for a in authors if a is not author])
                 for e, edition in enumerate(b.editions):
-                    academic_author_text += insert_into_table(
+                    resource_text += insert_into_table(
                         'AuthorResource',
                         all_attribute_names(tables['AuthorResource']),
                         coauthor.id,
@@ -273,7 +273,7 @@ def insert_resource_text(
                 av.media_length,
                 av.resource_type
             )
-            resource_text += copies_of_resource_text(av.id)
+            resource_text += copies_of_resource_text(av.id, av.resource_type)
             resource_text += insert_into_table(
                 'AuthorResource',
                 all_attribute_names(tables['AuthorResource']),
