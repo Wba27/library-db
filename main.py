@@ -22,7 +22,8 @@ def main():
     print(f'Seed: {seed}, scale: {scale}')
     start_time = timeit.default_timer()
     gen_script(scale)
-    print(f'Done in {round((timeit.default_timer() - start_time) * 1000, 4)} ms')
+    end_time = timeit.default_timer()
+    print(f'Done in {round((end_time - start_time) * 1000, 4)} ms')
 
 
 if __name__ == '__main__':
