@@ -166,9 +166,9 @@ def insert_into_table(table_name: str, table_cols: list[str], *data):
 
 
 def insert_members_text():
-    undergrads = [get_random_human('member', 1998, 2006) for _ in range(15)]
-    postgrads = [get_random_human('member', 1989, 1999) for _ in range(15)]
-    staff = [get_random_human('member', 1968, 1995) for _ in range(15)]
+    undergrads = [get_random_human('member', 1998, 2006) for _ in range(scale * 3)]
+    postgrads = [get_random_human('member', 1989, 1999) for _ in range(scale * 3)]
+    staff = [get_random_human('member', 1968, 1995) for _ in range(scale * 3)]
     insert_members_text = '-- 2: INSERT MEMBERS --\n\n'
     for member in undergrads + postgrads + staff:
         insert_members_text += insert_into_table(
@@ -235,7 +235,9 @@ def insert_resource_text(
     ):
     resource_text = f'-- {e}: INSERT RESOURCES, COPIES: {author_type.upper()} --\n\n'
     for author in authors:
-        resources = [get_random_resource(author_type) for _ in range(weighted_random(1, 5, 2))]
+        resources = [
+            get_random_resource(author_type) for _ in range(weighted_random(1, scale, 2))
+        ]
         books = [r for r in resources if r.resource_type == 'B']
         av_media = [r for r in resources if r.resource_type != 'B']
         for b in books:
@@ -310,9 +312,9 @@ def insert_data(f: TextIOWrapper):
         write_files((f, mf), insert_members_text())
     with open(f'{PATH}3-insert-subjects.sql', 'w') as sf:
         write_files((f, sf), insert_subjects_text())
-    academic_authors = [get_random_human('author', 1940, 1990) for _ in range(5)]
-    fiction_authors = [get_random_human('author', 1940, 1990) for _ in range(5)]
-    non_fiction_authors = [get_random_human('author', 1940, 1990) for _ in range(5)]
+    academic_authors = [get_random_human('author', 1940, 1990) for _ in range(scale)]
+    fiction_authors = [get_random_human('author', 1940, 1990) for _ in range(scale)]
+    non_fiction_authors = [get_random_human('author', 1940, 1990) for _ in range(scale)]
     authors = academic_authors + fiction_authors + non_fiction_authors
     with open(f'{PATH}4-insert-authors.sql', 'w') as af:
         write_files((f, af), insert_author_text(authors))
@@ -326,7 +328,9 @@ def insert_data(f: TextIOWrapper):
             write_files((f, arf), author_text)
 
 
-def gen_script():
+def gen_script(_scale: int):
+    global scale
+    scale = _scale
     with open(f'{PATH}0-all-scripts.sql', 'w') as f:
         f.write('-- AUTO GEN SQL SCRIPT --\n\n')
         create_tables(f)
