@@ -7,6 +7,13 @@ import random
 from datetime import datetime, date
 from decimal import Decimal
 
+PATH = 'sql_scripts/'
+
+
+def write_files(f_list: tuple[TextIOWrapper], text: str):
+    for f in f_list:
+        f.write(text)
+
 
 def python_type_to_sql_type_text(t: type, l: int):
     if t is int:
@@ -101,21 +108,22 @@ def constrain_booleans_text(table, booleans: list[Attribute]):
 
 
 def create_tables(f: TextIOWrapper):
-    f.write('-- 1: CREATE TABLES --\n\n')
-    for table, attributes in tables.items():
-        f.write(f'CREATE TABLE {table}(\n')
-        for a in attributes:
-            f.write(f'\t{sql_column_from_attribute(a)}')
-            f.write(',\n' if a != attributes[-1] else '\n')
-        f.write(');\n\n')
-        if (foreign_keys := [a for a in attributes if a.foreign_key]):
-            f.write(foreign_keys_text(table, foreign_keys))
-        if (unique_keys := [a for a in attributes if a.unique]):
-            f.write(unique_keys_text(table, unique_keys))
-        if (check_constraints := [a for a in attributes if a.check]):
-            f.write(check_constraint_text(table, check_constraints))
-        if (booleans := [a for a in attributes if a.data_type is bool]):
-            f.write(constrain_booleans_text(table, booleans))
+    with open(f'{PATH}1-create-tables.txt', 'w') as cf:
+        write_files((f, cf), '-- 1: CREATE TABLES --\n\n')
+        for table, attributes in tables.items():
+            write_files((f, cf), f'CREATE TABLE {table}(\n')
+            for a in attributes:
+                write_files((f, cf), f'\t{sql_column_from_attribute(a)}')
+                write_files((f, cf), ',\n' if a != attributes[-1] else '\n')
+            write_files((f, cf), ');\n\n')
+            if (foreign_keys := [a for a in attributes if a.foreign_key]):
+                write_files((f, cf), foreign_keys_text(table, foreign_keys))
+            if (unique_keys := [a for a in attributes if a.unique]):
+                write_files((f, cf), unique_keys_text(table, unique_keys))
+            if (check_constraints := [a for a in attributes if a.check]):
+                write_files((f, cf), check_constraint_text(table, check_constraints))
+            if (booleans := [a for a in attributes if a.data_type is bool]):
+                write_files((f, cf), constrain_booleans_text(table, booleans))
 
 
 def required_attribute_names(attributes: list[Attribute]):
@@ -284,28 +292,35 @@ def insert_resource_text(
     return resource_text
 
 
-def insert_author_resource_text():
-    academic_authors = [get_random_human('author', 1940, 1990) for _ in range(5)]
-    fiction_authors = [get_random_human('author', 1940, 1990) for _ in range(5)]
-    non_fiction_authors = [get_random_human('author', 1940, 1990) for _ in range(5)]
-    authors = academic_authors + fiction_authors + non_fiction_authors
-    insert_author_resource_text = insert_author_text(authors)
-    author_types = ('academic', 'fiction', 'non-fiction')
-    zipped_authors = zip(author_types, 
-                         (academic_authors, fiction_authors, non_fiction_authors))
+def insert_author_resource_text(zipped_authors):
     for author_type, authors in zipped_authors:
-        insert_author_resource_text += insert_resource_text(author_type, authors)
-    return insert_author_resource_text
+        yield author_type, insert_resource_text(author_type, authors)
 
 
 def insert_data(f: TextIOWrapper):
     f.write('-- 2: INSERT DATA --\n\n')
-    for func in (insert_members_text, insert_subjects_text, insert_author_resource_text):
-        f.write(func())
+    with open(f'{PATH}2-insert-members.txt', 'w') as mf:
+        write_files((f, mf), insert_members_text())
+    with open(f'{PATH}3-insert-subjects.txt', 'w') as sf:
+        write_files((f, sf), insert_subjects_text())
+    academic_authors = [get_random_human('author', 1940, 1990) for _ in range(5)]
+    fiction_authors = [get_random_human('author', 1940, 1990) for _ in range(5)]
+    non_fiction_authors = [get_random_human('author', 1940, 1990) for _ in range(5)]
+    authors = academic_authors + fiction_authors + non_fiction_authors
+    with open(f'{PATH}4-insert-authors.txt', 'w') as af:
+        write_files((f, af), insert_author_text(authors))
+    author_types = ('academic', 'fiction', 'non-fiction')
+    zipped_authors = zip(author_types, 
+                         (academic_authors, fiction_authors, non_fiction_authors))
+    for e, (author_type, author_text) in enumerate(insert_author_resource_text(
+        zipped_authors
+    ), 5):
+        with open(f'{PATH}{e}-insert-resource-{author_type}.txt', 'w') as arf:
+            write_files((f, arf), author_text)
 
 
 def gen_script():
-    with open("library-db.txt", "w") as f:
+    with open(f'{PATH}0-all-scripts.txt', 'w') as f:
         f.write('-- AUTO GEN SQL SCRIPT --\n\n')
         create_tables(f)
         insert_data(f)
