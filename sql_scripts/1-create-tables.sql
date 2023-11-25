@@ -58,7 +58,7 @@ ADD CONSTRAINT AVMedia_MediaType_in
 	CHECK(MediaType IN ('D', 'C', 'V'));
 
 CREATE TABLE Copy(
-	Barcode INTEGER NOT NULL PRIMARY KEY,
+	BarcodeNumber INTEGER NOT NULL PRIMARY KEY,
 	BookNumber INTEGER NULL,
 	AVNumber INTEGER NULL,
 	AcquiredTimestamp TIMESTAMP NOT NULL,
@@ -123,7 +123,7 @@ ADD CONSTRAINT AuthorResource_xor
 	AND NOT (BookNumber IS NULL AND AVNumber IS NULL));
 
 CREATE TABLE Member(
-	LibraryCard INTEGER NOT NULL PRIMARY KEY,
+	LibraryCardNumber INTEGER NOT NULL PRIMARY KEY,
 	FirstName VARCHAR(255) NOT NULL,
 	LastName VARCHAR(255) NOT NULL,
 	Email VARCHAR(255) NOT NULL,
@@ -158,7 +158,7 @@ ADD CONSTRAINT fk_Loan_LoanedCopy
 ALTER TABLE Loan
 ADD CONSTRAINT fk_Loan_LoanedTo
 	FOREIGN KEY (LoanedTo)
-	REFERENCES Member(LibraryCard);
+	REFERENCES Member(LibraryCardNumber);
 
 ALTER TABLE Loan
 ADD CONSTRAINT Loan_unique UNIQUE (LoanedCopy, LoanedTo, LoanedTimestamp);
@@ -173,7 +173,7 @@ CREATE TABLE Offer(
 ALTER TABLE Offer
 ADD CONSTRAINT fk_Offer_OfferedCopy
 	FOREIGN KEY (OfferedCopy)
-	REFERENCES Copy(Barcode);
+	REFERENCES Copy(BarcodeNumber);
 
 ALTER TABLE Offer
 ADD CONSTRAINT Offer_Status_in
@@ -190,7 +190,7 @@ CREATE TABLE Fine(
 ALTER TABLE Fine
 ADD CONSTRAINT fk_Fine_FinedCopy
 	FOREIGN KEY (FinedCopy)
-	REFERENCES Copy(Barcode);
+	REFERENCES Copy(BarcodeNumber);
 
 ALTER TABLE Fine
 ADD CONSTRAINT fk_Fine_FineTo
@@ -223,19 +223,19 @@ ADD CONSTRAINT fk_Reservation_ReservedAVMedia
 ALTER TABLE Reservation
 ADD CONSTRAINT fk_Reservation_ReservedBy
 	FOREIGN KEY (ReservedBy)
-	REFERENCES Member(LibraryCard);
+	REFERENCES Member(LibraryCardNumber);
 
 ALTER TABLE Reservation
 ADD CONSTRAINT Reservation_unique UNIQUE (ReservedBook, ReservedAVMedia, ReservedBy, ReservedTimestamp);
 
 ALTER TABLE Reservation
-ADD CONSTRAINT Reservation_Resolution_in
-	CHECK(Resolution IN ('P', 'A', 'R'));
-
-ALTER TABLE Reservation
 ADD CONSTRAINT Reservation_xor
 	CHECK((ReservedBook IS NULL OR ReservedBy IS NULL)
 	AND NOT (ReservedBook IS NULL AND ReservedBy IS NULL));
+
+ALTER TABLE Reservation
+ADD CONSTRAINT Reservation_Resolution_in
+	CHECK(Resolution IN ('P', 'A', 'R'));
 
 CREATE TABLE MemberMaxLoans(
 	MemberType CHAR(1) NOT NULL,

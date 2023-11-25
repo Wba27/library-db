@@ -58,7 +58,7 @@ tables = {
                   check=Check(CHECK_TYPE.IN, ('D', 'C', 'V')))
     ],
     'Copy': [
-        Attribute('Barcode', int, primary_key=True),
+        Attribute('BarcodeNumber', int, primary_key=True),
         Attribute('BookNumber', int, foreign_key='Book.ResourceNumber', nullable=True,
                   check=Check(CHECK_TYPE.XOR)),
         Attribute('AVNumber', int, foreign_key='AVMedia.ResourceNumber', nullable=True,
@@ -82,7 +82,7 @@ tables = {
                   nullable=True, check=Check(CHECK_TYPE.XOR))
     ],
     'Member': [
-        Attribute('LibraryCard', int, primary_key=True),
+        Attribute('LibraryCardNumber', int, primary_key=True),
         Attribute('FirstName', str, data_length=255),
         Attribute('LastName', str, data_length=255),
         Attribute('Email', str, data_length=255, unique=True),
@@ -92,18 +92,18 @@ tables = {
     ],
     'Loan': [
         Attribute('LoanedCopy', int, foreign_key='Copy.Barcode', unique=True),
-        Attribute('LoanedTo', int, foreign_key='Member.LibraryCard', unique=True),
+        Attribute('LoanedTo', int, foreign_key='Member.LibraryCardNumber', unique=True),
         Attribute('LoanedTimestamp', datetime, unique=True),
         Attribute('ReturnedTimestamp', datetime, nullable=True)
     ],
     'Offer': [
         Attribute('ReservationNo', int, primary_key=True),
-        Attribute('OfferedCopy', int, foreign_key='Copy.Barcode'),
+        Attribute('OfferedCopy', int, foreign_key='Copy.BarcodeNumber'),
         Attribute('OfferedTimestamp', datetime),
         Attribute('Status', str, data_length=1, check=Check(CHECK_TYPE.IN, ('P', 'A', 'R')))
     ],
     'Fine': [
-        Attribute('FinedCopy', int, foreign_key='Copy.Barcode', unique=True),
+        Attribute('FinedCopy', int, foreign_key='Copy.BarcodeNumber', unique=True),
         Attribute('FineTo', int, foreign_key='Member.LibraryCard', unique=True),
         Attribute('FinedTimestamp', datetime, unique=True),
         Attribute('PaidTimestamp', datetime, nullable=True),
@@ -115,7 +115,7 @@ tables = {
                   unique=True, nullable=True, check=Check(CHECK_TYPE.XOR)),
         Attribute('ReservedAVMedia', int, 
                   foreign_key='AVMedia.ResourceNumber', unique=True, nullable=True),
-        Attribute('ReservedBy', int, foreign_key='Member.LibraryCard', unique=True,
+        Attribute('ReservedBy', int, foreign_key='Member.LibraryCardNumber', unique=True,
                   check=Check(CHECK_TYPE.XOR)),
         Attribute('ReservedTimestamp', datetime, unique=True),
         Attribute('ResolvedTimestamp', datetime, nullable=True),
