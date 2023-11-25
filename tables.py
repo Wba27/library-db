@@ -99,7 +99,7 @@ tables = {
     'Offer': [
         Attribute('ReservationNo', int, primary_key=True),
         Attribute('OfferedCopy', int, foreign_key='Copy.Barcode'),
-        Attribute('OfferedDate', datetime),
+        Attribute('OfferedTimestamp', datetime),
         Attribute('Status', str, data_length=1, check=Check(CHECK_TYPE.IN, ('P', 'A', 'R')))
     ],
     'Fine': [
