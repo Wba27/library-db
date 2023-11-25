@@ -13,7 +13,7 @@ def main():
     if '--scale' in sys.argv and '--scale' != sys.argv[-1]:
         scale_idx = sys.argv.index('--scale') + 1
         scale = sys.argv[scale_idx]
-        assert scale.isnumeric(), f"Bad scale argument {scale}"
+        assert scale.isnumeric(), f"Bad scale argument: '{scale}'"
         scale = int(scale)
     else:
         scale = 5
