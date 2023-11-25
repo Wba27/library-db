@@ -1,4 +1,4 @@
--- INSERT MEMBERS --
+-- 2: INSERT MEMBERS --
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)

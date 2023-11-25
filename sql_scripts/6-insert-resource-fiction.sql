@@ -1,4 +1,4 @@
--- INSERT RESOURCES, COPIES: FICTION --
+-- 6: INSERT RESOURCES, COPIES: FICTION --
 
 INSERT INTO Book
 (ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)

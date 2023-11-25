@@ -1,4 +1,4 @@
--- INSERT RESOURCES, COPIES: ACADEMIC --
+-- 5: INSERT RESOURCES, COPIES: ACADEMIC --
 
 INSERT INTO Book
 (ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)

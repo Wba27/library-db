@@ -231,13 +231,13 @@ ALTER TABLE Reservation
 ADD CONSTRAINT Reservation_unique UNIQUE (ReservedBook, ReservedAVMedia, ReservedBy, ReservedTimestamp);
 
 ALTER TABLE Reservation
-ADD CONSTRAINT Reservation_Resolution_in
-	CHECK(Resolution IN ('P', 'A', 'R'));
-
-ALTER TABLE Reservation
 ADD CONSTRAINT Reservation_xor
 	CHECK((ReservedBook IS NULL OR ReservedBy IS NULL)
 	AND NOT (ReservedBook IS NULL AND ReservedBy IS NULL));
+
+ALTER TABLE Reservation
+ADD CONSTRAINT Reservation_Resolution_in
+	CHECK(Resolution IN ('P', 'A', 'R'));
 
 CREATE TABLE MemberMaxLoans(
 	MemberType CHAR(1) NOT NULL,
@@ -251,9 +251,9 @@ ALTER TABLE MemberMaxLoans
 ADD CONSTRAINT MemberMaxLoans_MemberType_in
 	CHECK(MemberType IN ('S', 'T'));
 
--- 2: INSERT DATA --
+-- INSERT DATA --
 
--- INSERT MEMBERS --
+-- 2: INSERT MEMBERS --
 
 INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
@@ -435,7 +435,7 @@ INSERT INTO Member
 (LibraryCard, FirstName, LastName, Email, DOB, MemberType)
 VALUES (44, 'Anya', 'Butler', 'Anya.Butler44@qmul.ac.uk', To_Date('1981/9/2', 'yyyy/mm/dd'), 'T');
 
--- INSERT SUBJECTS --
+-- 3: INSERT SUBJECTS --
 
 INSERT INTO Subject
 (ClassNo, SubjectName)
@@ -505,7 +505,7 @@ INSERT INTO Subject
 (ClassNo, SubjectName)
 VALUES (16, 'Geography');
 
--- INSERT AUTHORS --
+-- 4: INSERT AUTHORS --
 
 INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
@@ -567,7 +567,7 @@ INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
 VALUES (14, 'Boris', 'Ramos', To_Date('1955/10/7', 'yyyy/mm/dd'));
 
--- INSERT RESOURCES, COPIES: ACADEMIC --
+-- 5: INSERT RESOURCES, COPIES: ACADEMIC --
 
 INSERT INTO Book
 (ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)
@@ -825,7 +825,7 @@ INSERT INTO AuthorResource
 (AuthorNumber, BookNumber, AVNumber)
 VALUES (4, 12, NULL);
 
--- INSERT RESOURCES, COPIES: FICTION --
+-- 6: INSERT RESOURCES, COPIES: FICTION --
 
 INSERT INTO Book
 (ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)
@@ -1027,7 +1027,7 @@ INSERT INTO AuthorResource
 (AuthorNumber, BookNumber, AVNumber)
 VALUES (9, 20, NULL);
 
--- INSERT RESOURCES, COPIES: NON-FICTION --
+-- 7: INSERT RESOURCES, COPIES: NON-FICTION --
 
 INSERT INTO Book
 (ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)

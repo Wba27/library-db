@@ -108,7 +108,7 @@ def constrain_booleans_text(table, booleans: list[Attribute]):
 
 
 def create_tables(f: TextIOWrapper):
-    with open(f'{PATH}1-create-tables.txt', 'w') as cf:
+    with open(f'{PATH}1-create-tables.sql', 'w') as cf:
         write_files((f, cf), '-- 1: CREATE TABLES --\n\n')
         for table, attributes in tables.items():
             write_files((f, cf), f'CREATE TABLE {table}(\n')
@@ -169,7 +169,7 @@ def insert_members_text():
     undergrads = [get_random_human('member', 1998, 2006) for _ in range(15)]
     postgrads = [get_random_human('member', 1989, 1999) for _ in range(15)]
     staff = [get_random_human('member', 1968, 1995) for _ in range(15)]
-    insert_members_text = '-- INSERT MEMBERS --\n\n'
+    insert_members_text = '-- 2: INSERT MEMBERS --\n\n'
     for member in undergrads + postgrads + staff:
         insert_members_text += insert_into_table(
             'Member', 
@@ -185,7 +185,7 @@ def insert_members_text():
 
 
 def insert_subjects_text():
-    subjects_text = '-- INSERT SUBJECTS --\n\n'
+    subjects_text = '-- 3: INSERT SUBJECTS --\n\n'
     for e, s in enumerate(subjects.keys()):
         subjects_text += insert_into_table(
             'Subject',
@@ -197,7 +197,7 @@ def insert_subjects_text():
 
 
 def insert_author_text(authors):
-    authors_text = '-- INSERT AUTHORS --\n\n'
+    authors_text = '-- 4: INSERT AUTHORS --\n\n'
     for author in authors:
         authors_text += insert_into_table(
             'Author',
@@ -230,9 +230,10 @@ def copies_of_resource_text(resource_number: int, resource_type: str):
 
 def insert_resource_text(
         author_type: Literal['academic', 'fiction', 'non-fiction'], 
-        authors: list[Human]
+        authors: list[Human],
+        e: int
     ):
-    resource_text = f'-- INSERT RESOURCES, COPIES: {author_type.upper()} --\n\n'
+    resource_text = f'-- {e}: INSERT RESOURCES, COPIES: {author_type.upper()} --\n\n'
     for author in authors:
         resources = [get_random_resource(author_type) for _ in range(weighted_random(1, 5, 2))]
         books = [r for r in resources if r.resource_type == 'B']
@@ -294,20 +295,26 @@ def insert_resource_text(
 
 def insert_author_resource_text(zipped_authors):
     for author_type, authors in zipped_authors:
-        yield author_type, insert_resource_text(author_type, authors)
+        if author_type == 'academic':
+            e = 5
+        elif author_type == 'fiction':
+            e = 6
+        else:
+            e = 7
+        yield author_type, insert_resource_text(author_type, authors, e)
 
 
 def insert_data(f: TextIOWrapper):
-    f.write('-- 2: INSERT DATA --\n\n')
-    with open(f'{PATH}2-insert-members.txt', 'w') as mf:
+    f.write('-- INSERT DATA --\n\n')
+    with open(f'{PATH}2-insert-members.sql', 'w') as mf:
         write_files((f, mf), insert_members_text())
-    with open(f'{PATH}3-insert-subjects.txt', 'w') as sf:
+    with open(f'{PATH}3-insert-subjects.sql', 'w') as sf:
         write_files((f, sf), insert_subjects_text())
     academic_authors = [get_random_human('author', 1940, 1990) for _ in range(5)]
     fiction_authors = [get_random_human('author', 1940, 1990) for _ in range(5)]
     non_fiction_authors = [get_random_human('author', 1940, 1990) for _ in range(5)]
     authors = academic_authors + fiction_authors + non_fiction_authors
-    with open(f'{PATH}4-insert-authors.txt', 'w') as af:
+    with open(f'{PATH}4-insert-authors.sql', 'w') as af:
         write_files((f, af), insert_author_text(authors))
     author_types = ('academic', 'fiction', 'non-fiction')
     zipped_authors = zip(author_types, 
@@ -315,12 +322,12 @@ def insert_data(f: TextIOWrapper):
     for e, (author_type, author_text) in enumerate(insert_author_resource_text(
         zipped_authors
     ), 5):
-        with open(f'{PATH}{e}-insert-resource-{author_type}.txt', 'w') as arf:
+        with open(f'{PATH}{e}-insert-resource-{author_type}.sql', 'w') as arf:
             write_files((f, arf), author_text)
 
 
 def gen_script():
-    with open(f'{PATH}0-all-scripts.txt', 'w') as f:
+    with open(f'{PATH}0-all-scripts.sql', 'w') as f:
         f.write('-- AUTO GEN SQL SCRIPT --\n\n')
         create_tables(f)
         insert_data(f)

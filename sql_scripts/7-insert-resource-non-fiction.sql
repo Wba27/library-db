@@ -1,4 +1,4 @@
--- INSERT RESOURCES, COPIES: NON-FICTION --
+-- 7: INSERT RESOURCES, COPIES: NON-FICTION --
 
 INSERT INTO Book
 (ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)

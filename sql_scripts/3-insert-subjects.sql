@@ -1,4 +1,4 @@
--- INSERT SUBJECTS --
+-- 3: INSERT SUBJECTS --
 
 INSERT INTO Subject
 (ClassNo, SubjectName)

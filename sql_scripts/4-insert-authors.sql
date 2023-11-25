@@ -1,4 +1,4 @@
--- INSERT AUTHORS --
+-- 4: INSERT AUTHORS --
 
 INSERT INTO Author
 (AuthorNumber, FirstName, LastName, DOB)
