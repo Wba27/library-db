@@ -262,10 +262,10 @@ def insert_resource_text(
                     required_attribute_names(tables['Book']),
                     b.id + e,
                     b.title,
-                    edition,
                     b.date_published,
                     b.class_no,
                     b.loan_type,
+                    edition,
                     b.page_length
                 )
                 resource_text += copies_of_resource_text(b.id + e, 'B')
@@ -292,7 +292,6 @@ def insert_resource_text(
                 required_attribute_names(tables['AVMedia']),
                 av.id,
                 av.title,
-                'Standard',
                 av.date_published,
                 av.class_no,
                 av.loan_type,

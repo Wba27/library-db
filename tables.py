@@ -38,17 +38,16 @@ tables = {
     'Book': [
         Attribute('ResourceNumber', int, primary_key=True),
         Attribute('Title', str, data_length=255, unique=True),
-        Attribute('Edition', str, data_length=255, unique=True),
         Attribute('DatePublished', date, unique=True),
         Attribute('ClassNo', int, foreign_key='Subject'),
         Attribute('LoanType', str, data_length=1, 
                   check=Check(CHECK_TYPE.IN, ('L', 'S', 'N'))),
+        Attribute('Edition', str, data_length=255, unique=True),
         Attribute('PageLength', int)
     ],
     'AVMedia': [
         Attribute('ResourceNumber', int, primary_key=True),
         Attribute('Title', str, data_length=255, unique=True),
-        Attribute('Edition', str, data_length=255, unique=True),
         Attribute('DatePublished', date, unique=True),
         Attribute('ClassNo', int, foreign_key='Subject'),
         Attribute('LoanType', str, data_length=1, 
@@ -91,7 +90,7 @@ tables = {
         Attribute('Suspended', bool, default=False)
     ],
     'Loan': [
-        Attribute('LoanedCopy', int, foreign_key='Copy.Barcode', unique=True),
+        Attribute('LoanedCopy', int, foreign_key='Copy.BarcodeNumber', unique=True),
         Attribute('LoanedTo', int, foreign_key='Member.LibraryCardNumber', unique=True),
         Attribute('LoanedTimestamp', datetime, unique=True),
         Attribute('ReturnedTimestamp', datetime, nullable=True)
@@ -104,7 +103,7 @@ tables = {
     ],
     'Fine': [
         Attribute('FinedCopy', int, foreign_key='Copy.BarcodeNumber', unique=True),
-        Attribute('FineTo', int, foreign_key='Member.LibraryCard', unique=True),
+        Attribute('FineTo', int, foreign_key='Member.LibraryCardNumber', unique=True),
         Attribute('FinedTimestamp', datetime, unique=True),
         Attribute('PaidTimestamp', datetime, nullable=True),
         Attribute('FineAmount', Decimal)
