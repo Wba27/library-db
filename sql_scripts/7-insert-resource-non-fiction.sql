@@ -2,23 +2,23 @@
 
 INSERT INTO Book
 (ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)
-VALUES (21, 'Karaoke: a dark truth', 'Paperback', To_Date('1999/4/18', 'yyyy/mm/dd'), 1, 'L', 429);
+VALUES (21, 'The Vietnam War and pancakes', 'Paperback', To_Date('2006/5/21', 'yyyy/mm/dd'), 1, 'L', 638);
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (63, 21, NULL, To_Timestamp('2017/10/20 9:55:42', 'YYYY/MM/DD HH24:MI:SS'), 1, 5, 'N');
+VALUES (76, 21, NULL, To_Timestamp('2023/8/28 11:47:8', 'YYYY/MM/DD HH24:MI:SS'), 2, 6, 'N');
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (64, 21, NULL, To_Timestamp('2017/10/20 9:55:42', 'YYYY/MM/DD HH24:MI:SS'), 1, 5, 'N');
+VALUES (77, 21, NULL, To_Timestamp('2017/1/28 16:22:56', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (65, 21, NULL, To_Timestamp('2023/10/27 13:44:47', 'YYYY/MM/DD HH24:MI:SS'), 1, 5, 'N');
+VALUES (78, 21, NULL, To_Timestamp('2023/8/28 11:47:8', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (66, 21, NULL, To_Timestamp('2017/10/20 9:55:42', 'YYYY/MM/DD HH24:MI:SS'), 1, 4, 'N');
+VALUES (79, 21, NULL, To_Timestamp('2023/8/28 11:47:8', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, BookNumber, AVNumber)
@@ -26,119 +26,143 @@ VALUES (10, 21, NULL);
 
 INSERT INTO Book
 (ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)
-VALUES (22, 'Serial killers and other such things', 'Paperback', To_Date('2014/4/7', 'yyyy/mm/dd'), 1, 'L', 416);
+VALUES (22, 'The Vietnam War and pancakes', 'Hardback', To_Date('2006/5/21', 'yyyy/mm/dd'), 1, 'L', 638);
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (67, 22, NULL, To_Timestamp('2015/6/19 19:41:5', 'YYYY/MM/DD HH24:MI:SS'), 2, 6, 'Y');
+VALUES (80, 22, NULL, To_Timestamp('2014/12/23 15:9:18', 'YYYY/MM/DD HH24:MI:SS'), 2, 11, 'N');
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (68, 22, NULL, To_Timestamp('2015/6/19 19:41:5', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
+VALUES (81, 22, NULL, To_Timestamp('2021/6/22 15:25:43', 'YYYY/MM/DD HH24:MI:SS'), 2, 11, 'N');
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (69, 22, NULL, To_Timestamp('2015/6/19 19:41:5', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
+VALUES (82, 22, NULL, To_Timestamp('2015/10/27 17:17:35', 'YYYY/MM/DD HH24:MI:SS'), 2, 11, 'N');
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (70, 22, NULL, To_Timestamp('2022/6/9 20:12:44', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
+VALUES (83, 22, NULL, To_Timestamp('2023/4/19 16:30:9', 'YYYY/MM/DD HH24:MI:SS'), 2, 11, 'Y');
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (71, 22, NULL, To_Timestamp('2015/6/29 13:41:9', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
+VALUES (84, 22, NULL, To_Timestamp('2016/12/11 19:18:53', 'YYYY/MM/DD HH24:MI:SS'), 2, 11, 'Y');
 
 INSERT INTO AuthorResource
 (AuthorNumber, BookNumber, AVNumber)
-VALUES (11, 22, NULL);
+VALUES (10, 22, NULL);
 
 INSERT INTO Book
 (ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)
-VALUES (23, 'Karaoke and Paris', 'Paperback', To_Date('2020/12/30', 'yyyy/mm/dd'), 1, 'L', 609);
+VALUES (23, 'Everything you wanted to know about earthquakes', 'Paperback', To_Date('1998/3/16', 'yyyy/mm/dd'), 1, 'S', 626);
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (72, 23, NULL, To_Timestamp('2016/11/13 18:49:12', 'YYYY/MM/DD HH24:MI:SS'), 1, 14, 'N');
+VALUES (85, 23, NULL, To_Timestamp('2012/4/28 17:59:23', 'YYYY/MM/DD HH24:MI:SS'), 3, 13, 'N');
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (73, 23, NULL, To_Timestamp('2013/10/30 17:2:40', 'YYYY/MM/DD HH24:MI:SS'), 1, 15, 'N');
+VALUES (86, 23, NULL, To_Timestamp('2023/4/17 17:18:20', 'YYYY/MM/DD HH24:MI:SS'), 3, 13, 'Y');
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (74, 23, NULL, To_Timestamp('2013/10/30 17:2:40', 'YYYY/MM/DD HH24:MI:SS'), 1, 14, 'N');
+VALUES (87, 23, NULL, To_Timestamp('2022/7/17 12:10:40', 'YYYY/MM/DD HH24:MI:SS'), 3, 13, 'N');
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (75, 23, NULL, To_Timestamp('2012/8/26 14:24:26', 'YYYY/MM/DD HH24:MI:SS'), 1, 14, 'N');
-
-INSERT INTO Copy
-(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (76, 23, NULL, To_Timestamp('2018/11/19 16:18:32', 'YYYY/MM/DD HH24:MI:SS'), 1, 14, 'N');
+VALUES (88, 23, NULL, To_Timestamp('2019/9/22 11:55:45', 'YYYY/MM/DD HH24:MI:SS'), 3, 13, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, BookNumber, AVNumber)
-VALUES (11, 23, NULL);
+VALUES (10, 23, NULL);
 
-INSERT INTO Book
-(ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)
-VALUES (24, 'Karaoke and Paris', 'Hardback', To_Date('2020/12/30', 'yyyy/mm/dd'), 1, 'L', 609);
-
-INSERT INTO Copy
-(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (77, 24, NULL, To_Timestamp('2023/8/28 11:47:8', 'YYYY/MM/DD HH24:MI:SS'), 2, 6, 'N');
+INSERT INTO AVMedia
+(ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, MediaLength, MediaType)
+VALUES (2, 'SEO and boxing', 'Standard', To_Date('2000/2/25', 'yyyy/mm/dd'), 1, 'L', 229, 'C');
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (78, 24, NULL, To_Timestamp('2017/1/28 16:22:56', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
+VALUES (89, NULL, 2, To_Timestamp('2022/4/8 13:52:55', 'YYYY/MM/DD HH24:MI:SS'), 1, 15, 'Y');
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (79, 24, NULL, To_Timestamp('2023/8/28 11:47:8', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
+VALUES (90, NULL, 2, To_Timestamp('2022/4/8 13:52:55', 'YYYY/MM/DD HH24:MI:SS'), 1, 14, 'N');
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (80, 24, NULL, To_Timestamp('2023/8/28 11:47:8', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
+VALUES (91, NULL, 2, To_Timestamp('2013/1/4 13:9:42', 'YYYY/MM/DD HH24:MI:SS'), 1, 14, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, BookNumber, AVNumber)
-VALUES (11, 24, NULL);
+VALUES (10, NULL, 2);
 
-INSERT INTO Book
-(ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)
-VALUES (25, 'Inaya Picard: a Biography', 'Paperback', To_Date('2013/5/29', 'yyyy/mm/dd'), 1, 'L', 496);
-
-INSERT INTO Copy
-(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (81, 25, NULL, To_Timestamp('2014/8/20 14:42:26', 'YYYY/MM/DD HH24:MI:SS'), 2, 4, 'N');
+INSERT INTO AVMedia
+(ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, MediaLength, MediaType)
+VALUES (4, 'Connor Stewart: a Biography', 'Standard', To_Date('1992/12/20', 'yyyy/mm/dd'), 1, 'L', 197, 'V');
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (82, 25, NULL, To_Timestamp('2023/4/19 16:30:9', 'YYYY/MM/DD HH24:MI:SS'), 2, 3, 'Y');
+VALUES (92, NULL, 4, To_Timestamp('2016/10/21 19:53:39', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (83, 25, NULL, To_Timestamp('2016/12/11 19:18:53', 'YYYY/MM/DD HH24:MI:SS'), 2, 3, 'Y');
-
-INSERT INTO Copy
-(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (84, 25, NULL, To_Timestamp('2014/8/20 14:42:26', 'YYYY/MM/DD HH24:MI:SS'), 2, 4, 'N');
+VALUES (93, NULL, 4, To_Timestamp('2016/10/21 19:53:39', 'YYYY/MM/DD HH24:MI:SS'), 2, 4, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, BookNumber, AVNumber)
-VALUES (12, 25, NULL);
+VALUES (11, NULL, 4);
 
 INSERT INTO Book
 (ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)
-VALUES (26, 'Dangerous predators and the Great Wall of China', 'Paperback', To_Date('1994/2/17', 'yyyy/mm/dd'), 1, 'L', 617);
+VALUES (24, 'Diving deeper into the Bible', 'Paperback', To_Date('1987/5/26', 'yyyy/mm/dd'), 1, 'S', 275);
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (85, 26, NULL, To_Timestamp('2015/4/10 14:38:27', 'YYYY/MM/DD HH24:MI:SS'), 3, 13, 'N');
+VALUES (94, 24, NULL, To_Timestamp('2021/2/25 19:40:14', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (86, 26, NULL, To_Timestamp('2015/4/10 14:38:27', 'YYYY/MM/DD HH24:MI:SS'), 3, 13, 'N');
+VALUES (95, 24, NULL, To_Timestamp('2013/5/31 16:9:26', 'YYYY/MM/DD HH24:MI:SS'), 2, 4, 'N');
+
+INSERT INTO Copy
+(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
+VALUES (96, 24, NULL, To_Timestamp('2019/2/27 19:36:7', 'YYYY/MM/DD HH24:MI:SS'), 2, 4, 'N');
+
+INSERT INTO AuthorResource
+(AuthorNumber, BookNumber, AVNumber)
+VALUES (12, 24, NULL);
+
+INSERT INTO Book
+(ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)
+VALUES (25, 'What we learned from the Internet', 'Paperback', To_Date('2020/9/7', 'yyyy/mm/dd'), 1, 'L', 493);
+
+INSERT INTO Copy
+(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
+VALUES (97, 25, NULL, To_Timestamp('2017/11/17 20:30:14', 'YYYY/MM/DD HH24:MI:SS'), 2, 5, 'N');
+
+INSERT INTO Copy
+(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
+VALUES (98, 25, NULL, To_Timestamp('2021/3/29 17:26:15', 'YYYY/MM/DD HH24:MI:SS'), 2, 4, 'N');
+
+INSERT INTO AuthorResource
+(AuthorNumber, BookNumber, AVNumber)
+VALUES (13, 25, NULL);
+
+INSERT INTO Book
+(ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)
+VALUES (26, 'Sharon Khalid: the Untold tales', 'Paperback', To_Date('1980/4/23', 'yyyy/mm/dd'), 1, 'L', 243);
+
+INSERT INTO Copy
+(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
+VALUES (99, 26, NULL, To_Timestamp('2021/10/2 11:39:16', 'YYYY/MM/DD HH24:MI:SS'), 1, 10, 'N');
+
+INSERT INTO Copy
+(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
+VALUES (100, 26, NULL, To_Timestamp('2021/10/2 11:39:16', 'YYYY/MM/DD HH24:MI:SS'), 1, 10, 'N');
+
+INSERT INTO Copy
+(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
+VALUES (101, 26, NULL, To_Timestamp('2021/10/2 11:39:16', 'YYYY/MM/DD HH24:MI:SS'), 1, 10, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, BookNumber, AVNumber)
@@ -146,89 +170,69 @@ VALUES (13, 26, NULL);
 
 INSERT INTO Book
 (ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)
-VALUES (27, 'The dark ages - a guide', 'Paperback', To_Date('2019/4/26', 'yyyy/mm/dd'), 1, 'S', 237);
+VALUES (27, 'Sharon Khalid: the Untold tales', 'Hardback', To_Date('1980/4/23', 'yyyy/mm/dd'), 1, 'L', 243);
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (87, 27, NULL, To_Timestamp('2013/5/5 19:13:20', 'YYYY/MM/DD HH24:MI:SS'), 1, 1, 'N');
+VALUES (102, 27, NULL, To_Timestamp('2021/9/6 19:35:22', 'YYYY/MM/DD HH24:MI:SS'), 1, 3, 'N');
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (88, 27, NULL, To_Timestamp('2013/5/5 19:13:20', 'YYYY/MM/DD HH24:MI:SS'), 1, 1, 'Y');
+VALUES (103, 27, NULL, To_Timestamp('2015/12/6 9:53:3', 'YYYY/MM/DD HH24:MI:SS'), 1, 3, 'N');
 
 INSERT INTO AuthorResource
 (AuthorNumber, BookNumber, AVNumber)
 VALUES (13, 27, NULL);
 
+INSERT INTO AVMedia
+(ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, MediaLength, MediaType)
+VALUES (5, 'Finding out about the BBC', 'Standard', To_Date('2007/8/2', 'yyyy/mm/dd'), 1, 'L', 143, 'D');
+
+INSERT INTO Copy
+(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
+VALUES (104, NULL, 5, To_Timestamp('2014/9/12 20:48:34', 'YYYY/MM/DD HH24:MI:SS'), 2, 9, 'N');
+
+INSERT INTO Copy
+(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
+VALUES (105, NULL, 5, To_Timestamp('2018/6/25 12:45:43', 'YYYY/MM/DD HH24:MI:SS'), 2, 9, 'N');
+
+INSERT INTO Copy
+(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
+VALUES (106, NULL, 5, To_Timestamp('2014/4/7 18:55:9', 'YYYY/MM/DD HH24:MI:SS'), 2, 9, 'N');
+
+INSERT INTO Copy
+(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
+VALUES (107, NULL, 5, To_Timestamp('2014/10/27 9:15:57', 'YYYY/MM/DD HH24:MI:SS'), 2, 9, 'N');
+
+INSERT INTO AuthorResource
+(AuthorNumber, BookNumber, AVNumber)
+VALUES (13, NULL, 5);
+
 INSERT INTO Book
 (ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)
-VALUES (28, 'Akito Ocasio: A Life Story', 'Paperback', To_Date('2020/11/27', 'yyyy/mm/dd'), 1, 'S', 327);
+VALUES (28, 'Fencing - a guide', 'Paperback', To_Date('2019/10/2', 'yyyy/mm/dd'), 1, 'S', 425);
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (89, 28, NULL, To_Timestamp('2013/5/31 16:9:26', 'YYYY/MM/DD HH24:MI:SS'), 2, 7, 'N');
+VALUES (108, 28, NULL, To_Timestamp('2019/12/17 14:58:43', 'YYYY/MM/DD HH24:MI:SS'), 3, 15, 'Y');
 
 INSERT INTO Copy
 (Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (90, 28, NULL, To_Timestamp('2014/5/20 10:49:40', 'YYYY/MM/DD HH24:MI:SS'), 2, 7, 'N');
+VALUES (109, 28, NULL, To_Timestamp('2013/8/26 13:26:55', 'YYYY/MM/DD HH24:MI:SS'), 3, 14, 'N');
+
+INSERT INTO Copy
+(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
+VALUES (110, 28, NULL, To_Timestamp('2021/9/5 16:9:20', 'YYYY/MM/DD HH24:MI:SS'), 3, 15, 'N');
+
+INSERT INTO Copy
+(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
+VALUES (111, 28, NULL, To_Timestamp('2022/7/28 16:52:35', 'YYYY/MM/DD HH24:MI:SS'), 3, 15, 'N');
+
+INSERT INTO Copy
+(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
+VALUES (112, 28, NULL, To_Timestamp('2018/12/23 12:15:23', 'YYYY/MM/DD HH24:MI:SS'), 3, 15, 'Y');
 
 INSERT INTO AuthorResource
 (AuthorNumber, BookNumber, AVNumber)
 VALUES (14, 28, NULL);
-
-INSERT INTO Book
-(ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)
-VALUES (29, 'A closer look at polar bears', 'Paperback', To_Date('2017/6/21', 'yyyy/mm/dd'), 1, 'L', 377);
-
-INSERT INTO Copy
-(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (91, 29, NULL, To_Timestamp('2012/5/18 14:27:21', 'YYYY/MM/DD HH24:MI:SS'), 1, 13, 'N');
-
-INSERT INTO Copy
-(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (92, 29, NULL, To_Timestamp('2012/5/18 14:27:21', 'YYYY/MM/DD HH24:MI:SS'), 1, 14, 'N');
-
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (14, 29, NULL);
-
-INSERT INTO Book
-(ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)
-VALUES (30, 'A closer look at polar bears', 'Hardback', To_Date('2017/6/21', 'yyyy/mm/dd'), 1, 'L', 377);
-
-INSERT INTO Copy
-(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (93, 30, NULL, To_Timestamp('2023/1/31 20:58:24', 'YYYY/MM/DD HH24:MI:SS'), 2, 10, 'N');
-
-INSERT INTO Copy
-(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (94, 30, NULL, To_Timestamp('2020/7/12 9:58:12', 'YYYY/MM/DD HH24:MI:SS'), 2, 10, 'Y');
-
-INSERT INTO Copy
-(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (95, 30, NULL, To_Timestamp('2016/1/27 15:19:40', 'YYYY/MM/DD HH24:MI:SS'), 2, 10, 'N');
-
-INSERT INTO Copy
-(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (96, 30, NULL, To_Timestamp('2022/9/23 16:14:13', 'YYYY/MM/DD HH24:MI:SS'), 2, 9, 'N');
-
-INSERT INTO Copy
-(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (97, 30, NULL, To_Timestamp('2020/7/11 16:38:11', 'YYYY/MM/DD HH24:MI:SS'), 2, 10, 'N');
-
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (14, 30, NULL);
-
-INSERT INTO Book
-(ResourceNumber, Title, Edition, DatePublished, ClassNo, LoanType, PageLength)
-VALUES (31, 'Raising a family: weird but true', 'Paperback', To_Date('1990/6/14', 'yyyy/mm/dd'), 1, 'S', 685);
-
-INSERT INTO Copy
-(Barcode, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
-VALUES (98, 31, NULL, To_Timestamp('2022/6/8 19:59:2', 'YYYY/MM/DD HH24:MI:SS'), 2, 4, 'N');
-
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (14, 31, NULL);
 

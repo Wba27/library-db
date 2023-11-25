@@ -161,7 +161,7 @@ def custom_subject_no(title: str):
 def get_random_resource(title_type: Literal['academic', 'fiction', 'non-fiction']):
     title = random_resource(title_type)
     date_published = random_date(1980, 2023)
-    if random.randint(0, 3) >= 1:
+    if random.randint(0, 5) >= 2:
         res_type = 'B'
     else:
         res_type = random.choice(('D', 'C', 'V'))

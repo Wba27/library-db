@@ -271,7 +271,7 @@ def insert_resource_text(
                     )
         for av in av_media:
             resource_text += insert_into_table(
-                'Book',
+                'AVMedia',
                 required_attribute_names(tables['AVMedia']),
                 av.id,
                 av.title,
