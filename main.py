@@ -1,15 +1,17 @@
 from gen_script import gen_script
 import random
 import sys
+import timeit
 
 
 def main():
     if '-r' not in sys.argv:
         if '--seed' in sys.argv and '--seed' != sys.argv[-1]:
             seed_idx = sys.argv.index('--seed') + 1
-            random.seed(sys.argv[seed_idx])
+            seed = sys.argv[seed_idx]
         else:
-            random.seed('library-db')
+            seed = 'library-db'
+        random.seed(seed)
     if '--scale' in sys.argv and '--scale' != sys.argv[-1]:
         scale_idx = sys.argv.index('--scale') + 1
         scale = sys.argv[scale_idx]
@@ -17,7 +19,10 @@ def main():
         scale = int(scale)
     else:
         scale = 5
+    print(f'Seed: {seed}, scale: {scale}')
+    start_time = timeit.default_timer()
     gen_script(scale)
+    print(f'Done in {round((timeit.default_timer() - start_time) * 1000, 4)} ms')
 
 
 if __name__ == '__main__':

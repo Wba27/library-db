@@ -10,7 +10,9 @@ from decimal import Decimal
 PATH = 'sql_scripts/'
 
 
-def write_files(f_list: tuple[TextIOWrapper], text: str):
+def write_files(f_list: tuple[TextIOWrapper], text: str, msg: str = None):
+    if msg:
+        print(msg)
     for f in f_list:
         f.write(text)
 
@@ -109,7 +111,7 @@ def constrain_booleans_text(table, booleans: list[Attribute]):
 
 def create_tables(f: TextIOWrapper):
     with open(f'{PATH}1-create-tables.sql', 'w') as cf:
-        write_files((f, cf), '-- 1: CREATE TABLES --\n\n')
+        write_files((f, cf), '-- 1: CREATE TABLES --\n\n', 'Creating tables...')
         for table, attributes in tables.items():
             write_files((f, cf), f'CREATE TABLE {table}(\n')
             for a in attributes:
@@ -309,15 +311,15 @@ def insert_author_resource_text(zipped_authors):
 def insert_data(f: TextIOWrapper):
     f.write('-- INSERT DATA --\n\n')
     with open(f'{PATH}2-insert-members.sql', 'w') as mf:
-        write_files((f, mf), insert_members_text())
+        write_files((f, mf), insert_members_text(), 'Inserting members...')
     with open(f'{PATH}3-insert-subjects.sql', 'w') as sf:
-        write_files((f, sf), insert_subjects_text())
+        write_files((f, sf), insert_subjects_text(), 'Inserting subjects...')
     academic_authors = [get_random_human('author', 1940, 1990) for _ in range(scale)]
     fiction_authors = [get_random_human('author', 1940, 1990) for _ in range(scale)]
     non_fiction_authors = [get_random_human('author', 1940, 1990) for _ in range(scale)]
     authors = academic_authors + fiction_authors + non_fiction_authors
     with open(f'{PATH}4-insert-authors.sql', 'w') as af:
-        write_files((f, af), insert_author_text(authors))
+        write_files((f, af), insert_author_text(authors), 'Inserting authors...')
     author_types = ('academic', 'fiction', 'non-fiction')
     zipped_authors = zip(author_types, 
                          (academic_authors, fiction_authors, non_fiction_authors))
@@ -325,7 +327,7 @@ def insert_data(f: TextIOWrapper):
         zipped_authors
     ), 5):
         with open(f'{PATH}{e}-insert-resource-{author_type}.sql', 'w') as arf:
-            write_files((f, arf), author_text)
+            write_files((f, arf), author_text, f'Inserting {author_type} resources...')
 
 
 def gen_script(_scale: int):
