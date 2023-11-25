@@ -251,6 +251,16 @@ ALTER TABLE MemberMaxLoans
 ADD CONSTRAINT MemberMaxLoans_MemberType_in
 	CHECK(MemberType IN ('S', 'T'));
 
+-- INSERT MAX LOANS --
+
+INSERT INTO MemberMaxLoans
+(MemberType, MaxCopiesOnLoan)
+VALUES ('S', 5);
+
+INSERT INTO MemberMaxLoans
+(MemberType, MaxCopiesOnLoan)
+VALUES ('T', 10);
+
 -- INSERT DATA --
 
 -- 2: INSERT MEMBERS --

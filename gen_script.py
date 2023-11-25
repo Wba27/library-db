@@ -126,6 +126,19 @@ def create_tables(f: TextIOWrapper):
                 write_files((f, cf), check_constraint_text(table, check_constraints))
             if (booleans := [a for a in attributes if a.data_type is bool]):
                 write_files((f, cf), constrain_booleans_text(table, booleans))
+        write_files((f, cf), '-- INSERT MAX LOANS --\n\n')
+        write_files((f, cf), insert_into_table(
+            'MemberMaxLoans', 
+            required_attribute_names(tables['MemberMaxLoans']),
+            'S', 
+            5
+        ))
+        write_files((f, cf), insert_into_table(
+            'MemberMaxLoans', 
+            required_attribute_names(tables['MemberMaxLoans']),
+            'T', 
+            10
+        ))
 
 
 def required_attribute_names(attributes: list[Attribute]):
