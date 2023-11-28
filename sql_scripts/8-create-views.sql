@@ -1,12 +1,12 @@
 CREATE VIEW LoanOverdueDate AS 
-SELECT * FROM Loan WHERE ReturnedTimeStamp != NULL AND CURRENT_TIMESTAMP - LoanedTimestamp > 14;
+SELECT * FROM Loan WHERE ReturnedTimeStamp != NULL AND CAST (CURRENT_TIMESTAMP AS DATE) - CAST (LoanedTimestamp AS DATE) > 14;
 
 ----
 
 CREATE VIEW ShowFines AS 
 SELECT * FROM Fine WHERE PaidTimeStamp = NULL;
 
-------------
+------
 
 CREATE VIEW OfferDueDate AS 
-SELECT * FROM Offer WHERE CURRENT_TIMESTAMP - OfferTimestamp > 10;
+SELECT * FROM Offer WHERE CAST (CURRENT_TIMESTAMP AS DATE) - CAST (OfferedTimestamp AS DATE) > 10;
