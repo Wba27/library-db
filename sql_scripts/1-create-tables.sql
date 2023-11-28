@@ -118,13 +118,13 @@ ALTER TABLE CreatorResource
 ADD CONSTRAINT CreatorResource_unique UNIQUE (CreatorNumber, BookNumber, AVNumber);
 
 ALTER TABLE CreatorResource
+ADD CONSTRAINT CreatorResource_CreatorType_in
+	CHECK(CreatorType IN ('A', 'D'));
+
+ALTER TABLE CreatorResource
 ADD CONSTRAINT CreatorResource_xor
 	CHECK((BookNumber IS NULL OR AVNumber IS NULL)
 	AND NOT (BookNumber IS NULL AND AVNumber IS NULL));
-
-ALTER TABLE CreatorResource
-ADD CONSTRAINT CreatorResource_CreatorType_in
-	CHECK(CreatorType IN ('A', 'D'));
 
 CREATE TABLE Member(
 	LibraryCardNumber INTEGER NOT NULL PRIMARY KEY,
@@ -166,7 +166,7 @@ ADD CONSTRAINT fk_Loan_LoanedTo
 	REFERENCES Member(LibraryCardNumber);
 
 ALTER TABLE Loan
-ADD CONSTRAINT Loan_unique UNIQUE (LoanedCopy, LoanedTo, LoanedTimestamp);
+ADD CONSTRAINT Loan_unique UNIQUE (LoanedCopy, ReturnedTimestamp);
 
 CREATE TABLE Offer(
 	ForReservation INTEGER NOT NULL,
@@ -203,7 +203,7 @@ ADD CONSTRAINT fk_Fine_FineTo
 	REFERENCES Member(LibraryCardNumber);
 
 ALTER TABLE Fine
-ADD CONSTRAINT Fine_unique UNIQUE (FinedLoan, FineTo, FinedTimestamp);
+ADD CONSTRAINT Fine_unique UNIQUE (FinedLoan);
 
 CREATE TABLE Reservation(
 	ReservationNumber INTEGER NOT NULL PRIMARY KEY,
@@ -231,16 +231,16 @@ ADD CONSTRAINT fk_Reservation_ReservedBy
 	REFERENCES Member(LibraryCardNumber);
 
 ALTER TABLE Reservation
-ADD CONSTRAINT Reservation_unique UNIQUE (ReservedBook, ReservedAVMedia, ReservedBy, ReservedTimestamp);
+ADD CONSTRAINT Reservation_unique UNIQUE (ReservedBook, ReservedAVMedia, ReservedBy, ResolvedTimestamp);
+
+ALTER TABLE Reservation
+ADD CONSTRAINT Reservation_Resolution_in
+	CHECK(Resolution IN ('P', 'A', 'R'));
 
 ALTER TABLE Reservation
 ADD CONSTRAINT Reservation_xor
 	CHECK((ReservedBook IS NULL OR ReservedBy IS NULL)
 	AND NOT (ReservedBook IS NULL AND ReservedBy IS NULL));
-
-ALTER TABLE Reservation
-ADD CONSTRAINT Reservation_Resolution_in
-	CHECK(Resolution IN ('P', 'A', 'R'));
 
 CREATE TABLE MemberMaxLoans(
 	MemberType CHAR(1) NOT NULL,

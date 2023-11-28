@@ -93,9 +93,9 @@ tables = {
     'Loan': [
         Attribute('LoanNumber', int, primary_key=True),
         Attribute('LoanedCopy', int, foreign_key='Copy.BarcodeNumber', unique=True),
-        Attribute('LoanedTo', int, foreign_key='Member.LibraryCardNumber', unique=True),
-        Attribute('LoanedTimestamp', datetime, unique=True),
-        Attribute('ReturnedTimestamp', datetime, nullable=True)
+        Attribute('LoanedTo', int, foreign_key='Member.LibraryCardNumber'),
+        Attribute('LoanedTimestamp', datetime),
+        Attribute('ReturnedTimestamp', datetime, nullable=True, unique=True)
     ],
     'Offer': [
         Attribute('ForReservation', int),
@@ -105,8 +105,8 @@ tables = {
     ],
     'Fine': [
         Attribute('FinedLoan', int, foreign_key='Loan.LoanNumber', unique=True),
-        Attribute('FineTo', int, foreign_key='Member.LibraryCardNumber', unique=True),
-        Attribute('FinedTimestamp', datetime, unique=True),
+        Attribute('FineTo', int, foreign_key='Member.LibraryCardNumber'),
+        Attribute('FinedTimestamp', datetime),
         Attribute('PaidTimestamp', datetime, nullable=True),
         Attribute('FineAmount', Decimal)
     ],
@@ -118,8 +118,8 @@ tables = {
                   foreign_key='AVMedia.ResourceNumber', unique=True, nullable=True),
         Attribute('ReservedBy', int, foreign_key='Member.LibraryCardNumber', unique=True,
                   check=Check(CHECK_TYPE.XOR)),
-        Attribute('ReservedTimestamp', datetime, unique=True),
-        Attribute('ResolvedTimestamp', datetime, nullable=True),
+        Attribute('ReservedTimestamp', datetime),
+        Attribute('ResolvedTimestamp', datetime, nullable=True, unique=True),
         Attribute('Resolution', str, data_length=1, nullable=True, 
                   check=Check(CHECK_TYPE.IN, ('P', 'A', 'R')))
     ],
