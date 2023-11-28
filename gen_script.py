@@ -211,18 +211,18 @@ def insert_subjects_text():
     return subjects_text
 
 
-def insert_author_text(authors):
-    authors_text = '-- 4: INSERT AUTHORS --\n\n'
-    for author in authors:
-        authors_text += insert_into_table(
-            'Author',
-            required_attribute_names(tables['Author']),
-            author.id,
-            author.first_name,
-            author.last_name,
-            author.date_of_birth
+def insert_creator_text(creators):
+    creators_text = '-- 4: INSERT CREATOR --\n\n'
+    for creator in creators:
+        creators_text += insert_into_table(
+            'Creator',
+            required_attribute_names(tables['Creator']),
+            creator.id,
+            creator.first_name,
+            creator.last_name,
+            creator.date_of_birth
         )
-    return authors_text
+    return creators_text
 
 
 def copies_of_resource_text(resource_number: int, resource_type: str):
@@ -244,14 +244,14 @@ def copies_of_resource_text(resource_number: int, resource_type: str):
 
 
 def insert_resource_text(
-        author_type: Literal['academic', 'fiction', 'non-fiction'], 
-        authors: list[Human],
+        creator_type: Literal['academic', 'fiction', 'non-fiction'], 
+        creators: list[Human],
         e: int
     ):
-    resource_text = f'-- {e}: INSERT RESOURCES, COPIES: {author_type.upper()} --\n\n'
-    for author in authors:
+    resource_text = f'-- {e}: INSERT RESOURCES, COPIES: {creator_type.upper()} --\n\n'
+    for creator in creators:
         resources = [
-            get_random_resource(author_type) for _ in range(weighted_random(1, scale, 2))
+            get_random_resource(creator_type) for _ in range(weighted_random(1, scale, 2))
         ]
         books = [r for r in resources if r.resource_type == 'B']
         av_media = [r for r in resources if r.resource_type != 'B']
@@ -270,21 +270,23 @@ def insert_resource_text(
                 )
                 resource_text += copies_of_resource_text(b.id + e, 'B')
                 resource_text += insert_into_table(
-                    'AuthorResource',
-                    all_attribute_names(tables['AuthorResource']),
-                    author.id,
+                    'CreatorResource',
+                    all_attribute_names(tables['CreatorResource']),
+                    creator.id,
                     b.id + e,
-                    None
+                    None,
+                    'A'
                 )
-            if author_type == 'academic' and random.randint(0, 1) == 1:
-                coauthor = random.choice([a for a in authors if a is not author])
+            if creator_type == 'academic' and random.randint(0, 1) == 1:
+                coauthor = random.choice([a for a in creators if a is not creator])
                 for e, edition in enumerate(b.editions):
                     resource_text += insert_into_table(
-                        'AuthorResource',
-                        all_attribute_names(tables['AuthorResource']),
+                        'CreatorResource',
+                        all_attribute_names(tables['CreatorResource']),
                         coauthor.id,
                         b.id + e,
-                        None
+                        None,
+                        'A'
                     )
         for av in av_media:
             resource_text += insert_into_table(
@@ -300,24 +302,25 @@ def insert_resource_text(
             )
             resource_text += copies_of_resource_text(av.id, av.resource_type)
             resource_text += insert_into_table(
-                'AuthorResource',
-                all_attribute_names(tables['AuthorResource']),
-                author.id,
+                'CreatorResource',
+                all_attribute_names(tables['CreatorResource']),
+                creator.id,
                 None,
-                av.id
+                av.id,
+                'D'
             )
     return resource_text
 
 
-def insert_author_resource_text(zipped_authors):
-    for author_type, authors in zipped_authors:
-        if author_type == 'academic':
+def insert_creator_resource_text(zipped_creators):
+    for creator_type, creators in zipped_creators:
+        if creator_type == 'academic':
             e = 5
-        elif author_type == 'fiction':
+        elif creator_type == 'fiction':
             e = 6
         else:
             e = 7
-        yield author_type, insert_resource_text(author_type, authors, e)
+        yield creator_type, insert_resource_text(creator_type, creators, e)
 
 
 def insert_data(f: TextIOWrapper):
@@ -326,20 +329,20 @@ def insert_data(f: TextIOWrapper):
         write_files((f, mf), insert_members_text(), 'Inserting members...')
     with open(f'{PATH}3-insert-subjects.sql', 'w') as sf:
         write_files((f, sf), insert_subjects_text(), 'Inserting subjects...')
-    academic_authors = [get_random_human('author', 1940, 1990) for _ in range(scale)]
-    fiction_authors = [get_random_human('author', 1940, 1990) for _ in range(scale)]
-    non_fiction_authors = [get_random_human('author', 1940, 1990) for _ in range(scale)]
-    authors = academic_authors + fiction_authors + non_fiction_authors
-    with open(f'{PATH}4-insert-authors.sql', 'w') as af:
-        write_files((f, af), insert_author_text(authors), 'Inserting authors...')
-    author_types = ('academic', 'fiction', 'non-fiction')
-    zipped_authors = zip(author_types, 
-                         (academic_authors, fiction_authors, non_fiction_authors))
-    for e, (author_type, author_text) in enumerate(insert_author_resource_text(
-        zipped_authors
+    academic_creators = [get_random_human('creator', 1940, 1990) for _ in range(scale)]
+    fiction_creators = [get_random_human('creator', 1940, 1990) for _ in range(scale)]
+    non_fiction_creators = [get_random_human('creator', 1940, 1990) for _ in range(scale)]
+    creators = academic_creators + fiction_creators + non_fiction_creators
+    with open(f'{PATH}4-insert-creators.sql', 'w') as cf:
+        write_files((f, cf), insert_creator_text(creators), 'Inserting creators...')
+    creator_types = ('academic', 'fiction', 'non-fiction')
+    zipped_creators = zip(creator_types, 
+                         (academic_creators, fiction_creators, non_fiction_creators))
+    for e, (creator_type, creator_text) in enumerate(insert_creator_resource_text(
+        zipped_creators
     ), 5):
-        with open(f'{PATH}{e}-insert-resource-{author_type}.sql', 'w') as arf:
-            write_files((f, arf), author_text, f'Inserting {author_type} resources...')
+        with open(f'{PATH}{e}-insert-resource-{creator_type}.sql', 'w') as crf:
+            write_files((f, crf), creator_text, f'Inserting {creator_type} resources...')
 
 
 def gen_script(_scale: int):

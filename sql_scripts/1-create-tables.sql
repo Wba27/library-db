@@ -85,41 +85,46 @@ ALTER TABLE Copy
 ADD CONSTRAINT Copy_Archived_bool
 	CHECK(Archived IN ('Y', 'N'));
 
-CREATE TABLE Author(
-	AuthorNumber INTEGER NOT NULL PRIMARY KEY,
+CREATE TABLE Creator(
+	CreatorNumber INTEGER NOT NULL PRIMARY KEY,
 	FirstName VARCHAR(255) NOT NULL,
 	LastName VARCHAR(255) NOT NULL,
 	DOB DATE NOT NULL
 );
 
-CREATE TABLE AuthorResource(
-	AuthorNumber INTEGER NOT NULL,
+CREATE TABLE CreatorResource(
+	CreatorNumber INTEGER NOT NULL,
 	BookNumber INTEGER NULL,
-	AVNumber INTEGER NULL
+	AVNumber INTEGER NULL,
+	CreatorType CHAR(1) NOT NULL
 );
 
-ALTER TABLE AuthorResource
-ADD CONSTRAINT fk_AuthorResource_AuthorNumber
-	FOREIGN KEY (AuthorNumber)
-	REFERENCES Author(AuthorNumber);
+ALTER TABLE CreatorResource
+ADD CONSTRAINT fk_CreatorResource_CreatorNumber
+	FOREIGN KEY (CreatorNumber)
+	REFERENCES Creator(CreatorNumber);
 
-ALTER TABLE AuthorResource
-ADD CONSTRAINT fk_AuthorResource_BookNumber
+ALTER TABLE CreatorResource
+ADD CONSTRAINT fk_CreatorResource_BookNumber
 	FOREIGN KEY (BookNumber)
 	REFERENCES Book(ResourceNumber);
 
-ALTER TABLE AuthorResource
-ADD CONSTRAINT fk_AuthorResource_AVNumber
+ALTER TABLE CreatorResource
+ADD CONSTRAINT fk_CreatorResource_AVNumber
 	FOREIGN KEY (AVNumber)
 	REFERENCES AVMedia(ResourceNumber);
 
-ALTER TABLE AuthorResource
-ADD CONSTRAINT AuthorResource_unique UNIQUE (AuthorNumber, BookNumber, AVNumber);
+ALTER TABLE CreatorResource
+ADD CONSTRAINT CreatorResource_unique UNIQUE (CreatorNumber, BookNumber, AVNumber);
 
-ALTER TABLE AuthorResource
-ADD CONSTRAINT AuthorResource_xor
+ALTER TABLE CreatorResource
+ADD CONSTRAINT CreatorResource_xor
 	CHECK((BookNumber IS NULL OR AVNumber IS NULL)
 	AND NOT (BookNumber IS NULL AND AVNumber IS NULL));
+
+ALTER TABLE CreatorResource
+ADD CONSTRAINT CreatorResource_CreatorType_in
+	CHECK(CreatorType IN ('A', 'D'));
 
 CREATE TABLE Member(
 	LibraryCardNumber INTEGER NOT NULL PRIMARY KEY,
@@ -143,6 +148,7 @@ ADD CONSTRAINT Member_Suspended_bool
 	CHECK(Suspended IN ('Y', 'N'));
 
 CREATE TABLE Loan(
+	LoanNumber INTEGER NOT NULL PRIMARY KEY,
 	LoanedCopy INTEGER NOT NULL,
 	LoanedTo INTEGER NOT NULL,
 	LoanedTimestamp TIMESTAMP NOT NULL,
@@ -163,7 +169,7 @@ ALTER TABLE Loan
 ADD CONSTRAINT Loan_unique UNIQUE (LoanedCopy, LoanedTo, LoanedTimestamp);
 
 CREATE TABLE Offer(
-	ReservationNo INTEGER NOT NULL PRIMARY KEY,
+	ForReservation INTEGER NOT NULL,
 	OfferedCopy INTEGER NOT NULL,
 	OfferedTimestamp TIMESTAMP NOT NULL,
 	Status CHAR(1) NOT NULL
@@ -179,7 +185,7 @@ ADD CONSTRAINT Offer_Status_in
 	CHECK(Status IN ('P', 'A', 'R'));
 
 CREATE TABLE Fine(
-	FinedCopy INTEGER NOT NULL,
+	FinedLoan INTEGER NOT NULL,
 	FineTo INTEGER NOT NULL,
 	FinedTimestamp TIMESTAMP NOT NULL,
 	PaidTimestamp TIMESTAMP NULL,
@@ -187,9 +193,9 @@ CREATE TABLE Fine(
 );
 
 ALTER TABLE Fine
-ADD CONSTRAINT fk_Fine_FinedCopy
-	FOREIGN KEY (FinedCopy)
-	REFERENCES Copy(BarcodeNumber);
+ADD CONSTRAINT fk_Fine_FinedLoan
+	FOREIGN KEY (FinedLoan)
+	REFERENCES Loan(LoanNumber);
 
 ALTER TABLE Fine
 ADD CONSTRAINT fk_Fine_FineTo
@@ -197,10 +203,10 @@ ADD CONSTRAINT fk_Fine_FineTo
 	REFERENCES Member(LibraryCardNumber);
 
 ALTER TABLE Fine
-ADD CONSTRAINT Fine_unique UNIQUE (FinedCopy, FineTo, FinedTimestamp);
+ADD CONSTRAINT Fine_unique UNIQUE (FinedLoan, FineTo, FinedTimestamp);
 
 CREATE TABLE Reservation(
-	ReservationNo INTEGER NOT NULL PRIMARY KEY,
+	ReservationNumber INTEGER NOT NULL PRIMARY KEY,
 	ReservedBook INTEGER NULL,
 	ReservedAVMedia INTEGER NULL,
 	ReservedBy INTEGER NOT NULL,
@@ -228,13 +234,13 @@ ALTER TABLE Reservation
 ADD CONSTRAINT Reservation_unique UNIQUE (ReservedBook, ReservedAVMedia, ReservedBy, ReservedTimestamp);
 
 ALTER TABLE Reservation
-ADD CONSTRAINT Reservation_Resolution_in
-	CHECK(Resolution IN ('P', 'A', 'R'));
-
-ALTER TABLE Reservation
 ADD CONSTRAINT Reservation_xor
 	CHECK((ReservedBook IS NULL OR ReservedBy IS NULL)
 	AND NOT (ReservedBook IS NULL AND ReservedBy IS NULL));
+
+ALTER TABLE Reservation
+ADD CONSTRAINT Reservation_Resolution_in
+	CHECK(Resolution IN ('P', 'A', 'R'));
 
 CREATE TABLE MemberMaxLoans(
 	MemberType CHAR(1) NOT NULL,

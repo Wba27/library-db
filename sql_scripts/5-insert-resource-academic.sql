@@ -24,9 +24,9 @@ INSERT INTO Copy
 (BarcodeNumber, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
 VALUES (4, 0, NULL, To_Timestamp('2015/5/9 10:14:34', 'YYYY/MM/DD HH24:MI:SS'), 3, 14, 'N');
 
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (0, 0, NULL);
+INSERT INTO CreatorResource
+(CreatorNumber, BookNumber, AVNumber, CreatorType)
+VALUES (0, 0, NULL, 'A');
 
 INSERT INTO Book
 (ResourceNumber, Title, DatePublished, ClassNo, LoanType, Edition, PageLength)
@@ -40,9 +40,9 @@ INSERT INTO Copy
 (BarcodeNumber, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
 VALUES (6, 1, NULL, To_Timestamp('2022/6/14 9:48:24', 'YYYY/MM/DD HH24:MI:SS'), 1, 5, 'N');
 
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (0, 1, NULL);
+INSERT INTO CreatorResource
+(CreatorNumber, BookNumber, AVNumber, CreatorType)
+VALUES (0, 1, NULL, 'A');
 
 INSERT INTO Book
 (ResourceNumber, Title, DatePublished, ClassNo, LoanType, Edition, PageLength)
@@ -60,9 +60,9 @@ INSERT INTO Copy
 (BarcodeNumber, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
 VALUES (9, 2, NULL, To_Timestamp('2014/3/8 17:47:52', 'YYYY/MM/DD HH24:MI:SS'), 3, 3, 'N');
 
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (0, 2, NULL);
+INSERT INTO CreatorResource
+(CreatorNumber, BookNumber, AVNumber, CreatorType)
+VALUES (0, 2, NULL, 'A');
 
 INSERT INTO Book
 (ResourceNumber, Title, DatePublished, ClassNo, LoanType, Edition, PageLength)
@@ -84,13 +84,13 @@ INSERT INTO Copy
 (BarcodeNumber, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
 VALUES (13, 3, NULL, To_Timestamp('2017/5/16 20:52:28', 'YYYY/MM/DD HH24:MI:SS'), 1, 2, 'N');
 
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (0, 3, NULL);
+INSERT INTO CreatorResource
+(CreatorNumber, BookNumber, AVNumber, CreatorType)
+VALUES (0, 3, NULL, 'A');
 
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (3, 3, NULL);
+INSERT INTO CreatorResource
+(CreatorNumber, BookNumber, AVNumber, CreatorType)
+VALUES (3, 3, NULL, 'A');
 
 INSERT INTO Book
 (ResourceNumber, Title, DatePublished, ClassNo, LoanType, Edition, PageLength)
@@ -112,13 +112,13 @@ INSERT INTO Copy
 (BarcodeNumber, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
 VALUES (17, 4, NULL, To_Timestamp('2020/9/9 17:8:49', 'YYYY/MM/DD HH24:MI:SS'), 1, 10, 'N');
 
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (1, 4, NULL);
+INSERT INTO CreatorResource
+(CreatorNumber, BookNumber, AVNumber, CreatorType)
+VALUES (1, 4, NULL, 'A');
 
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (0, 4, NULL);
+INSERT INTO CreatorResource
+(CreatorNumber, BookNumber, AVNumber, CreatorType)
+VALUES (0, 4, NULL, 'A');
 
 INSERT INTO Book
 (ResourceNumber, Title, DatePublished, ClassNo, LoanType, Edition, PageLength)
@@ -144,13 +144,13 @@ INSERT INTO Copy
 (BarcodeNumber, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
 VALUES (22, 5, NULL, To_Timestamp('2023/4/9 14:13:26', 'YYYY/MM/DD HH24:MI:SS'), 3, 12, 'N');
 
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (2, 5, NULL);
+INSERT INTO CreatorResource
+(CreatorNumber, BookNumber, AVNumber, CreatorType)
+VALUES (2, 5, NULL, 'A');
 
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (3, 5, NULL);
+INSERT INTO CreatorResource
+(CreatorNumber, BookNumber, AVNumber, CreatorType)
+VALUES (3, 5, NULL, 'A');
 
 INSERT INTO Book
 (ResourceNumber, Title, DatePublished, ClassNo, LoanType, Edition, PageLength)
@@ -164,9 +164,9 @@ INSERT INTO Copy
 (BarcodeNumber, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
 VALUES (24, 6, NULL, To_Timestamp('2013/1/3 16:50:35', 'YYYY/MM/DD HH24:MI:SS'), 3, 1, 'N');
 
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (2, 6, NULL);
+INSERT INTO CreatorResource
+(CreatorNumber, BookNumber, AVNumber, CreatorType)
+VALUES (2, 6, NULL, 'A');
 
 INSERT INTO Book
 (ResourceNumber, Title, DatePublished, ClassNo, LoanType, Edition, PageLength)
@@ -176,9 +176,9 @@ INSERT INTO Copy
 (BarcodeNumber, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
 VALUES (25, 7, NULL, To_Timestamp('2020/9/9 19:50:48', 'YYYY/MM/DD HH24:MI:SS'), 1, 1, 'N');
 
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (3, 7, NULL);
+INSERT INTO CreatorResource
+(CreatorNumber, BookNumber, AVNumber, CreatorType)
+VALUES (3, 7, NULL, 'A');
 
 INSERT INTO Book
 (ResourceNumber, Title, DatePublished, ClassNo, LoanType, Edition, PageLength)
@@ -192,9 +192,9 @@ INSERT INTO Copy
 (BarcodeNumber, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
 VALUES (27, 8, NULL, To_Timestamp('2020/2/6 19:4:27', 'YYYY/MM/DD HH24:MI:SS'), 3, 5, 'N');
 
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (3, 8, NULL);
+INSERT INTO CreatorResource
+(CreatorNumber, BookNumber, AVNumber, CreatorType)
+VALUES (3, 8, NULL, 'A');
 
 INSERT INTO Book
 (ResourceNumber, Title, DatePublished, ClassNo, LoanType, Edition, PageLength)
@@ -220,21 +220,21 @@ INSERT INTO Copy
 (BarcodeNumber, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
 VALUES (32, 9, NULL, To_Timestamp('2012/5/15 16:58:30', 'YYYY/MM/DD HH24:MI:SS'), 3, 4, 'N');
 
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (3, 9, NULL);
+INSERT INTO CreatorResource
+(CreatorNumber, BookNumber, AVNumber, CreatorType)
+VALUES (3, 9, NULL, 'A');
 
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (2, 7, NULL);
+INSERT INTO CreatorResource
+(CreatorNumber, BookNumber, AVNumber, CreatorType)
+VALUES (2, 7, NULL, 'A');
 
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (2, 8, NULL);
+INSERT INTO CreatorResource
+(CreatorNumber, BookNumber, AVNumber, CreatorType)
+VALUES (2, 8, NULL, 'A');
 
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (2, 9, NULL);
+INSERT INTO CreatorResource
+(CreatorNumber, BookNumber, AVNumber, CreatorType)
+VALUES (2, 9, NULL, 'A');
 
 INSERT INTO Book
 (ResourceNumber, Title, DatePublished, ClassNo, LoanType, Edition, PageLength)
@@ -248,7 +248,7 @@ INSERT INTO Copy
 (BarcodeNumber, BookNumber, AVNumber, AcquiredTimestamp, FloorNo, ShelfNo, Archived)
 VALUES (34, 10, NULL, To_Timestamp('2019/7/9 14:44:57', 'YYYY/MM/DD HH24:MI:SS'), 3, 4, 'N');
 
-INSERT INTO AuthorResource
-(AuthorNumber, BookNumber, AVNumber)
-VALUES (4, 10, NULL);
+INSERT INTO CreatorResource
+(CreatorNumber, BookNumber, AVNumber, CreatorType)
+VALUES (4, 10, NULL, 'A');
 

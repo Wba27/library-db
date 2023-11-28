@@ -67,18 +67,19 @@ tables = {
         Attribute('ShelfNo', int),
         Attribute('Archived', bool, default=False)
     ],
-    'Author': [
-        Attribute('AuthorNumber', int, primary_key=True),
+    'Creator': [
+        Attribute('CreatorNumber', int, primary_key=True),
         Attribute('FirstName', str, data_length=255),
         Attribute('LastName', str, data_length=255),
         Attribute('DOB', date)
     ],
-    'AuthorResource': [
-        Attribute('AuthorNumber', int, foreign_key='Author', unique=True),
+    'CreatorResource': [
+        Attribute('CreatorNumber', int, foreign_key='Creator', unique=True),
         Attribute('BookNumber', int, foreign_key='Book.ResourceNumber', unique=True, 
                   nullable=True, check=Check(CHECK_TYPE.XOR)),
         Attribute('AVNumber', int, foreign_key='AVMedia.ResourceNumber', unique=True, 
-                  nullable=True, check=Check(CHECK_TYPE.XOR))
+                  nullable=True, check=Check(CHECK_TYPE.XOR)),
+        Attribute('CreatorType', str, data_length=1, check=Check(CHECK_TYPE.IN, ('A', 'D')))
     ],
     'Member': [
         Attribute('LibraryCardNumber', int, primary_key=True),
@@ -90,26 +91,27 @@ tables = {
         Attribute('Suspended', bool, default=False)
     ],
     'Loan': [
+        Attribute('LoanNumber', int, primary_key=True),
         Attribute('LoanedCopy', int, foreign_key='Copy.BarcodeNumber', unique=True),
         Attribute('LoanedTo', int, foreign_key='Member.LibraryCardNumber', unique=True),
         Attribute('LoanedTimestamp', datetime, unique=True),
         Attribute('ReturnedTimestamp', datetime, nullable=True)
     ],
     'Offer': [
-        Attribute('ReservationNo', int, primary_key=True),
+        Attribute('ForReservation', int),
         Attribute('OfferedCopy', int, foreign_key='Copy.BarcodeNumber'),
         Attribute('OfferedTimestamp', datetime),
         Attribute('Status', str, data_length=1, check=Check(CHECK_TYPE.IN, ('P', 'A', 'R')))
     ],
     'Fine': [
-        Attribute('FinedCopy', int, foreign_key='Copy.BarcodeNumber', unique=True),
+        Attribute('FinedLoan', int, foreign_key='Loan.LoanNumber', unique=True),
         Attribute('FineTo', int, foreign_key='Member.LibraryCardNumber', unique=True),
         Attribute('FinedTimestamp', datetime, unique=True),
         Attribute('PaidTimestamp', datetime, nullable=True),
         Attribute('FineAmount', Decimal)
     ],
     'Reservation': [
-        Attribute('ReservationNo', int, primary_key=True),
+        Attribute('ReservationNumber', int, primary_key=True),
         Attribute('ReservedBook', int, foreign_key='Book.ResourceNumber', 
                   unique=True, nullable=True, check=Check(CHECK_TYPE.XOR)),
         Attribute('ReservedAVMedia', int, 
