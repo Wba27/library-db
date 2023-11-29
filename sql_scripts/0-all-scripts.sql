@@ -126,7 +126,7 @@ ADD CONSTRAINT CreatorResource_xor
 
 ALTER TABLE CreatorResource
 ADD CONSTRAINT CreatorResource_CreatorType_in
-	CHECK(CreatorType IN ('A', 'D'));
+	CHECK(CreatorType IN ('A', 'E', 'D', 'N', 'M'));
 
 CREATE TABLE Member(
 	LibraryCardNumber INTEGER NOT NULL PRIMARY KEY,
