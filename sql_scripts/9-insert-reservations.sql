@@ -40,3 +40,15 @@ INSERT INTO Reservation
 (ReservationNumber, ReservedBook, ReservedAVMedia, ReservedBy, ReservedTimestamp, ResolvedTimestamp, Resolution)
 VALUES (9, NULL, 4, 11, To_Date('2023/11/28 15:33', 'yyyy/mm/dd hh24:MI'), NULL, 'P');
 
+INSERT INTO Offer 
+(ForReservation, OfferedCopy, OfferedTimestamp, Status)
+VALUES (0, 44, To_Timestamp('2023/11/27 15:47:32', 'YYYY/MM/DD HH24:MI:SS'), 'R');
+
+INSERT INTO Offer 
+(ForReservation, OfferedCopy, OfferedTimestamp, Status)
+VALUES (0, 45, To_Timestamp('2023/11/27 15:48:32', 'YYYY/MM/DD HH24:MI:SS'), 'R');
+
+INSERT INTO Offer 
+(ForReservation, OfferedCopy, OfferedTimestamp, Status)
+VALUES (1, 9, To_Timestamp('2023/11/29 13:58:12', 'YYYY/MM/DD HH24:MI:SS'), 'P');
+
