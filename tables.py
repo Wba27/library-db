@@ -79,7 +79,8 @@ tables = {
                   nullable=True, check=Check(CHECK_TYPE.XOR)),
         Attribute('AVNumber', int, foreign_key='AVMedia.ResourceNumber', unique=True, 
                   nullable=True, check=Check(CHECK_TYPE.XOR)),
-        Attribute('CreatorType', str, data_length=1, check=Check(CHECK_TYPE.IN, ('A', 'D')))
+        Attribute('CreatorType', str, data_length=1, check=Check(CHECK_TYPE.IN, 
+                                                                 ('A', 'E', 'D', 'N', 'M')))
     ],
     'Member': [
         Attribute('LibraryCardNumber', int, primary_key=True),
@@ -114,10 +115,9 @@ tables = {
         Attribute('ReservationNumber', int, primary_key=True),
         Attribute('ReservedBook', int, foreign_key='Book.ResourceNumber', 
                   unique=True, nullable=True, check=Check(CHECK_TYPE.XOR)),
-        Attribute('ReservedAVMedia', int, 
-                  foreign_key='AVMedia.ResourceNumber', unique=True, nullable=True),
-        Attribute('ReservedBy', int, foreign_key='Member.LibraryCardNumber', unique=True,
-                  check=Check(CHECK_TYPE.XOR)),
+        Attribute('ReservedAVMedia', int, foreign_key='AVMedia.ResourceNumber', unique=True, 
+                  nullable=True, check=Check(CHECK_TYPE.XOR)),
+        Attribute('ReservedBy', int, foreign_key='Member.LibraryCardNumber', unique=True),
         Attribute('ReservedTimestamp', datetime),
         Attribute('ResolvedTimestamp', datetime, nullable=True, unique=True),
         Attribute('Resolution', str, data_length=1, nullable=True, 
