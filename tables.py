@@ -99,7 +99,7 @@ tables = {
         Attribute('ReturnedTimestamp', datetime, nullable=True, unique=True)
     ],
     'Offer': [
-        Attribute('ForReservation', int),
+        Attribute('ForReservation', int),  # TODO: add FK
         Attribute('OfferedCopy', int, foreign_key='Copy.BarcodeNumber'),
         Attribute('OfferedTimestamp', datetime),
         Attribute('Status', str, data_length=1, check=Check(CHECK_TYPE.IN, ('P', 'A', 'R')))
